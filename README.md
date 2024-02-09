@@ -1,6 +1,6 @@
 # mood-palette
 
-# HOW TO RUN
+## HOW TO RUN
 
 ```
 npm install
@@ -8,7 +8,7 @@ npm run dev
 
 ```
 
-### node version
+## node version
 
 18.16.1
 
