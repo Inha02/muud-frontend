@@ -1,4 +1,4 @@
-# mood-palette
+# muud
 
 ## HOW TO RUN
 
@@ -10,7 +10,7 @@ npm run dev
 
 ## node version
 
-18.16.1
+18.19.0
 
 ## React + Vite
 
