@@ -1,4 +1,4 @@
-import { Color } from '../styles'
+import { Color } from '../../styles'
 import { Link } from 'react-router-dom'
 
 const NavBar = () => {
