@@ -4,6 +4,7 @@ import RegisterPage from './pages/register-page'
 import MoodResultPage from './pages/mood-result-page'
 import ReportPage from './pages/report-page'
 import Calendar from './pages/calendar-page'
+import KakaoCallback from './pages/kakao-callback'
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
         <Route path="test" element={<div>테스트</div>} />
         <Route path="report" element={<ReportPage />} />
       </Route>
+      <Route path="auth/kakao/callback" element={<KakaoCallback />} />
+
     </Routes>
   )
 }

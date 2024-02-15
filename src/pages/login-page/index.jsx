@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react'
 import LoginPageView from './login-page'
 
 const LoginPage = () => {
-  const Rest_api_key = import.meta.env.VITE_KAKAO_KEY
-  const redirect_uri = 'http://localhost:5173/'
+  const REST_API_KEY = import.meta.env.VITE_KAKAO_KEY
+  const REDIRECT_URI = `${import.meta.env.VITE_HOST}/auth/kakao/callback`
   // oauth 요청 URL
-  const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${Rest_api_key}&redirect_uri=${redirect_uri}&response_type=code`
+  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`
   const handleKakaoLogin = () => {
-    window.location.href = kakaoURL
+    window.location.href = KAKAO_AUTH_URL
   }
 
   const [id, setId] = useState("")
