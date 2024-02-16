@@ -21,7 +21,9 @@ const NavBar = () => {
           <Link to="/result">감정 결과</Link>
         </li>
         <li>
-          {' '}
+          <Link to="/playlist">플리 추천</Link>
+        </li>
+        <li>
           <Link to="/calendar">달력</Link>
         </li>
         <li></li>
