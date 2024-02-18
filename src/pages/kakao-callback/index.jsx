@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import axios from '../../api/axios';
+import axios from 'axios';
 
 
 const KakaoCallback = (props) => {
@@ -9,7 +9,7 @@ const KakaoCallback = (props) => {
         let code = params.get("code");
 
         const fetchData = async () => {
-            await axios.kakaoLogin(code);
+            await axios.get(`/auth/kakao`, { params: { code } });
         };
         fetchData();
     }, []);
