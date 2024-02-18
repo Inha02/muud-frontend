@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import ReportPageView from './report-page'
 import html2canvas from 'html2canvas'
 import { saveAs } from 'file-saver'
-import { timeData, data } from '../../constants'
+import { timeData, data } from "../../constants/testData";
 
 const ReportPage = () => {
   const [statistics, setStatistics] = useState([]) // 통계 데이터 상태

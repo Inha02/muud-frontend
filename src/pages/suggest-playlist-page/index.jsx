@@ -2,12 +2,15 @@ import { useEffect, useState } from 'react'
 import SuggestPlaylistPageView from './suggest-playlist-page'
 import axios from 'axios';
 import YouTube from 'react-youtube'
+//import { Get } from "../../api/axios";
 
 const SuggestPlaylistPage = () => {
   const API_KEY = import.meta.env.VITE_YOUTUBE_KEY
   const searchKeyword = '행복';
   const [topPlaylists, setTopPlaylists] = useState([]);
   const [videos, setVideos] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0); // 현재 재생 중인 동영상의 인덱스
+  const playlistVideoIds = ['3TNm2tLw88A?si=vrfnDGY8zrhn4ARt', 'JUzPQ0JalHE'];
   //const noCORS = 'https://cors-anywhere.herokuapp.com/';
 
   useEffect(() => {
@@ -116,24 +119,11 @@ const SuggestPlaylistPage = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % playlistVideoIds.length)
   }
 
-  // 옵션 설정
-  const opts = {
-    height: '390',
-    width: '640',
-    playerVars: {
-      // 동영상의 재생 시작 위치 설정
-      start: 0,
-      autoplay: 0,
-    },
-  }
 
-  // 현재 재생 중인 동영상의 인덱스
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const playlistVideoIds = ['3TNm2tLw88A?si=vrfnDGY8zrhn4ARt', 'JUzPQ0JalHE'];
 
 
   return (
-    <SuggestPlaylistPageView YouTube={YouTube} currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} playlistVideoIds={playlistVideoIds} onEnd={onEnd} opts={opts} topPlaylists={topPlaylists} getTopPlayList={getTopPlayList} />
+    <SuggestPlaylistPageView YouTube={YouTube} currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} playlistVideoIds={playlistVideoIds} onEnd={onEnd} topPlaylists={topPlaylists} getTopPlayList={getTopPlayList} />
   )
 }
 

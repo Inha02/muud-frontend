@@ -1,6 +1,6 @@
 import { ResponsiveTimeRange } from '@nivo/calendar'
 import { ResponsivePie, ResponsivePieCanvas } from '@nivo/pie'
-import { NavBar } from '../../components'
+import NavBar from "../../components/NavBar";
 
 const shareStatisticsImage = () => { }
 const ReportPageView = ({

@@ -1,4 +1,4 @@
-import { NavBar } from '../../components'
+import NavBar from "../../components/NavBar";
 
 const SuggestPlaylistPageView = ({
   YouTube,
@@ -18,7 +18,16 @@ const SuggestPlaylistPageView = ({
       <h5>마음에 드는 플리를 선택해서 감정과 함께 저장해보세요</h5>
       {/* <YouTube
         videoId={playlistVideoIds[currentIndex]}
-        opts={opts}
+        opts={{
+    height: '390',
+    width: '640',
+    playerVars: {
+      // 동영상의 재생 시작 위치 설정
+      start: 0,
+      autoplay: 0,
+    },
+  }
+}
         onEnd={onEnd}
       />
       <h3>영상 전환</h3>

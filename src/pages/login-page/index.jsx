@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react'
 import LoginPageView from './login-page'
 
 const LoginPage = () => {
+  const [id, setId] = useState("")
+  const [psw, setPsw] = useState("")
+
   const REST_API_KEY = import.meta.env.VITE_KAKAO_KEY
   const REDIRECT_URI = `${import.meta.env.VITE_HOST}/auth/kakao/callback`
   // oauth 요청 URL
@@ -9,9 +12,6 @@ const LoginPage = () => {
   const handleKakaoLogin = () => {
     window.location.href = KAKAO_AUTH_URL
   }
-
-  const [id, setId] = useState("")
-  const [psw, setPsw] = useState("")
 
   const onChangeId = (event) => {
     setId(event.target.value)
@@ -22,9 +22,6 @@ const LoginPage = () => {
   const handleLogin = () => {
     return
   }
-
-  const a = 1
-
 
   return (
     <LoginPageView id={id} psw={psw} onChangeId={onChangeId} onChangePwd={onChangePwd} handleLogin={handleLogin} handleKakaoLogin={handleKakaoLogin} />

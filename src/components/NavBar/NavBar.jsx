@@ -1,7 +1,7 @@
 import { Color } from '../../styles'
 import { Link } from 'react-router-dom'
 
-const NavBar = () => {
+const NavBarView = () => {
   return (
     <div>
       <ul>
@@ -32,4 +32,4 @@ const NavBar = () => {
   )
 }
 
-export default NavBar
+export default NavBarView
