@@ -1,6 +1,5 @@
-import NavBar from "../../components/NavBar";
 import Calendar from 'react-calendar';
-//import '../../styles/calendar-page.css';
+import './/calendar-page.css';
 import 'react-calendar/dist/Calendar.css';
 
 
@@ -8,7 +7,6 @@ const CalendarPageView = ({ moment, setCurrentDate, currentDate, addContent, upd
 
   return (
     <div>
-      <NavBar />
       <div
         className="container"
         style={{ width: '800px', height: '500px', margin: '0 auto' }}

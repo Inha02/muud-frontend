@@ -7,7 +7,7 @@ import SuggestPlaylistPage from './pages/suggest-playlist-page'
 import ReportPage from './pages/report-page'
 import Calendar from './pages/calendar-page'
 import KakaoCallback from './pages/kakao-callback'
-import Container from "./layout/Container";
+import MobileContainer from "./layout/MobileContainer";
 import NavBar from "./components/NavBar";
 import './App.css';
 
@@ -33,9 +33,9 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/*" element={
-            <Container>
+            <MobileContainer>
               <Pages />
-            </Container>} />
+            </MobileContainer>} />
         </Routes>
       </BrowserView>
       <MobileView>

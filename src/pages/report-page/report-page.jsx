@@ -1,6 +1,5 @@
 import { ResponsiveTimeRange } from '@nivo/calendar'
 import { ResponsivePie, ResponsivePieCanvas } from '@nivo/pie'
-import NavBar from "../../components/NavBar";
 
 const shareStatisticsImage = () => { }
 const ReportPageView = ({
@@ -14,8 +13,6 @@ const ReportPageView = ({
 }) => {
   return (
     <div>
-      <NavBar />
-
       {/* 통계를 보여줄 DOM 요소 */}
       <div ref={statisticsRef}>
         <div

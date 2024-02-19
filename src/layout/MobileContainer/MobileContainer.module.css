@@ -1,0 +1,61 @@
+/* mobile */
+.rootContainer {
+    width: 100%;
+}
+
+.rootContent {
+    /*position: relative;*/
+    background-color: rgb(187, 187, 187);
+    overflow-y: auto;
+
+    scrollbar-width: thin;
+    scrollbar-arrow-color: #000000;
+    scrollbar-color: #bd6cff rgba(33, 121, 244, 0);
+
+    &::-webkit-scrollbar {
+        width: 1px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        height: 30%;
+        /* 스크롤바의 색상 */
+        background: #6801bd;
+        background-color: #bd6cff;
+    }
+
+    &::-webkit-scrollbar-track-piece {
+        background-color: #000000;
+
+    }
+
+    &::-webkit-scrollbar-corner {
+        background-color: #ff0000;
+
+    }
+
+    &::-webkit-scrollbar-button {
+        background-color: #7bff00;
+
+    }
+
+    &::-webkit-scrollbar-track {
+        /*스크롤바 뒷 배경 색상*/
+        background: rgba(33, 121, 244, 0);
+    }
+}
+
+/* PC */
+@media (min-width: 768px) {
+    .rootContainer {
+        margin: 0 auto;
+    }
+
+    .rootContent {
+        width: 360px;
+        height: 800px;
+        margin: 30px auto;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+}
