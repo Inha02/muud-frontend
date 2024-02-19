@@ -1,9 +1,9 @@
-import { Color } from '../../styles'
 import { Link } from 'react-router-dom'
+import styles from './NavBar.module.css'
 
 const NavBarView = () => {
   return (
-    <div>
+    <div className={styles.navContainer}>
       <ul>
         <li>
           <Link to="/login">로그인</Link>

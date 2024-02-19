@@ -12,11 +12,12 @@ module.exports = {
   settings: { react: { version: '18.2' } },
   plugins: ['react-refresh'],
   rules: {
+    'object-curly-newline': ["error", { "multiline": true, "consistent": true }],
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
     ],
-    "no-undef": "off",
+   // "no-undef": "off",
     'no-unused-vars': "off",
     'react/prop-types': "off"
   },
