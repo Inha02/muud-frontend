@@ -1,0 +1,55 @@
+.musicPlayerWrap {
+    position: relative;
+    border-radius: 10px;
+    width: 328px;
+    height: 180px;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    z-index: 2;
+}
+
+.player {
+    position: absolute;
+    top: 0%;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+
+}
+
+.progressBar {
+    display: none;
+
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: var(--font-sm);
+    color: #fff;
+
+    &:disabled {
+        display: none;
+    }
+}
+
+.progressInput {
+    width: 100%;
+    height: 3px;
+    border-radius: 10px;
+    background: linear-gradient(to right,
+            #fff var(--progress),
+            rgba(250, 250, 250, 0.5) 0);
+
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 10px;
+        height: 10px;
+        background: #fff;
+        border-radius: 50%;
+    }
+}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import SuggestPlaylistPageView from './suggest-playlist-page'
 import axios from 'axios';
 import YouTube from 'react-youtube'
@@ -10,8 +10,13 @@ const SuggestPlaylistPage = () => {
   const [topPlaylists, setTopPlaylists] = useState([]);
   const [videos, setVideos] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0); // 현재 재생 중인 동영상의 인덱스
+  const [playing, setPlaying] = useState(false)
+
   const playlistVideoIds = ['3TNm2tLw88A?si=vrfnDGY8zrhn4ARt', 'JUzPQ0JalHE'];
   //const noCORS = 'https://cors-anywhere.herokuapp.com/';
+  const playerRef = useRef(null);
+
+
 
   useEffect(() => {
     /*
@@ -113,17 +118,33 @@ const SuggestPlaylistPage = () => {
     fetchData();
   }
 
-  // 동영상이 종료되면 호출되는 콜백 함수
-  const onEnd = () => {
-    // 다음 동영상으로 이동
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % playlistVideoIds.length)
+  // // 동영상이 종료되면 호출되는 콜백 함수
+  // const onEnd = () => {
+  //   // 다음 동영상으로 이동
+  //   setCurrentIndex((prevIndex) => (prevIndex + 1) % playlistVideoIds.length)
+  // }
+
+  function onPlayerReady(event) {
+    const player = document.getElementById('player');
+    //player.setVolume(0);
+    var playButton = document.getElementById("play-button");
+    playButton.addEventListener("click", function () { player.playVideo(); });
+    var pauseButton = document.getElementById("pause-button");
+    pauseButton.addEventListener("click", function () { player.pauseVideo(); });
   }
 
 
-
-
   return (
-    <SuggestPlaylistPageView YouTube={YouTube} currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} playlistVideoIds={playlistVideoIds} onEnd={onEnd} topPlaylists={topPlaylists} getTopPlayList={getTopPlayList} />
+    <SuggestPlaylistPageView
+      YouTube={YouTube}
+      currentIndex={currentIndex}
+      setCurrentIndex={setCurrentIndex}
+      playlistVideoIds={playlistVideoIds}
+      topPlaylists={topPlaylists}
+      getTopPlayList={getTopPlayList}
+      playing={playing}
+      setPlaying={setPlaying}
+    />
   )
 }
 

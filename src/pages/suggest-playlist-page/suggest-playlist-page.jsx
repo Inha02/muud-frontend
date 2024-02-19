@@ -1,48 +1,25 @@
-import NavBar from "../../components/NavBar";
+import MusicPlayer from "../../components/MusicPlayer";
+import styles from '../../components/MusicPlayer/MusicPlayer.module.css'; // CSS 모듈 임포트
+
 
 const SuggestPlaylistPageView = ({
   YouTube,
-  currentIndex,
-  setCurrentIndex,
   playlistVideoIds,
-  onEnd,
-  opts,
   topPlaylists,
-  getTopPlayList
+  getTopPlayList,
+  playing,
+  setPlaying
 }) => {
   return (
-    <div>
-      <NavBar />
-
-      <h1>비커님을 위한 추천 플레이리스트</h1>
+    <>
+      <h1>뮤디님을 위한 플레이리스트</h1>
       <h5>마음에 드는 플리를 선택해서 감정과 함께 저장해보세요</h5>
-      {/* <YouTube
-        videoId={playlistVideoIds[currentIndex]}
-        opts={{
-    height: '390',
-    width: '640',
-    playerVars: {
-      // 동영상의 재생 시작 위치 설정
-      start: 0,
-      autoplay: 0,
-    },
-  }
-}
-        onEnd={onEnd}
-      />
-      <h3>영상 전환</h3>
-      <ul>
-      {playlistVideoIds.map((videoId, index) => (
-        <li key={index}>
-          <button onClick={() => setCurrentIndex(index)}>
-            동영상 {index + 1}
-          </button>
-        </li>
-      ))}
-    </ul> 
-    */}
 
-      < h1 > Top 3 Playlists for keyword</h1 >
+      <MusicPlayer video={'JUzPQ0JalHE'} />
+      <MusicPlayer video={'JUzPQ0JalHE'} />
+      <MusicPlayer video={'JUzPQ0JalHE'} />
+      <MusicPlayer video={'JUzPQ0JalHE'} />
+
       <button onClick={() => getTopPlayList()}>
         추천받기
       </button>
@@ -54,29 +31,23 @@ const SuggestPlaylistPageView = ({
             {playlist.videos.map(video => (
               <div key={video.id}>
                 <h3>{video.title}</h3>
-                {/* <YouTube
-                  videoId={video.id}
-                  opts={opts}
-                /> 
-                cors 에러
-                */}
-                <h2>아이프레임</h2>
-                <iframe
-                  width="560"
-                  height="315"
-                  src={`https://www.youtube.com/embed/${video.id}`}
-                  title="YouTube video player"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                ></iframe>
+
+                <MusicPlayer video={video.playlistId} />
+
               </div>
             ))
             }
           </div >
         ))
       }
-    </div >
+
+      <div>
+        <span>나의 일기와 플레이리스트 컬렉션에 추가되었습니다</span>
+      </div>
+      <button>
+        다음
+      </button>
+    </ >
   )
 }
 
