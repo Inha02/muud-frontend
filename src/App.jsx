@@ -14,7 +14,7 @@ import './App.css';
 const Pages = () => {
   return (
     <Routes>
-      <Route path="/" element={<SuggestPlaylistPage />} />
+      <Route path="/" element={<LoginPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/calendar" element={<Calendar />} />
@@ -32,7 +32,7 @@ function App() {
       <BrowserView>
         <NavBar />
         <Routes>
-          <Route path="/*" element={
+          <Route path="*" element={
             <MobileContainer>
               <Pages />
             </MobileContainer>} />
