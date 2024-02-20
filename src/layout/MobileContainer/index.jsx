@@ -5,7 +5,7 @@ const MobileContainer = ({ children }) => {
     return (
         <div className={styles.rootContainer}>
             <div className={styles.rootContent}>
-                <TopBar></TopBar>
+                <TopBar option={'back'} ></TopBar>
                 {children}
             </div>
         </div>

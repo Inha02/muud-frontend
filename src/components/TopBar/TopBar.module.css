@@ -1,6 +1,7 @@
 .topBarContainer {
-    background-color: #191919;
-    width: 360px;
+    background-color: var(--neutral-color);
+
+    width: 100%;
     position: fixed;
     top: 0;
     z-index: 1000;
@@ -15,11 +16,25 @@
     vertical-align: middle;
     width: 24px;
     height: 24px;
-    background-image: url('/images/icon-arrow-back-android-mono.png');
     background-size: cover;
     background-position: center;
 }
 
+.x .leftBtn {
+    background-image: url('/images/icon-x-mono.png');
+}
+
+.back .leftBtn {
+    background-image: url('/images/icon-arrow-back-android-mono.png');
+}
+
 .mg {
     margin: 34px 0;
+}
+
+/* PC */
+@media (min-width: 768px) {
+    .topBarContainer {
+        width: 360px;
+    }
 }
