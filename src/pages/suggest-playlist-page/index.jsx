@@ -1,7 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import SuggestPlaylistPageView from './suggest-playlist-page'
 import axios from 'axios';
-import YouTube from 'react-youtube'
 //import { Get } from "../../api/axios";
 
 const SuggestPlaylistPage = () => {
@@ -136,7 +135,6 @@ const SuggestPlaylistPage = () => {
 
   return (
     <SuggestPlaylistPageView
-      YouTube={YouTube}
       currentIndex={currentIndex}
       setCurrentIndex={setCurrentIndex}
       playlistVideoIds={playlistVideoIds}

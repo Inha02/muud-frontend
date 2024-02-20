@@ -3,7 +3,6 @@ import styles from '../../components/MusicPlayer/MusicPlayer.module.css'; // CSS
 
 
 const SuggestPlaylistPageView = ({
-  YouTube,
   playlistVideoIds,
   topPlaylists,
   getTopPlayList,
