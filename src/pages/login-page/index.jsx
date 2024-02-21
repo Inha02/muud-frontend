@@ -44,10 +44,7 @@ const LoginPage = () => {
   }
 
   const validateInfo = () => {
-    if (!validateEmail(id) {
-
-    }
-    else if (!validatePswd(pswd)) {
+    if (!validateEmail(id) || !validatePswd(pswd)) {
       modalOpen({
         content: <div>등록된 아이디가 아니에요.<br />이메일 또는 비밀번호를확인 해주세요.</div>,
       });
