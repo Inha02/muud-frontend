@@ -9,6 +9,11 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
+  "prettier":{
+    "jsxSingleQuote": true,
+    "singleQuote": true,
+    "singleAttributePerLine": true
+  },
   "dependencies": {
     "@nivo/calendar": "^0.84.0",
     "@nivo/core": "^0.84.0",

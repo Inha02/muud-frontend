@@ -1,3 +1,4 @@
+import { useEffect, useState, useContext } from 'react';
 import { Route, Routes, Link, Outlet } from 'react-router-dom'
 import { BrowserView, MobileView } from 'react-device-detect'
 import LoginPage from './pages/login-page'
@@ -9,12 +10,13 @@ import Calendar from './pages/calendar-page'
 import KakaoCallback from './pages/kakao-callback'
 import MobileContainer from "./layout/MobileContainer";
 import NavBar from "./components/NavBar";
+
 import './App.css';
 
 const Pages = () => {
   return (
     <Routes>
-      <Route path="/" element={<SuggestPlaylistPage />} />
+      <Route path="/" element={<LoginPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/calendar" element={<Calendar />} />
@@ -32,7 +34,7 @@ function App() {
       <BrowserView>
         <NavBar />
         <Routes>
-          <Route path="/*" element={
+          <Route path="*" element={
             <MobileContainer>
               <Pages />
             </MobileContainer>} />

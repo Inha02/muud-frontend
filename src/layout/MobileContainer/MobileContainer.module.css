@@ -4,8 +4,8 @@
 }
 
 .rootContent {
-    /*position: relative;*/
-    background-color: rgb(187, 187, 187);
+    position: relative;
+    background-color: var(--neutral-color);
     overflow-y: auto;
 
     scrollbar-width: thin;
@@ -24,21 +24,6 @@
         background-color: #bd6cff;
     }
 
-    &::-webkit-scrollbar-track-piece {
-        background-color: #000000;
-
-    }
-
-    &::-webkit-scrollbar-corner {
-        background-color: #ff0000;
-
-    }
-
-    &::-webkit-scrollbar-button {
-        background-color: #7bff00;
-
-    }
-
     &::-webkit-scrollbar-track {
         /*스크롤바 뒷 배경 색상*/
         background: rgba(33, 121, 244, 0);
@@ -54,7 +39,7 @@
     .rootContent {
         width: 360px;
         height: 800px;
-        margin: 30px auto;
+        margin: 0 auto;
         overflow-y: scroll;
         overflow-x: hidden;
     }

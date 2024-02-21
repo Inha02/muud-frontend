@@ -1,11 +1,12 @@
 import styles from './TopBar.module.css'
 
-const TopBarView = () => {
+const TopBarView = ({ option, handleClick }) => {
+
   return (
     <div className={styles.mg}>
-      <div className={styles.topBarContainer}>
+      <div className={`${styles.topBarContainer} ${styles[option]}`}>
         <div className={styles.leftBtnArea}>
-          <a href="#" className={styles.leftBtn} />
+          <a onClick={handleClick} className={styles.leftBtn} />
         </div>
       </div >
     </div>
