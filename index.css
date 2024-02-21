@@ -103,8 +103,11 @@ html {
   /*color 정의*/
   --primary-color: #7F71FC;
   --neutral-color: #191919;
-  --neutral50-color: #68676B;
   --neutral20-color: #252525;
+  --neutral30-color: #363636;
+  --neutral40-color: #4A4A4A;
+  --neutral50-color: #68676B;
+
 
   /*size 정의*/
   --padding: 0.75em;
@@ -176,10 +179,6 @@ button {
   transition: border-color 0.25s;
 }
 
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
 
 /* font */
 @font-face {

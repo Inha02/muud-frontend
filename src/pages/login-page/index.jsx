@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
 import LoginPageView from './login-page';
+import { useModal } from '../../context/ModalContext';
 
 const LoginPage = () => {
   const [id, setId] = useState('');
   const [pswd, setPswd] = useState('');
   const [isShownPswd, setIsShownPswd] = useState(false);
   const [isLoginActive, setIsLoginActive] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-
+  const { modalOpen } = useModal();
 
 
   const REST_API_KEY = import.meta.env.VITE_KAKAO_KEY;
@@ -21,15 +20,16 @@ const LoginPage = () => {
   };
   const onChangeId = (event) => {
     setId(event.target.value);
-    validateInfo();
+    if (event.target.value !== '') {
+      setIsLoginActive(true);
+    }
+    else { setIsLoginActive(false); }
   };
   const onChangePswd = (event) => {
     setPswd(event.target.value);
-    validateInfo();
   };
   const handleLogin = () => {
-
-
+    validateInfo();
   };
   const toggleShowPswd = () => {
     setIsShownPswd(!isShownPswd);
@@ -44,10 +44,17 @@ const LoginPage = () => {
   }
 
   const validateInfo = () => {
-    if (!validateEmail(id) || !validatePswd(pswd)) {
-      // 이메일 또는 비밀번호가 유효하지 않은 경우
+    if (!validateEmail(id) {
+
+    }
+    else if (!validatePswd(pswd)) {
+      modalOpen({
+        content: <div>등록된 아이디가 아니에요.<br />이메일 또는 비밀번호를확인 해주세요.</div>,
+      });
     } else {
-      setIsLoginActive(true);
+      modalOpen({
+        content: <div>로그인처리</div>,
+      });
     }
   }
 
@@ -62,7 +69,6 @@ const LoginPage = () => {
       isShownPswd={isShownPswd}
       toggleShowPswd={toggleShowPswd}
       isLoginActive={isLoginActive}
-      isModalOpen={isModalOpen}
     />
   );
 };

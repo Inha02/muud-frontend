@@ -1,8 +1,10 @@
 import RoundButton from '../../components/RoundButton';
 import SimpleModal from '../../components/SImpleModal';
 import styles from './login-page.module.css';
+import { useEffect, useState } from 'react';
 
-const LoginPageView = ({ id, pswd, onChangeId, onChangePswd, handleLogin, handleKakaoLogin, isShownPswd, toggleShowPswd, isModalOpen }) => { //프롭스 대신 객체로 넣기(타입)
+
+const LoginPageView = ({ id, pswd, onChangeId, onChangePswd, handleLogin, handleKakaoLogin, isShownPswd, toggleShowPswd, isLoginActive }) => { //프롭스 대신 객체로 넣기(타입)
 
   return (
     <>
@@ -37,7 +39,7 @@ const LoginPageView = ({ id, pswd, onChangeId, onChangePswd, handleLogin, handle
           </div>
         </div>
 
-        <RoundButton onClick={handleLogin}>로그인</RoundButton>
+        <RoundButton onClick={handleLogin} active={isLoginActive}>로그인</RoundButton>
         <div>
           <span><a>회원가입</a></span>
           <span><a>이메일 찾기</a></span>
@@ -45,16 +47,6 @@ const LoginPageView = ({ id, pswd, onChangeId, onChangePswd, handleLogin, handle
         </div>
         <div>SNS 계정으로 간편 가입하기</div>
         <button onClick={handleKakaoLogin}>카카오 로그인</button>
-
-        {isModalOpen && (
-          <SimpleModal>
-            등록된 아이디가 아니에요.<br />
-            이메일 또는 비밀번호를 확인해주세요.
-          </SimpleModal>
-        )
-        }
-
-
       </div>
     </>
   )
