@@ -3,12 +3,10 @@ import SimpleModal from '../../components/SImpleModal';
 import styles from './login-page.module.css';
 import { useEffect, useState } from 'react';
 
-
 const LoginPageView = ({ id, pswd, onChangeId, onChangePswd, handleLogin, handleKakaoLogin, isShownPswd, toggleShowPswd, isLoginActive }) => { //프롭스 대신 객체로 넣기(타입)
 
   return (
     <>
-
       <div className='appContainer'>
         <div>
           <div>MUUD</div>

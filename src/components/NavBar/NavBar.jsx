@@ -12,6 +12,9 @@ const NavBarView = () => {
           <Link to="/register">회원가입</Link>
         </li>
         <li>
+          <Link to="/user/nickname">닉네임입력</Link>
+        </li>
+        <li>
           <Link to="/mood/report">보고서</Link>
         </li>
         <li>
