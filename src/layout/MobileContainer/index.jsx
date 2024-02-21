@@ -1,4 +1,4 @@
-import TopBar from '../../components/TopBar';
+import TopBar from '../../components/common/TopBar';
 import styles from './MobileContainer.module.css'
 import { ModalProvider } from '../../context/ModalContext.jsx'
 

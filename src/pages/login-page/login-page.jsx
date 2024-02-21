@@ -1,4 +1,4 @@
-import RoundButton from '../../components/RoundButton';
+import RoundButton from '../../components/common/RoundButton';
 import SimpleModal from '../../components/SImpleModal';
 import styles from './login-page.module.css';
 import { useEffect, useState } from 'react';
