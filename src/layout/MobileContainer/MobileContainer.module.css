@@ -4,9 +4,8 @@
 }
 
 .rootContent {
-    /*position: relative;*/
+    position: relative;
     background-color: var(--neutral-color);
-    ;
     overflow-y: auto;
 
     scrollbar-width: thin;
@@ -40,7 +39,7 @@
     .rootContent {
         width: 360px;
         height: 800px;
-        margin: 30px auto;
+        margin: 0 auto;
         overflow-y: scroll;
         overflow-x: hidden;
     }

@@ -1,15 +1,16 @@
-import styles from './SimpleModal.module.css'
+import styles from './Modal.module.css'
 
-const SimpleModalView = ({ text, handleClose }) => {
+const ModalView = ({ text, handleClose }) => {
   return (
     <div className={`${styles.modalContainer}`} onClick={handleClose}>
       <div className={styles.modalBody} onClick={(e) => e.stopPropagation()}>
         <div className={styles.modalText}>
           {text}
         </div>
+        <button className={styles.modalOneBtn} onClick={handleClose}>확인</button>
       </div>
     </div>
   )
 }
 
-export default SimpleModalView
+export default ModalView
