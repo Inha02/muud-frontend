@@ -16,6 +16,7 @@ import BackBtnContainer from "./layout/BackBtnContainer";
 import NavBar from "./components/NavBar";
 
 import './App.css';
+import MoodChoosePage from './pages/mood-choose-page';
 
 //헤더 뒤로가기, 탑바 없기 구분해야함 
 const Pages = () => {
@@ -31,10 +32,10 @@ const Pages = () => {
           <Routes>
             <Route path="/result" element={<MoodResultPage />} />
             <Route path="/playlist" element={<SuggestPlaylistPage />} />
-            <Route path="/mood/test" element={<div>테스트</div>} />
             <Route path="/mood/report" element={<ReportPage />} />
             <Route path="/user/nickname" element={<UserNicknamePage />} />
             <Route path="/introduce" element={<IntroducePage />} />
+            <Route path="/mood/test" element={<MoodChoosePage />} />
           </Routes>
         </BackBtnContainer>}>
       </Route>

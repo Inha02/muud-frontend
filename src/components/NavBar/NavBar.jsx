@@ -29,7 +29,10 @@ const NavBarView = () => {
         <li>
           <Link to="/calendar">달력</Link>
         </li>
-        <li></li>
+        <li>
+          <Link to="/mood/test">감정 선택</Link>
+        </li>
+
       </ul>
     </div>
   )
