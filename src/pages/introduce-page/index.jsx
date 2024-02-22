@@ -8,19 +8,28 @@ import './slider.css'
 import styles from './introduce-page.module.css'
 
 /* 카드 컴포넌트 */
-const SlideCard = ({ index }) => {
+const SlideCard = ({ content }) => {
   return (
     <div className={styles.cardContainer}>
-      <h3>{index}</h3>
+      <div >{content.main}</div>
+      <div >{content.sub}</div>
     </div>
   )
 }
 
 const IntroducePage = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
-  const [mainTxt, setMainTxt] = useState('')
-  const [subTxt, setSubTxt] = useState('')
   const sliderRef = useRef(null)
+  const moodArray = [
+    {
+      main: '오늘부터 뮤드와 함께\n나의 감정을 음악으로 기록해보세요 ',
+      sub: '내 감정 변화 추이와 최애 플리 순위까지\n리포트로 받을 수 있어요'
+    },
+    {
+      main: '오늘부터 뮤드와 함께\n나의 감정을 음악으로 기록해보세요',
+      sub: '뮤드는 지금 내 감정과 가장 잘 어울리는\n음악 플레이리스트를 추천해줍니다'
+    },
+  ];
 
   const handleClick = () => {
     if (currentSlide != 1)
@@ -29,20 +38,6 @@ const IntroducePage = () => {
 
   const handleSlideChange = (current, next) => {
     setCurrentSlide(current)
-    switch (current) {
-      case 1:
-        setMainTxt('뮤드가 내 감정을 분석하고\n리포트로 제공해요')
-        setSubTxt(
-          '내 감정 변화 추이와 최애 플리 순위까지\n리포트로 받을 수 있어요'
-        )
-        break
-      default:
-        setMainTxt('오늘부터 뮤드와 함께\n나의 감정을 음악으로 기록해보세요')
-        setSubTxt(
-          '뮤드는 지금 내 감정과 가장 잘 어울리는\n음악 플레이리스트를 추천해줍니다'
-        )
-        break
-    }
   }
 
   const slickSettings = {
@@ -63,19 +58,16 @@ const IntroducePage = () => {
 
   return (
     <div className='appContainer back'>
-      <div >{mainTxt}</div>
-      <div >{subTxt}</div>
-
       <div>
         <Slider
           {...slickSettings}
           ref={sliderRef}
         >
           <div>
-            <SlideCard index={0}></SlideCard>
+            <SlideCard content={moodArray[0]}></SlideCard>
           </div>
           <div>
-            <SlideCard index={1}></SlideCard>
+            <SlideCard content={moodArray[1]}></SlideCard>
           </div>
         </Slider>
       </div>
