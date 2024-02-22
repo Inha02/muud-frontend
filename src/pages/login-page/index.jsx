@@ -9,7 +9,6 @@ const LoginPage = () => {
   const [isLoginActive, setIsLoginActive] = useState(false);
   const { modalOpen } = useModal();
 
-
   const REST_API_KEY = import.meta.env.VITE_KAKAO_KEY;
   const REDIRECT_URI = `${import.meta.env.VITE_HOST}/auth/kakao/callback`;
   // oauth 요청 URL

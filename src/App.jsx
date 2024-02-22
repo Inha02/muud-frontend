@@ -8,6 +8,8 @@ import SuggestPlaylistPage from './pages/suggest-playlist-page'
 import ReportPage from './pages/report-page'
 import CalendarPage from './pages/calendar-page'
 import UserNicknamePage from './pages/user-nickname-page';
+import IntroducePage from './pages/introduce-page';
+
 import KakaoCallback from './pages/kakao-callback'
 import MobileContainer from "./layout/MobileContainer";
 import BackBtnContainer from "./layout/BackBtnContainer";
@@ -32,6 +34,7 @@ const Pages = () => {
             <Route path="/mood/test" element={<div>테스트</div>} />
             <Route path="/mood/report" element={<ReportPage />} />
             <Route path="/user/nickname" element={<UserNicknamePage />} />
+            <Route path="/introduce" element={<IntroducePage />} />
           </Routes>
         </BackBtnContainer>}>
       </Route>

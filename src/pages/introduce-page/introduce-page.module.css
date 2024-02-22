@@ -1,0 +1,21 @@
+.sliderDot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border-radius: 50%;
+}
+
+.sliderDot.active {
+    background-color: white;
+}
+
+.sliderDot.inactive {
+    background-color: var(--neutral40-color);
+}
+
+.cardContainer {
+    height: 200px;
+    width: 100%;
+    background-color: var(--neutral50-color);
+    color: black;
+}

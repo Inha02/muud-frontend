@@ -6,7 +6,9 @@ const UserNicknamePage = () => {
   const [isBtnActive, setIsBtnActive] = useState(false)
 
   const onChangeNickname = (event) => {
-    setNickname(event.target.value)
+    const value = event.target.value.replace(/\s/g, ''); // 입력값에서 공백 제거    
+    setNickname(value.slice(0, 10));
+
     if (event.target.value !== '') {
       setIsBtnActive(true)
     } else {
