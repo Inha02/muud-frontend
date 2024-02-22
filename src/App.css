@@ -20,3 +20,11 @@ div {
   white-space: pre-wrap;
 
 }
+
+textarea {
+  resize: none;
+}
+
+:focus {
+  outline-color: var(--primary-color);
+}

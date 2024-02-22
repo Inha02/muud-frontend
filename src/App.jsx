@@ -1,5 +1,6 @@
 import { useEffect, useState, useContext } from 'react';
 import { Route, Routes, Link, Outlet } from 'react-router-dom'
+import { UserDataProvider } from './context/UserContext';
 import { BrowserView, MobileView } from 'react-device-detect'
 import LoginPage from './pages/login-page'
 import RegisterPage from './pages/register-page'
@@ -30,7 +31,7 @@ const Pages = () => {
       <Route path="*" element={
         <BackBtnContainer>
           <Routes>
-            <Route path="/result" element={<MoodResultPage />} />
+            <Route path="mood/result" element={<MoodResultPage />} />
             <Route path="/playlist" element={<SuggestPlaylistPage />} />
             <Route path="/mood/report" element={<ReportPage />} />
             <Route path="/user/nickname" element={<UserNicknamePage />} />
@@ -46,21 +47,23 @@ const Pages = () => {
 function App() {
   return (
     <div className="App">
-      <BrowserView>
-        <NavBar />
-        <Routes>
-          <Route path="*" element={
-            <MobileContainer>
-              <Pages />
-            </MobileContainer>
-          } />
-        </Routes>
-      </BrowserView>
-      <MobileView>
-        <Routes>
-          <Pages />
-        </Routes>
-      </MobileView>
+      <UserDataProvider>
+        <BrowserView>
+          <NavBar />
+          <Routes>
+            <Route path="*" element={
+              <MobileContainer>
+                <Pages />
+              </MobileContainer>
+            } />
+          </Routes>
+        </BrowserView>
+        <MobileView>
+          <Routes>
+            <Pages />
+          </Routes>
+        </MobileView>
+      </UserDataProvider>
     </div >
 
   )

@@ -21,7 +21,7 @@ const NavBarView = () => {
           <Link to="/mood/report">보고서</Link>
         </li>
         <li>
-          <Link to="/result">감정 결과</Link>
+          <Link to="/mood/result">감정 결과</Link>
         </li>
         <li>
           <Link to="/playlist">플리 추천</Link>
