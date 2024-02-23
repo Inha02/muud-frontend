@@ -18,6 +18,7 @@ import NavBar from "./components/NavBar";
 
 import './App.css';
 import MoodChoosePage from './pages/mood-choose-page';
+import MobileContent from './layout/MobileContent';
 
 //헤더 뒤로가기, 탑바 없기 구분해야함 
 const Pages = () => {
@@ -55,9 +56,14 @@ function App() {
             } />
           </Routes>
         </BrowserView>
+
         <MobileView>
           <Routes>
-            <Pages />
+            <Route path="*" element={
+              <MobileContent>
+                <Pages />
+              </MobileContent>
+            } />
           </Routes>
         </MobileView>
       </UserDataProvider>
