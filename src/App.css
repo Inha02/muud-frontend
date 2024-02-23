@@ -11,10 +11,6 @@ input {
   margin: 20px;
 }
 
-.appContainer.back {
-  margin: 50px 20px;
-}
-
 div {
   /* jsx \n 인식을 위함*/
   white-space: pre-wrap;

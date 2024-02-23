@@ -1,18 +1,13 @@
+import { Outlet } from 'react-router-dom'
 import TopBar from '../../components/common/TopBar';
 import styles from './BackBtnContainer.module.css'
-import { ModalProvider } from '../../context/ModalContext.jsx'
 
-const BackBtnContainer = ({ children }) => {
+const BackBtnContainer = () => {
     return (
-        <div className={styles.rootContainer}>
-            <div className={styles.rootContent}>
-                <ModalProvider>
-                    <TopBar option={'back'} ></TopBar>
-                    {children}
-                </ModalProvider>
-            </div>
+        <div className={styles.topbarContainer}>
+            <TopBar option={'back'} ></TopBar>
+            <Outlet></Outlet>
         </div>
-
     );
 };
 

@@ -23,23 +23,20 @@ import MoodChoosePage from './pages/mood-choose-page';
 const Pages = () => {
   return (
     <Routes>
+      <Route path="/*" element={<BackBtnContainer />}>
+        <Route path="mood/result" element={<MoodResultPage />} />
+        <Route path="playlist" element={<SuggestPlaylistPage />} />
+        <Route path="mood/report" element={<ReportPage />} />
+        <Route path="user/nickname" element={<UserNicknamePage />} />
+        <Route path="introduce" element={<IntroducePage />} />
+        <Route path="mood/test" element={<MoodChoosePage />} />
+      </Route>
       <Route path="/" element={<LoginPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/calendar" element={<CalendarPage />} />
       <Route path="/auth/kakao/callback" element={<KakaoCallback />} />
-      <Route path="*" element={
-        <BackBtnContainer>
-          <Routes>
-            <Route path="mood/result" element={<MoodResultPage />} />
-            <Route path="/playlist" element={<SuggestPlaylistPage />} />
-            <Route path="/mood/report" element={<ReportPage />} />
-            <Route path="/user/nickname" element={<UserNicknamePage />} />
-            <Route path="/introduce" element={<IntroducePage />} />
-            <Route path="/mood/test" element={<MoodChoosePage />} />
-          </Routes>
-        </BackBtnContainer>}>
-      </Route>
+
     </Routes>
   )
 }
