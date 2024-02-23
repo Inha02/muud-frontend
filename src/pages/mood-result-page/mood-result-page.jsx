@@ -1,6 +1,5 @@
 import DoubleButton from '../../components/common/DoubleButton';
 import Tag from '../../components/common/Tag';
-
 import styles from './mood-result-page.module.css';
 
 const MoodResultPageView = ({
