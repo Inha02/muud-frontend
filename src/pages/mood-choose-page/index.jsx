@@ -18,19 +18,19 @@ const MoodChoosePage = () => {
 
   ];
 
-  const handleButtonClick = (option) => {
+  const handleMoodClick = (option) => {
     setSelectedOption(option);
-  };
+  }
 
-  useEffect(() => {
+  const handleButtonClick = () => {
     if (selectedOption != null)
       navigateTo('/mood/result', { state: selectedOption }); //감정 전달
-  }, [selectedOption]);
-
+  };
 
   return (
     <MoodChoosePageView
       selectedOption={selectedOption}
+      handleMoodClick={handleMoodClick}
       handleButtonClick={handleButtonClick}
       currentDate={currentDate}
       moodArray={moodArray}

@@ -1,6 +1,7 @@
+import RoundButton from '../../components/common/RoundButton';
 import styles from './mood-choose-page.module.css';
 
-const MoodChoosePageView = ({ handleButtonClick, selectedOption, currentDate, moodArray }) => {
+const MoodChoosePageView = ({ handleMoodClick, handleButtonClick, selectedOption, currentDate, moodArray }) => {
 
   const MoodButton = ({ children, mood }) => {
     const style = (selectedOption == mood) ? styles.moodBtn + ' ' + styles.active : (selectedOption == undefined) ? styles.moodBtn : styles.moodBtn + ' ' + styles.inactive;
@@ -8,7 +9,7 @@ const MoodChoosePageView = ({ handleButtonClick, selectedOption, currentDate, mo
       <div className={styles.btnContainer}>
         <button
           className={style}
-          onClick={() => handleButtonClick(mood)}
+          onClick={() => handleMoodClick(mood)}
         >{children}</button>
       </div >
     )
@@ -23,6 +24,8 @@ const MoodChoosePageView = ({ handleButtonClick, selectedOption, currentDate, mo
       <div>내가 느낀 감정 한개를 선택해주세요</div>
 
       {moodArray.map((item, index) => (<MoodButton key={index} index={index} mood={item.mood}>{item.text}</MoodButton>))}
+
+      <RoundButton onClick={handleButtonClick} active={(selectedOption != undefined)} >다음</RoundButton>
 
     </div>
   )
