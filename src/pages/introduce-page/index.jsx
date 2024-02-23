@@ -56,7 +56,7 @@ const IntroducePage = () => {
 
 
   return (
-    <div className='appContainer back'>
+    <div className='appContainer topbar'>
       <div>
         <Slider
           {...slickSettings}

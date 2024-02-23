@@ -5,7 +5,7 @@ import RoundButton from '../../components/common/RoundButton';
 const UserNicknamePageView = ({ nickname, onChangeNickname, isBtnActive, handleClick }) => {
 
   return (
-    <div className='appContainer back'>
+    <div className='appContainer topbar'>
       <div>뮤디에서 사용할<br />
         이름을 입력해주세요.
       </div>

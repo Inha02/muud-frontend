@@ -15,7 +15,7 @@ const MoodChoosePageView = ({ handleButtonClick, selectedOption, currentDate, mo
   }
 
   return (
-    <div className='appContainer back'>
+    <div className='appContainer topbar'>
       <div>{currentDate}
       </div>
 

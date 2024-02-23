@@ -3,17 +3,25 @@
     width: 100%;
 }
 
+.rootContent::-webkit-scrollbar {
+    /* for Chrome, Safari, and Opera */
+    display: none;
+}
+
 .rootContent {
+    /* for Internet Explorer, Edge */
+    -ms-overflow-style: none;
+
+    /* for Firefox */
+    scrollbar-width: none;
+
     position: relative;
     background-color: var(--neutral-color);
-    overflow-y: auto;
-
-    scrollbar-width: thin;
     scrollbar-arrow-color: #000000;
     scrollbar-color: #bd6cff rgba(33, 121, 244, 0);
 
     &::-webkit-scrollbar {
-        width: 1px;
+        /*width: 1px;*/
     }
 
     &::-webkit-scrollbar-thumb {

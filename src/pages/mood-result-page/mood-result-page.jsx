@@ -21,7 +21,7 @@ const MoodResultPageView = ({
   };
 
   return (
-    <div className='appContainer back'>
+    <div className='appContainer topbar'>
       <div>{currentDate}
       </div>
 
