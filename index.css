@@ -156,11 +156,6 @@ ul {
   list-style-type: none;
 }
 
-header {
-  background-color: #fff;
-  padding: 1rem;
-}
-
 nav {
   display: flex;
 }
