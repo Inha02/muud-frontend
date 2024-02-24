@@ -5,6 +5,7 @@
 .roundBtn.inactive {
     background-color: var(--neutral30-color);
     cursor: initial;
+    color: #68676B
 }
 
 .roundBtn {
