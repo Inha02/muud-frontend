@@ -9,19 +9,21 @@ const LoginPageView = ({ id, pswd, onChangeId, onChangePswd, handleLogin, handle
     <>
       <div className='appContainer'>
         <div>
-          <div>MUUD</div>
-          <div>감정을 음악으로,</div>
-          <div>순간의 감정을 음악과 함께 기록하세요</div>
+          <div className={styles.muudText}>MUUD</div>
+          <div className={styles.text}>감정을 음악으로,</div>
+          <div className={styles.text}>순간의 감정을 음악과 함께 기록하세요</div>
         </div>
-        <div>이메일 주소</div>
+
+        <div className={styles.emailText}>이메일 주소</div>
         <input type="text"
           onChange={onChangeId}
           value={id}
           placeholder='예)muud@muud.co.kr'
           required
+          className={styles.box}
         />
 
-        <div>비밀번호</div>
+        <div className={styles.pswdText}>비밀번호</div>
         <div className={styles.pswdWrap}>
           <input
             className={styles.pswdInput}
@@ -31,20 +33,30 @@ const LoginPageView = ({ id, pswd, onChangeId, onChangePswd, handleLogin, handle
             minLength={8}
             required
           />
+
           <div className={styles.eyeBtnContainer}>
             <div className={isShownPswd ? styles.eyeBtn + ' ' + styles.show : styles.eyeBtn + ' ' + styles.hide} onClick={toggleShowPswd}>
             </div>
           </div>
         </div>
 
-        <RoundButton onClick={handleLogin} active={isLoginActive}>로그인</RoundButton>
-        <div>
-          <span><a>회원가입</a></span>
-          <span><a>이메일 찾기</a></span>
-          <span><a>비밀번호 찾기</a></span>
+        <div style={{ marginTop: '1.5em' }}>
+          <RoundButton onClick={handleLogin} active={isLoginActive}>로그인</RoundButton>
         </div>
-        <div>SNS 계정으로 간편 가입하기</div>
-        <button onClick={handleKakaoLogin}>카카오 로그인</button>
+
+        <div style={{ marginTop: '0.5em' }} className={styles.textCenter}>
+          <span style={{ display: 'inline-block', marginRight: '10px' }}><a>회원가입</a></span>
+          <span>|</span>
+          <span style={{ display: 'inline-block', marginRight: '10px', marginLeft: '10px' }}><a>이메일 찾기</a></span>
+          <span>|</span>
+          <span style={{ display: 'inline-block', marginLeft: '10px' }}><a>비밀번호 찾기</a></span>
+        </div>
+
+        <div style={{ marginTop: '10em', textAlign: 'center' }}>SNS 계정으로 간편 가입하기</div>
+
+        <div style={{ marginTop: '0.5em', textAlign: 'center' }}>
+          <button onClick={handleKakaoLogin}>카카오 로그인</button>
+        </div>
       </div>
     </>
   )
