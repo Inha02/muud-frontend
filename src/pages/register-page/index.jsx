@@ -16,11 +16,10 @@ const RegisterPage = () => {
   const onChangeUser = (event) => {
     const { name, value } = event.target
     setUser((curr) => ({ ...curr, [name]: value }))
-    if (value !== '' && validatePswd(name == 'pswd' ? value : user.pswd) && validateEmail(name == 'id' ? value : user.id) && user.pswdCheck != '') {
-      setIsRegisterActive(true)
-    } else {
-      setIsRegisterActive(false)
-    }
+
+    const isPswdValid = validatePswd(name === 'pswd' ? value : user.pswd);
+    const isIdValid = validateEmail(name === 'id' ? value : user.id);
+    setIsRegisterActive(value !== '' && isPswdValid && isIdValid && user.pswdCheck !== '');
   }
 
   const validatePswdCheck = () => {

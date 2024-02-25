@@ -1,3 +1,4 @@
+/* 공통 css */
 #root {
   margin: 0 auto;
   width: 100%;
@@ -25,18 +26,47 @@ textarea {
   outline-color: var(--primary-color);
 }
 
-
-/* 공통 css */
+/* 회원 auth 페이지 */
 .pswdWrap {
-  position: relative;
-  max-width: fit-content;
-  max-height: fit-content;
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  font-size: var(--font-small);
+  color: #fff;
+  border: none;
+  outline: none;
+}
+
+.pswdInput {
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  padding: 8px 0 8px 0;
+  font-size: var(--font-small);
+  color: #fff;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--neutral50-color);
+}
+
+.emailText {
+  font-family: Pretendard;
+  font-size: var(--font-medium);
+  color: white;
+  margin-top: 2.56rem;
+}
+
+.pswdText {
+  font-family: Pretendard;
+  font-size: var(--font-medium);
+  color: white;
+  margin-top: 1rem;
 }
 
 .eyeBtnContainer {
   position: absolute;
-  right: 10px;
-  top: 0;
+  right: 2rem;
+  top: 25.5em;
 }
 
 .eyeBtn.hide {

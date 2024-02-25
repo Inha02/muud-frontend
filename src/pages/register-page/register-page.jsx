@@ -1,6 +1,5 @@
 import CloseBar from "../../components/common/CloseBar";
 import RoundButton from '../../components/common/RoundButton';
-import { useModal } from '../../context/ModalContext';
 import styles from './register-page.module.css';
 
 

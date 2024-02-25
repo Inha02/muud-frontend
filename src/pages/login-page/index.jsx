@@ -25,13 +25,10 @@ const LoginPage = () => {
     const { name, value } = event.target
     setUser((curr) => ({ ...curr, [name]: value }))
 
-    if (value !== '' && (name != 'pswd' && user.pswd != '') && (name != 'id' && user.id != '')) {
-      setIsLoginActive(true);
-    } else {
-      setIsLoginActive(false);
-    }
+    const isPswdEmpty = name === 'pswd' || user.pswd !== '';
+    const isIdEmpty = name === 'id' || user.id !== '';
+    setIsLoginActive(value !== '' && isPswdEmpty && isIdEmpty);
   }
-
 
   const handleLogin = () => {
     validateInfo();
