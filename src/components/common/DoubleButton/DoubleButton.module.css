@@ -1,20 +1,30 @@
+.btnContainer {
+    width: 100%;
+    display: flex;
+}
+
 .roundBtn.active {
     background-color: var(--primary-color);
+    color: white;
 }
 
 .roundBtn.inactive {
     background-color: var(--neutral30-color);
     cursor: initial;
-    color: #68676B
+    color: var(--neutral50-color);
 }
 
 .roundBtn {
-    width: 320px;
+    flex: 1;
     height: 56px;
     border-radius: 16px;
     padding: 10px;
-    color: white;
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
+    margin-right: 12px;
+}
+
+.roundBtn:last-child {
+    margin-right: 0;
 }

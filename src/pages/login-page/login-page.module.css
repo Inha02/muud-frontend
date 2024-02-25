@@ -1,3 +1,4 @@
+/* app 공통 css로 이동함
 .pswdWrap {
     background-color: transparent;
     border: none;
@@ -6,8 +7,6 @@
     color: #fff;
     border: none;
     outline: none;
-
-
 }
 
 .pswdInput {
@@ -46,6 +45,20 @@
     vertical-align: middle;
 }
 
+.emailText {
+    font-family: Pretendard;
+    font-size: var(--font-medium);
+    color: white;
+    margin-top: 2.56rem;
+}
+
+.pswdText {
+    font-family: Pretendard;
+    font-size: var(--font-medium);
+    color: white;
+    margin-top: 1rem;
+}
+*/
 .muudText {
     margin-top: 7rem;
     color: #7F71FC;
@@ -60,19 +73,6 @@
     color: #DDDBE0;
 }
 
-.emailText {
-    font-family: Pretendard;
-    font-size: var(--font-medium);
-    color: white;
-    margin-top: 2.56rem;
-}
-
-.pswdText {
-    font-family: Pretendard;
-    font-size: var(--font-medium);
-    color: white;
-    margin-top: 1rem;
-}
 
 .box {
     background: transparent;

@@ -1,14 +1,10 @@
-import RoundButton from '../../components/RoundButton';
-import SimpleModal from '../../components/SImpleModal';
+import RoundButton from '../../components/common/RoundButton';
 import styles from './login-page.module.css';
-import { useEffect, useState } from 'react';
 
-
-const LoginPageView = ({ id, pswd, onChangeId, onChangePswd, handleLogin, handleKakaoLogin, isShownPswd, toggleShowPswd, isLoginActive }) => { //프롭스 대신 객체로 넣기(타입)
+const LoginPageView = ({ user, onChangeUser, handleLogin, handleKakaoLogin, isShownPswd, toggleShowPswd, isLoginActive }) => { //프롭스 대신 객체로 넣기(타입)
 
   return (
     <>
-
       <div className='appContainer'>
         <div>
           <div className={styles.muudText}>MUUD</div>
@@ -16,28 +12,30 @@ const LoginPageView = ({ id, pswd, onChangeId, onChangePswd, handleLogin, handle
           <div className={styles.text}>순간의 감정을 음악과 함께 기록하세요</div>
         </div>
 
-        <div className={styles.emailText}>이메일 주소</div>
+        <div className='emailText'>이메일 주소</div>
         <input type="text"
-          onChange={onChangeId}
-          value={id}
+          name="id"
+          onChange={onChangeUser}
+          value={user.id}
           placeholder='예)muud@muud.co.kr'
           required
           className={styles.box}
         />
 
-        <div className={styles.pswdText}>비밀번호</div>
-        <div className={styles.pswdWrap}>
+        <div className='pswdText'>비밀번호</div>
+        <div className='pswdWrap'>
           <input
-            className={styles.pswdInput}
+            className='pswdInput'
             type={isShownPswd ? "text" : "password"}
-            onChange={onChangePswd}
-            value={pswd}
+            name="pswd"
+            onChange={onChangeUser}
+            value={user.pswd}
             minLength={8}
             required
           />
 
-          <div className={styles.eyeBtnContainer}>
-            <div className={isShownPswd ? styles.eyeBtn + ' ' + styles.show : styles.eyeBtn + ' ' + styles.hide} onClick={toggleShowPswd}>
+          <div className='eyeBtnContainer'>
+            <div className={'eyeBtn ' + (isShownPswd ? 'show' : 'hide')} onClick={toggleShowPswd}>
             </div>
           </div>
         </div>

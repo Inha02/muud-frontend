@@ -1,3 +1,4 @@
+/* 공통 css */
 #root {
   margin: 0 auto;
   width: 100%;
@@ -9,4 +10,79 @@ input {
 
 .appContainer {
   margin: 20px;
+}
+
+div {
+  /* jsx \n 인식을 위함*/
+  white-space: pre-wrap;
+
+}
+
+textarea {
+  resize: none;
+}
+
+:focus {
+  outline-color: var(--primary-color);
+}
+
+/* 회원 auth 페이지 */
+.pswdWrap {
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  font-size: var(--font-small);
+  color: #fff;
+  border: none;
+  outline: none;
+}
+
+.pswdInput {
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  padding: 8px 0 8px 0;
+  font-size: var(--font-small);
+  color: #fff;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--neutral50-color);
+}
+
+.emailText {
+  font-family: Pretendard;
+  font-size: var(--font-medium);
+  color: white;
+  margin-top: 2.56rem;
+}
+
+.pswdText {
+  font-family: Pretendard;
+  font-size: var(--font-medium);
+  color: white;
+  margin-top: 1rem;
+}
+
+.eyeBtnContainer {
+  position: absolute;
+  right: 2rem;
+  top: 25.5em;
+}
+
+.eyeBtn.hide {
+  background-image: url('/images/icon-eye-off-mono.png');
+}
+
+.eyeBtn.show {
+  background-image: url('/images/icon-eye-on-mono.png');
+}
+
+.eyeBtn {
+  width: 14px;
+  height: 13px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
 }

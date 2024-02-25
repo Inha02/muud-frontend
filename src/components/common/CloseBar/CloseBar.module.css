@@ -1,0 +1,25 @@
+.topBarContainer {
+    background-color: var(--neutral-color);
+    top: 0;
+    width: 100%;
+}
+
+.leftBtnArea {
+    padding: 10px 0;
+}
+
+.leftBtn {
+    display: inline-block;
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+    background-position: center;
+}
+
+.x.leftBtn {
+    background-image: url('/images/icon-x-mono.png');
+}
+
+/* PC */
+@media (min-width: 768px) {}

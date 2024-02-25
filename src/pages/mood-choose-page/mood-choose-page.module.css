@@ -1,0 +1,27 @@
+.btnContainer {
+    margin: 14px 0;
+}
+
+.moodBtn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.moodBtn.inactive {
+    background-color: var(--neutral20-color);
+    cursor: initial;
+    color: var(--neutral60-color);
+}
+
+.moodBtn {
+    width: 312px;
+    height: 68px;
+    border-radius: 16px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color: white;
+    background-color: var(--neutral20-color);
+
+}
