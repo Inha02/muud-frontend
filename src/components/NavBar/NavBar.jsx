@@ -18,7 +18,7 @@ const NavBarView = () => {
           <Link to="/introduce">소개페이지</Link>
         </li>
         <li>
-          <Link to="/mood/report">보고서</Link>
+          <Link to="/mood/test">감정 선택</Link>
         </li>
         <li>
           <Link to="/mood/result">감정 결과</Link>
@@ -30,9 +30,8 @@ const NavBarView = () => {
           <Link to="/calendar">달력</Link>
         </li>
         <li>
-          <Link to="/mood/test">감정 선택</Link>
+          <Link to="/mood/report">보고서</Link>
         </li>
-
       </ul>
     </div>
   )
