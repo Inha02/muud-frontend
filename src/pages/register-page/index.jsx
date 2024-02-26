@@ -1,9 +1,14 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useModal } from '../../context/ModalContext'
 import RegisterPageView from './register-page'
 import { validateEmail, validatePswd } from '../../utils'
+import axios from 'axios';
+import { Post } from '../../api/axios';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterPage = () => {
+  const { modalOpen } = useModal()
+  const navigateTo = useNavigate();
   const [user, setUser] = useState({
     id: '',
     pswd: '',
@@ -11,7 +16,6 @@ const RegisterPage = () => {
   })
   const [isShownPswd, setIsShownPswd] = useState(false)
   const [isRegisterActive, setIsRegisterActive] = useState(false)
-  const { modalOpen } = useModal()
 
   const onChangeUser = (event) => {
     const { name, value } = event.target
@@ -31,32 +35,43 @@ const RegisterPage = () => {
   }
 
   const handleRegister = () => {
-    validateInfo()
-  }
-
-  const validateInfo = () => {
     if (!validateEmail(user.id) || !validatePswd(user.pswd) || !validatePswdCheck()) {
       modalOpen({
-        content: (
-          <div>
-            등록된 아이디가 아니에요.
-            <br />
-            이메일 또는 비밀번호를확인 해주세요.
-          </div>
+        content: ('등록된 아이디가 아니에요.\n이메일 또는 비밀번호를확인 해주세요.'
         ),
       })
     } else {
-      modalOpen({
-        content: (
-          <div>
-            환영합니다!
-            <br />
-            회원 가입 완료
-          </div>
-        ),
-      })
+
+      registerAxios();
     }
   }
+
+  const registerAxios = async () => {
+    try {
+      const response = await Post('auth/signup', {
+        email: user.id,
+        password: user.pswd,
+        nickname: '별명'
+      });
+
+      if (response.statusCode === '400') {
+        modalOpen({
+          content: ('가입 오류\n이미 가입된 이메일 입니다'),
+        })
+      } else {
+        modalOpen({
+          content: ('환영합니다!\n회원 가입 완료'),
+          handleClose: () => { navigateTo('/login') }
+        })
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+
+  useEffect(() => {
+  }, []);
 
   return (
     <RegisterPageView
