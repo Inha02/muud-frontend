@@ -1,0 +1,44 @@
+/* 체크박스 커스텀 */
+input[type="checkbox"] {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: 0;
+    height: 30px;
+    width: 30px;
+    border-radius: 4px;
+    background-image: url("/images/checkbox.png");
+    background-repeat: no-repeat; 
+    background-size: 100% 100%; 
+  }
+  
+  input[type="checkbox"].checked {
+    background: var(--primary40-color);
+    background-image: url("/images/checkbox_checked.png");
+    background-repeat: no-repeat; 
+    background-size: 100% 100%; 
+  }
+
+  input[type="checkbox"]:hover {
+    filter: brightness(90%);
+  }
+  
+  input[type="checkbox"]:disabled {
+    background: #e6e6e6;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  
+  input[type="checkbox"]:after {
+    content: '';
+    display: none;
+  }
+  
+  input[type="checkbox"]:checked:after {
+    display: block;
+  }
+  
+  input[type="checkbox"]:disabled:after {
+    border-color: #7b7b7b;
+  }

@@ -1,27 +1,76 @@
 import MusicPlayer from "../../components/MusicPlayer";
-import styles from '../../components/MusicPlayer/MusicPlayer.module.css'; // CSS 모듈 임포트
+import { useEffect, useState, useContext, useRef } from 'react'
 
+import RoundButton from '../../components/common/RoundButton';
+import CheckBox from '../../components/common/CheckBox';
+
+import Slider from "react-slick";
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+import './slider.css'
+//import styles from '../../components/MusicPlayer/MusicPlayer.module.css'; // CSS 모듈 임포트
+import styles from './suggest-playlist-page.module.css'; // CSS 모듈 임포트
+
+
+/* 플리 카드 컴포넌트 */
+const SlideCard = ({ content, children }) => {
+  return (
+    <div className={styles.cardContainer}>
+
+    </div>
+  )
+}
 
 const SuggestPlaylistPageView = ({
   playlistVideoIds,
   topPlaylists,
-  getTopPlayList,
   playing,
-  setPlaying
+  setPlaying,
+  slickSettings, sliderRef, currentSlide,
+  userNick,
+  pliArr
 }) => {
+  const [selectedOption, setSelectedOption] = useState([false, false, false, false]);
+  const handleOptionChange = (event, index) => {
+    console.log('클릭' + index+ selectedOption)
+    const newValue = [false, false, false, false];
+    newValue[index] = !selectedOption[index];
+    setSelectedOption(newValue);
+  };
+
+
   return (
     <>
-      <h1>뮤디님을 위한 플레이리스트</h1>
-      <h5>마음에 드는 플리를 선택해서 감정과 함께 저장해보세요</h5>
+      <img className={styles.moodEmojiSmall} src={'/images/cloudy-mood.png'} alt='emotion' />
+      <div>{userNick}님을 위한 플레이리스트</div>
+      <div>마음에 드는 플리를 선택해서 감정과 함께 저장해보세요</div>
 
-      <MusicPlayer video={'JUzPQ0JalHE'} />
-      <MusicPlayer video={'JUzPQ0JalHE'} />
-      <MusicPlayer video={'JUzPQ0JalHE'} />
-      <MusicPlayer video={'JUzPQ0JalHE'} />
+      <div>
+        <Slider
+          className={styles.slider}
+          {...slickSettings}
+          ref={sliderRef}
+        >
+          {pliArr.map((content, index) => {
+            return (<div key={index}>
+              <div className={styles.cardContainer+' '+(selectedOption[index] && styles.checked)+' '+(currentSlide !=index && styles.sideSlide)}>
+                <MusicPlayer video={content.videoId} />
+                <div className={styles.pliContentWrap}>
+                  <div >{content.channel}</div>
+                  <div >{content.title}</div>
+                  <div>
+                    {content.tags && content.tags.map((item) => (<span key={item} >#{item}</span>))}
+                  </div>
+                  <CheckBox index={index} value={index} isChecked={selectedOption[index]} handleCheckboxChange={handleOptionChange}></CheckBox>
+                </div>
 
-      <button onClick={() => getTopPlayList()}>
-        추천받기
-      </button>
+              </div>
+            </div>
+            )
+          })}
+        </Slider>
+      </div>
+
       {
         topPlaylists.map(playlist => (
           <div key={playlist.id}>
@@ -40,12 +89,7 @@ const SuggestPlaylistPageView = ({
         ))
       }
 
-      <div>
-        <span>나의 일기와 플레이리스트 컬렉션에 추가되었습니다</span>
-      </div>
-      <button>
-        다음
-      </button>
+      <RoundButton>기록하기</RoundButton>
     </ >
   )
 }

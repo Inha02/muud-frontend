@@ -9,7 +9,6 @@
 
 .moodBtn.inactive {
     background-color: var(--neutral20-color);
-    cursor: initial;
     color: var(--neutral60-color);
 }
 
