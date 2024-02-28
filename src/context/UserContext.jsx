@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect } from 'react';
 import moment from 'moment';
 import 'moment/locale/ko'; // 한국어 locale을 불러옵니다.
+import { setConfig } from '../api/axios';
 
 const UserContext = createContext();
 
@@ -39,6 +40,12 @@ export const UserDataProvider = ({ children }) => {
     useEffect(() => {
         setCurrentDate(moment().format('M월 D일 dddd'));
     }, []);
+
+    useEffect(() => {
+      if (authInfo && authInfo.accessToken) {
+        setConfig(authInfo.accessToken);
+      }
+  }, [authInfo]);
 
     return (
         <UserContext.Provider value={{ currentDate, setCurrentDate, setLoginInfo, setLogoutInfo, authInfo}}>

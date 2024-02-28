@@ -33,10 +33,11 @@ const Pages = () => {
         <Route path="mood/test" element={<MoodChoosePage />} />
       </Route>
       <Route path="/" element={<LoginPage />} />
+      <Route path="/home" element={<LoginPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/calendar" element={<CalendarPage />} />
-      <Route path="/auth/kakao/callback" element={<KakaoCallback />} />
+      <Route path="/oauth2/callback/kakao" element={<KakaoCallback />} />
 
     </Routes>
   )

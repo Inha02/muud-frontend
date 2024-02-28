@@ -62,10 +62,11 @@ const LoginPage = () => {
       modalOpen({
         content: ('로그인에 실패했습니다.'),
       })
+      /*
       setUser({
         id: '',
         pswd: '',
-    })
+    })*/
   }
 }
   return (
