@@ -1,11 +1,14 @@
 import { createContext, useContext, useState } from 'react'
 import Modal from '../components/common/Modal';
+import { useNavigate } from 'react-router-dom';
 
 const Context = createContext()
 
 export function ModalProvider({ children }) {
     const [isOpen, setIsOpen] = useState(false);
-    const [contents, setContents] = useState({ title: '', type: '' })
+    const [contents, setContents] = useState({ type:'', title:'', content:'', link:'',handle:null })
+    const navigateTo = useNavigate();
+
     /*
         const showPopup = () => {
             const { type, title, children, onConfirm, redirect, text1, text2, text3, cancelText, confirmText, redirectCancel } =
@@ -34,12 +37,16 @@ export function ModalProvider({ children }) {
             }
         };
     */
-    const modalOpen = ({ type, title, content, handle }) => {
-        setContents({ type, title, content, handle })
+    const modalOpen = ({ type, title, content, link,handle }) => {
+        setContents({ type, title, content, link,handle })
         setIsOpen(true);
     }
 
     const modalClose = () => {
+        console.log(contents.link)
+        if (contents.link != ''){
+            navigateTo(contents.link)
+        }
         setIsOpen(false)
     }
 

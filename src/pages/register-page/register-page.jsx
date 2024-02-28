@@ -18,6 +18,15 @@ const RegisterPageView = ({ user, onChangeUser, handleRegister, isRegisterActive
         required
       />
 
+      <div >닉네임</div>
+      <input type="text"
+        name="nickname"
+        onChange={onChangeUser}
+        value={user.nickname}
+        required
+        className={styles.box}
+      />
+
       <div>비밀번호 만들기</div>
       <div>8~15자로 입력해주세요.</div>
       <div className='pswdWrap'>
