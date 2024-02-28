@@ -2,22 +2,35 @@ import { useEffect, useState, useContext, useRef } from 'react'
 import { useUserContext } from '../../context/UserContext';
 import SuggestPlaylistPageView from './suggest-playlist-page'
 import axios from 'axios';
-import { getMoodImg } from '../../utils'
+import { Get } from '../../api/axios';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { getMoodData } from '../../utils';
 
 const SuggestPlaylistPage = () => {
+  const location = useLocation();
+  const { state } = location;
   const [pliArr, setPliArr] = useState([{ title: '제목', videoId: 'JUzPQ0JalHE', channel: '뮤플리', tags: ['태그1', '태그2'] }, { title: '[Playlist] 아니, 이런 노래는 어떻게 아는거야?? 너무 좋자나... | 노래 좀 듣는 애 플레이리스트😎ㅣShe has good taste...', videoId: '3TNm2tLw88A?si=vrfnDGY8zrhn4ARt', channel: '레이백 ʟᴀʏʙᴀᴄᴋ', tags: ['봄노래', '플레이리스트', 'playlist'] }])
   const { authInfo } = useUserContext();
-  const API_KEY = import.meta.env.VITE_YOUTUBE_KEY
-  const searchKeyword = '행복';
   const [topPlaylists, setTopPlaylists] = useState([]);
   const [videos, setVideos] = useState([]);
   const [playing, setPlaying] = useState(false)
+  const [isRecordActive,setIsRecordActive] = useState(false)
+  const [selectedOption, setSelectedOption] = useState([false, false, false, false]);
   const [currentSlide, setCurrentSlide] = useState(0)
   const sliderRef = useRef(null)
+  const [mood, setMood] = useState('');
 
   const handleSlideChange = (current, next) => {
     setCurrentSlide(current)
   }
+
+  const handleOptionChange = (event, index) => {
+    console.log('클릭' + index+ selectedOption)
+    const newValue = [false, false, false, false];
+    newValue[index] = !selectedOption[index];
+    setSelectedOption(newValue);
+    setIsRecordActive(!selectedOption[index]);
+  };
 
   const slickSettings = {
     dots: true,
@@ -39,20 +52,35 @@ const SuggestPlaylistPage = () => {
   const playerRef = useRef(null);
 
 
+const handleRecord=()=>{
 
-  useEffect(() => {
+}
+
+const getPliAxios = async () => {
+  try {
+    
+    const response = await Get(`/playlists?emotion=${'EMOTION1'}`);
+    console.log(response)
     /*
-    추천 로직 :
-    키워드 - '행복'
-    필터링 - 음악, 재생목록
-    정렬 - 조회순 
-    최대 - 4개
+    const { accessToken, refreshToken, userInfo } = response;
+    setLoginInfo(accessToken, refreshToken, userInfo);
+    navigateTo('/home');
+    */
+
+  } catch (error) {
+console.log(error);
+}
+}
+  useEffect(() => {
+    if (state) {
+      setMood(state)
+    }
+    /*
     - 이전 추천과 겹치지 않도록 주의해야함
     - 4개를 충족하지 못할 경우에도 꼭 4개가 될 수 있도록
     */
-
+    getPliAxios();
   }, []);
-
 
 
   // // 동영상이 종료되면 호출되는 콜백 함수
@@ -82,6 +110,11 @@ const SuggestPlaylistPage = () => {
       slickSettings={slickSettings}
       sliderRef={sliderRef}
       currentSlide={currentSlide}
+      handleOptionChange={handleOptionChange}
+      selectedOption={selectedOption}
+      isRecordActive={isRecordActive}
+      handleRecord={handleRecord}
+      mood ={mood}
     />
   )
 }

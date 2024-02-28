@@ -10,7 +10,7 @@ import 'slick-carousel/slick/slick-theme.css'
 import './slider.css'
 //import styles from '../../components/MusicPlayer/MusicPlayer.module.css'; // CSS 모듈 임포트
 import styles from './suggest-playlist-page.module.css'; // CSS 모듈 임포트
-
+import { getMoodData } from "../../utils";
 
 /* 플리 카드 컴포넌트 */
 const SlideCard = ({ content, children }) => {
@@ -28,20 +28,21 @@ const SuggestPlaylistPageView = ({
   setPlaying,
   slickSettings, sliderRef, currentSlide,
   authInfo,
-  pliArr
+  pliArr,
+  selectedOption,
+  handleOptionChange,
+  isRecordActive,
+  handleRecord,
+  mood
 }) => {
-  const [selectedOption, setSelectedOption] = useState([false, false, false, false]);
-  const handleOptionChange = (event, index) => {
-    console.log('클릭' + index+ selectedOption)
-    const newValue = [false, false, false, false];
-    newValue[index] = !selectedOption[index];
-    setSelectedOption(newValue);
-  };
+
 
 
   return (
     <>
-      <img className={styles.moodEmojiSmall} src={'/images/cloudy-mood.png'} alt='emotion' />
+    {mood &&(<img className={styles.moodEmojiSmall} src={getMoodData(mood).emoji} alt='emotion' />)
+    
+    }
       <div>{authInfo.userInfo.nickname}님을 위한 플레이리스트</div>
       <div>마음에 드는 플리를 선택해서 감정과 함께 저장해보세요</div>
 
@@ -89,7 +90,7 @@ const SuggestPlaylistPageView = ({
         ))
       }
 
-      <RoundButton>기록하기</RoundButton>
+      <RoundButton onClick={handleRecord} active={isRecordActive}>기록하기</RoundButton>
     </ >
   )
 }

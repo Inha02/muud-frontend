@@ -1,3 +1,79 @@
+const moodQnAArray = [
+  { mood: 'EMOTION1',moodTxt: 'HAPPY', text: '두근두근 기분이 좋고,웃을 일이 많아요' },
+  { mood: 'EMOTION2',moodTxt: 'ANGER', text: '왠지 모르게 작은 일에도 쉽게 화가 나요' },
+  { mood: 'EMOTION3',moodTxt: 'SAD', text: '뭔가 입맛이 없고, 자꾸 슬퍼져요' },
+  {mood: 'EMOTION4', moodTxt: 'BUSY', text: '할 일이 너무 많고, 하루가 길게 느껴져요' },
+  {mood: 'EMOTION5', moodTxt: 'NORMAL', text: '내 마음은 조용하고 단순한 분위기예요' },
+  { mood: 'EMOTION6',moodTxt: 'STRESS', text: '답답하고, 스트레스를 많이 받았어요' },
+];
+
+const moodDataArray =[
+  {
+    "id":"EMOTION1",
+    "titleEmotion": "기쁨",
+    "combinedName": "쨍쨍한 햇빛",
+    "description": "날씨 좋은 날,  푸른 하늘에 보이는 쨍쨍한 햇빛 같아요",
+    "emoji":"/images/sunny-mood.png",
+    "tags": [
+        "기쁨",
+        "설렘",
+        "행복"
+    ]
+},
+{
+  "id":"EMOTION2",
+    "titleEmotion": "우울",
+    "combinedName": "우르르 쾅쾅",
+    "description": "마음을 쾅쾅 두드리는 화가 가득해요",
+    "emoji":"/images/thunder-mood.png",
+    "tags": [
+        "분노",
+        "짜증",
+        "극대노"
+    ]
+},
+{
+  "id":"EMOTION3",
+    "titleEmotion": "슬픔",
+    "combinedName": "호우주의보",
+    "description": "거센 비가 마음을 적시고 있어요",
+    "emoji":"/images/rainy-mood.png",
+    "tags": [
+      "눈물나는", "후회", "슬픔"
+    ]
+},
+{
+  "id":"EMOTION4",
+    "titleEmotion": "피곤",
+    "combinedName": "안개주의보",
+    "description": "온통 회색빛인 마음에 안개가 뒤덮였어요",
+    "emoji":"/images/foggy-mood.png",
+    "tags": [
+      "피곤한", "지침", "기운없음"
+    ]
+},
+{
+  "id":"EMOTION5",
+    "titleEmotion": "덤덤",
+    "combinedName": "잔잔한 구름",
+    "description": "바람 따라 흘러가는 구름처럼 조용해요",
+    "emoji":"/images/cloudy-mood.png",
+    "tags": [
+      "그저 그럼", "SOSO", "덤덤"
+    ]
+},
+{
+  "id":"EMOTION6",
+    "titleEmotion": "분노",
+    "combinedName": "태풍의 눈",
+    "description": "스트레스로 어질어질 빙글빙글 돌아요",
+    "emoji":"/images/typhoon-mood.png",
+    "tags": [
+      "스트레스", "우울", "숨막혀요"
+    ]
+},
+]
+
 const timeData = [
   {
     value: 199,
@@ -272,4 +348,4 @@ const data = [
     value: 73,
   },
 ]
-export { timeData, data }
+export { timeData, data ,moodQnAArray, moodDataArray}

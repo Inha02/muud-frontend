@@ -3,9 +3,11 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../context/UserContext';
 import MoodResultPageView from './mood-result-page'
 import { Get, Post } from '../../api/axios';
+import { getMoodData } from '../../utils';
 
 const MoodResultPage = () => {
   const location = useLocation();
+  const [mood, setMood] = useState('');
   const { state } = location;
   const { currentDate } = useUserContext();
   const [text, setText] = useState('');
@@ -17,7 +19,15 @@ const MoodResultPage = () => {
   const enteredChars = text.length;
 
   const handleSkipClick = () => {
-    navigateTo('/playlist');
+    navigateTo(`/playlist`,{
+      state: mood
+    });
+  }
+
+  const handleRightClick = () => {
+    navigateTo(`/playlist`,{
+      state: mood
+    });
   }
 
   const handleChange = (e) => {
@@ -32,10 +42,6 @@ const MoodResultPage = () => {
     }
     setText(inputValue);
   };
-
-  const handleRightClick = () => {
-    navigateTo('/playlist');
-  }
 
   const postDiaryAxios = async (mood) => {
     try {
@@ -57,11 +63,16 @@ const MoodResultPage = () => {
   };
 
   useEffect(() => {
-    if (state) {
-      console.log(state);
-      getMoodAxios('EMOTION1');
-    }
+    const params = new URL(document.URL).searchParams;
+    setMood(params.get("mood"));
   }, []);
+
+  useEffect(() => {
+    if (mood) {
+      setMoodResultData(getMoodData(mood));
+      //getMoodAxios(mood);
+    }
+  }, [mood]);
 
   return (
     <MoodResultPageView currentDate={currentDate} handleChange={handleChange} handleSkipClick={handleSkipClick} handleRightClick={handleRightClick} enteredChars={enteredChars} maxLength={maxLength} isRightBtnActive={isBtnActive} moodResultData={moodResultData} />

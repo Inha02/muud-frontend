@@ -59,6 +59,8 @@ const RegisterPage = () => {
       })
   
     } catch (error) {
+      console.log(error)
+      /*
       if (error.response.status == 409) {
         modalOpen({
           content: ('이미 가입된 이메일 입니다'),
@@ -68,6 +70,7 @@ const RegisterPage = () => {
           content: ('가입 오류\n회원가입에 실패했습니다.'),
         })
       }
+      */
     }
   };
 
