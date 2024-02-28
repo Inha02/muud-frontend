@@ -1,11 +1,11 @@
 import { useEffect, useState, useContext, useRef } from 'react'
-import { UserContext } from '../../context/UserContext';
+import { useUserContext } from '../../context/UserContext';
 import MoodChoosePageView from './mood-choose-page'
 import { useNavigate } from 'react-router-dom';
 
 const MoodChoosePage = () => {
   const [selectedOption, setSelectedOption] = useState(null);
-  const { currentDate } = useContext(UserContext);
+  const { currentDate } = useUserContext();
   const navigateTo = useNavigate();
 
   const moodArray = [

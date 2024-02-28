@@ -1,13 +1,13 @@
 import { useEffect, useState, useContext, useRef } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
-import { UserContext } from '../../context/UserContext';
+import { useUserContext } from '../../context/UserContext';
 import MoodResultPageView from './mood-result-page'
 import { Get, Post } from '../../api/axios';
 
 const MoodResultPage = () => {
   const location = useLocation();
   const { state } = location;
-  const { currentDate } = useContext(UserContext);
+  const { currentDate } = useUserContext();
   const [text, setText] = useState('');
   const [isBtnActive, setIsBtnActive] = useState(false);
   const [moodResultData, setMoodResultData] = useState({});
@@ -39,7 +39,7 @@ const MoodResultPage = () => {
 
   const postDiaryAxios = async (mood) => {
     try {
-      const response = await Post('diaries', { content: '', emotionName: '' });
+      const response = await Post('/diaries', { content: '', emotionName: '' });
 
     } catch (error) {
       console.error('Error fetching data:', error);

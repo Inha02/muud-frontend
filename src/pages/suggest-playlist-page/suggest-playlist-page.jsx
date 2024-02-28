@@ -27,7 +27,7 @@ const SuggestPlaylistPageView = ({
   playing,
   setPlaying,
   slickSettings, sliderRef, currentSlide,
-  userNick,
+  authInfo,
   pliArr
 }) => {
   const [selectedOption, setSelectedOption] = useState([false, false, false, false]);
@@ -42,7 +42,7 @@ const SuggestPlaylistPageView = ({
   return (
     <>
       <img className={styles.moodEmojiSmall} src={'/images/cloudy-mood.png'} alt='emotion' />
-      <div>{userNick}님을 위한 플레이리스트</div>
+      <div>{authInfo.userInfo.nickname}님을 위한 플레이리스트</div>
       <div>마음에 드는 플리를 선택해서 감정과 함께 저장해보세요</div>
 
       <div>

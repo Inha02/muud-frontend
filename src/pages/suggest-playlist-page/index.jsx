@@ -1,12 +1,12 @@
 import { useEffect, useState, useContext, useRef } from 'react'
-import { UserContext } from '../../context/UserContext';
+import { useUserContext } from '../../context/UserContext';
 import SuggestPlaylistPageView from './suggest-playlist-page'
 import axios from 'axios';
 import { getMoodImg } from '../../utils'
 
 const SuggestPlaylistPage = () => {
   const [pliArr, setPliArr] = useState([{ title: '제목', videoId: 'JUzPQ0JalHE', channel: '뮤플리', tags: ['태그1', '태그2'] }, { title: '[Playlist] 아니, 이런 노래는 어떻게 아는거야?? 너무 좋자나... | 노래 좀 듣는 애 플레이리스트😎ㅣShe has good taste...', videoId: '3TNm2tLw88A?si=vrfnDGY8zrhn4ARt', channel: '레이백 ʟᴀʏʙᴀᴄᴋ', tags: ['봄노래', '플레이리스트', 'playlist'] }])
-  const { userNick } = useContext(UserContext);
+  const { authInfo } = useUserContext();
   const API_KEY = import.meta.env.VITE_YOUTUBE_KEY
   const searchKeyword = '행복';
   const [topPlaylists, setTopPlaylists] = useState([]);
@@ -74,7 +74,7 @@ const SuggestPlaylistPage = () => {
   return (
     <SuggestPlaylistPageView
       pliArr={pliArr}
-      userNick={userNick}
+      authInfo={authInfo}
       playlistVideoIds={playlistVideoIds}
       topPlaylists={topPlaylists}
       playing={playing}
