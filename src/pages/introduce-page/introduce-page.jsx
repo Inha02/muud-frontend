@@ -14,7 +14,7 @@ const SlideCard = ({ content }) => {
     )
 }
 
-const IntroducePageView = ({ slickSettings, sliderRef, currentSlide, handleClick, moodArray }) => {
+const IntroducePageView = ({ slickSettings, sliderRef, currentSlide, handleClick, moodArray, handleSkipClick, handleStartClick }) => {
     return (
         <div className='appContainer topbar'>
             <div>
@@ -33,7 +33,7 @@ const IntroducePageView = ({ slickSettings, sliderRef, currentSlide, handleClick
 
             {currentSlide != 1 && (
                 <div>
-                    <a >건너뛰기</a>
+                    <a onClick={handleSkipClick}>건너뛰기</a>
                 </div>
             )}
             <RoundButton

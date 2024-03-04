@@ -23,12 +23,11 @@ const SlideCard = ({ content, children }) => {
 
 const SuggestPlaylistPageView = ({
   playlistVideoIds,
-  topPlaylists,
   playing,
   setPlaying,
   slickSettings, sliderRef, currentSlide,
-  authInfo,
-  pliArr,
+  userInfo,
+  playlistArr,
   selectedOption,
   handleOptionChange,
   isRecordActive,
@@ -40,10 +39,10 @@ const SuggestPlaylistPageView = ({
 
   return (
     <>
-    {mood &&(<img className={styles.moodEmojiSmall} src={getMoodData(mood).emoji} alt='emotion' />)
-    
-    }
-      <div>{authInfo.userInfo.nickname}님을 위한 플레이리스트</div>
+      {mood && (<img className={styles.moodEmojiSmall} src={getMoodData(mood).emoji} alt='emotion' />)
+
+      }
+      <div>{userInfo.nickname}님을 위한 플레이리스트</div>
       <div>마음에 드는 플리를 선택해서 감정과 함께 저장해보세요</div>
 
       <div>
@@ -52,12 +51,13 @@ const SuggestPlaylistPageView = ({
           {...slickSettings}
           ref={sliderRef}
         >
-          {pliArr.map((content, index) => {
+          {playlistArr.map((content, index) => {
             return (<div key={index}>
-              <div className={styles.cardContainer+' '+(selectedOption[index] && styles.checked)+' '+(currentSlide !=index && styles.sideSlide)}>
+              <div className={styles.cardContainer + ' ' + (selectedOption[index] && styles.checked) + ' ' + (currentSlide != index && styles.sideSlide)}>
                 <MusicPlayer video={content.videoId} />
                 <div className={styles.pliContentWrap}>
-                  <div >{content.channel}</div>
+                  <div >{content.channelName
+                  }</div>
                   <div >{content.title}</div>
                   <div>
                     {content.tags && content.tags.map((item) => (<span key={item} >#{item}</span>))}
@@ -71,24 +71,6 @@ const SuggestPlaylistPageView = ({
           })}
         </Slider>
       </div>
-
-      {
-        topPlaylists.map(playlist => (
-          <div key={playlist.id}>
-            <h1>{playlist.title}</h1>
-            <img src={playlist.thumbnail} alt={playlist.title} />
-            {playlist.videos.map(video => (
-              <div key={video.id}>
-                <h3>{video.title}</h3>
-
-                <MusicPlayer video={video.playlistId} />
-
-              </div>
-            ))
-            }
-          </div >
-        ))
-      }
 
       <RoundButton onClick={handleRecord} active={isRecordActive}>기록하기</RoundButton>
     </ >

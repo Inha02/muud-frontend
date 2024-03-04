@@ -8,6 +8,7 @@ import LoginPage from './pages/login-page'
 import RegisterPage from './pages/register-page'
 import MoodResultPage from './pages/mood-result-page'
 import SuggestPlaylistPage from './pages/suggest-playlist-page'
+import CompleteDiaryPage from './pages/complete-diary-page'
 import ReportPage from './pages/report-page'
 import CalendarPage from './pages/calendar-page'
 import UserNicknamePage from './pages/user-nickname-page';
@@ -30,6 +31,7 @@ const Pages = () => {
       <Route path="/*" element={<BackBtnContainer />}>
         <Route path="mood/result" element={<MoodResultPage />} />
         <Route path="playlist" element={<SuggestPlaylistPage />} />
+        <Route path="diary/complete" element={<CompleteDiaryPage />} />
         <Route path="mood/report" element={<ReportPage />} />
         <Route path="user/nickname" element={<UserNicknamePage />} />
         <Route path="introduce" element={<IntroducePage />} />
