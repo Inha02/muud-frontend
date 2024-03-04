@@ -1,7 +1,9 @@
 import { useEffect, useState, useContext } from 'react';
+import { useCookies } from 'react-cookie';
 import { Route, Routes, Link, Outlet } from 'react-router-dom'
 import { UserDataProvider } from './context/UserContext';
 import { BrowserView, MobileView } from 'react-device-detect'
+
 import LoginPage from './pages/login-page'
 import RegisterPage from './pages/register-page'
 import MoodResultPage from './pages/mood-result-page'
@@ -10,15 +12,16 @@ import ReportPage from './pages/report-page'
 import CalendarPage from './pages/calendar-page'
 import UserNicknamePage from './pages/user-nickname-page';
 import IntroducePage from './pages/introduce-page';
+import MoodChoosePage from './pages/mood-choose-page';
 
 import KakaoCallback from './pages/kakao-callback'
+import MobileContent from './layout/MobileContent';
 import MobileContainer from "./layout/MobileContainer";
 import BackBtnContainer from "./layout/BackBtnContainer";
 import NavBar from "./components/NavBar";
 
 import './App.css';
-import MoodChoosePage from './pages/mood-choose-page';
-import MobileContent from './layout/MobileContent';
+
 
 //헤더 뒤로가기, 탑바 없기 구분해야함 
 const Pages = () => {
@@ -33,7 +36,7 @@ const Pages = () => {
         <Route path="mood/test" element={<MoodChoosePage />} />
       </Route>
       <Route path="/" element={<LoginPage />} />
-      <Route path="/home" element={<LoginPage />} />
+      <Route path="/home" element={<CalendarPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/calendar" element={<CalendarPage />} />

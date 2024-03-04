@@ -1,4 +1,6 @@
 import axios from "axios";
+import { useCookies } from 'react-cookie';
+
 export const be = axios.create({
     baseURL: import.meta.env.VITE_BACKEND_URL,
 });
@@ -7,16 +9,15 @@ export const setConfig = (accessToken)=>{
 
     //1
     be.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
-    console.log('토큰저장'+ accessToken);
     
-    //2
+  /*  //2
     be.interceptors.request.use(config => {
         if (accessToken) {
             config.headers.Authorization = `Bearer ${accessToken}`;
         }
         return config;
     });
-
+*/
 }
 
 
@@ -41,8 +42,7 @@ export const Get = async (url, config) => {
  */
 export const Post = async (url, data, config) => {
     const response = await be.post(url, data, config);
-
-    return response.data;
+    return response;
 };
 
 /**

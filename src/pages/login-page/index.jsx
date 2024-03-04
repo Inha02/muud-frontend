@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
+import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
 import LoginPageView from './login-page';
 import { useModal } from '../../context/ModalContext';
 import { useUserContext } from '../../context/UserContext';
 import { validateEmail, validatePswd } from '../../utils';
-import { Post } from '../../api/axios';
+import { Post, setConfig } from '../../api/axios';
 
 const LoginPage = () => {
   const navigateTo = useNavigate();
@@ -15,7 +16,7 @@ const LoginPage = () => {
   const [isShownPswd, setIsShownPswd] = useState(false);
   const [isLoginActive, setIsLoginActive] = useState(false);
   const { modalOpen } = useModal();
-  const { setLoginInfo } = useUserContext();
+  const [cookies, setCookie, removeCookie] = useCookies(['accessToken', 'refreshToken', 'id', 'nickname']);
 
   const REST_API_KEY = import.meta.env.VITE_KAKAO_KEY;
   const REDIRECT_URI = `${import.meta.env.VITE_HOST}/oauth2/callback/kakao`;
@@ -24,6 +25,8 @@ const LoginPage = () => {
 
   const handleKakaoLogin = () => {
     window.location.href = KAKAO_AUTH_URL;
+    //navigateTo('');
+
   };
 
   const onChangeUser = (event) => {
@@ -34,6 +37,10 @@ const LoginPage = () => {
     const isIdEmpty = name === 'id' || user.id !== '';
     setIsLoginActive(value !== '' && isPswdEmpty && isIdEmpty);
   }
+
+  const handleClickRegister = () => {
+    navigateTo('/register');
+  };
 
   const handleLogin = () => {
     if (!validateEmail(user.id) || !validatePswd(user.pswd)) {
@@ -54,21 +61,25 @@ const LoginPage = () => {
         email: user.id,
         password: user.pswd,
       });
-      const { accessToken, refreshToken, userInfo } = response;
-      setLoginInfo(accessToken, refreshToken, userInfo);
+      const { accessToken, refreshToken, userInfo } = response.data;
+      setCookie('accessToken', accessToken, { path: '/' });
+      setCookie('refreshToken', refreshToken, { path: '/' });
+      setCookie('id', userInfo.id, { path: '/' });
+      setCookie('nickname', userInfo.nickname, { path: '/' });
       navigateTo('/home');
-  
+
     } catch (error) {
       modalOpen({
         content: ('로그인에 실패했습니다.'),
       })
-      /*
+      /* ToDo: 배포전 주석해제
       setUser({
         id: '',
         pswd: '',
     })*/
+    }
   }
-}
+
   return (
     <LoginPageView
       user={user}
@@ -78,6 +89,7 @@ const LoginPage = () => {
       isShownPswd={isShownPswd}
       toggleShowPswd={toggleShowPswd}
       isLoginActive={isLoginActive}
+      handleClickRegister={handleClickRegister}
     />
   );
 };

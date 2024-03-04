@@ -6,7 +6,7 @@ const Context = createContext()
 
 export function ModalProvider({ children }) {
     const [isOpen, setIsOpen] = useState(false);
-    const [contents, setContents] = useState({ type:'', title:'', content:'', link:'',handle:null })
+    const [contents, setContents] = useState({ type: '', title: '', content: '', link: '', handle: null })
     const navigateTo = useNavigate();
 
     /*
@@ -37,14 +37,14 @@ export function ModalProvider({ children }) {
             }
         };
     */
-    const modalOpen = ({ type, title, content, link,handle }) => {
-        setContents({ type, title, content, link,handle })
+    const modalOpen = ({ type, title, content, link, handle }) => {
+        setContents({ type, title, content, link, handle })
         setIsOpen(true);
     }
 
     const modalClose = () => {
-        console.log(contents.link)
-        if (contents.link != ''){
+        // console.log(contents.link)
+        if (contents.link != '') {
             navigateTo(contents.link)
         }
         setIsOpen(false)

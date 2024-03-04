@@ -1,7 +1,7 @@
 import RoundButton from '../../components/common/RoundButton';
 import styles from './login-page.module.css';
 
-const LoginPageView = ({ user, onChangeUser, handleLogin, handleKakaoLogin, isShownPswd, toggleShowPswd, isLoginActive }) => { //프롭스 대신 객체로 넣기(타입)
+const LoginPageView = ({ user, onChangeUser, handleLogin, handleKakaoLogin, isShownPswd, toggleShowPswd, isLoginActive, handleClickRegister }) => { //프롭스 대신 객체로 넣기(타입)
 
   return (
     <>
@@ -45,7 +45,7 @@ const LoginPageView = ({ user, onChangeUser, handleLogin, handleKakaoLogin, isSh
         </div>
 
         <div style={{ marginTop: '0.5em' }} className={styles.textCenter}>
-          <span style={{ display: 'inline-block', marginRight: '10px' }}><a>회원가입</a></span>
+          <span style={{ display: 'inline-block', marginRight: '10px' }}><a onClick={handleClickRegister}>회원가입</a></span>
           <span>|</span>
           <span style={{ display: 'inline-block', marginRight: '10px', marginLeft: '10px' }}><a>이메일 찾기</a></span>
           <span>|</span>
