@@ -1,23 +1,23 @@
 import { useState, useEffect } from 'react'
-import { useModal } from '../../context/ModalContext'
 import { useCookies } from 'react-cookie';
+import { useNavigate } from 'react-router-dom';
+import { useModal } from '../../context/ModalContext'
 import RegisterPageView from './register-page'
 import { validateEmail, validatePswd } from '../../utils'
 import { Post, setConfig } from '../../api/axios';
-import { useNavigate } from 'react-router-dom';
 
 const RegisterPage = () => {
-  const [cookies, setCookie] = useCookies(['accessToken', 'refreshToken', 'id', 'nickname']);
   const { modalOpen } = useModal()
   const navigateTo = useNavigate();
+  const [cookies, setCookie] = useCookies(['accessToken', 'refreshToken', 'id', 'nickname']);
+  const [isShownPswd, setIsShownPswd] = useState(false)
+  const [isRegisterActive, setIsRegisterActive] = useState(true)
   const [user, setUser] = useState({
     id: '',
     nickname: '',
     pswd: '',
     pswdCheck: '',
   })
-  const [isShownPswd, setIsShownPswd] = useState(false)
-  const [isRegisterActive, setIsRegisterActive] = useState(true)
 
   const onChangeUser = (event) => {
     const { name, value } = event.target

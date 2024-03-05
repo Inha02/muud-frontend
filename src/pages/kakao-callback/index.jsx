@@ -1,47 +1,57 @@
 import { useEffect, useState } from 'react'
+import { useCookies } from 'react-cookie';
+import { useNavigate } from 'react-router-dom';
 import { Post } from '../../api/axios';
 import { useUserContext } from '../../context/UserContext';
-import { useNavigate } from 'react-router-dom';
 import { useModal } from '../../context/ModalContext';
-
 
 const KakaoCallback = (props) => {
   const navigateTo = useNavigate();
   const { modalOpen } = useModal();
+  const [cookies, setCookie] = useCookies(['accessToken', 'refreshToken', 'id', 'nickname']);
+  const params = new URL(document.URL).searchParams;
+  const [code, setCode] = useState('');
 
   const kakaoAxios = async (code) => {
-    console.log(code)
     try {
       const response = await Post('/auth/kakao/signin', {
         code: code
       });
-      console.log('카카오 로그인 성공 응답' + response.refreshToken)
+      console.log(response)
+      const { accessToken, refreshToken, userInfo } = response.data;
+      setCookie('accessToken', accessToken, { path: '/' });
+      setCookie('refreshToken', refreshToken, { path: '/' });
+      setCookie('id', userInfo.id, { path: '/' });
+      setCookie('nickname', userInfo.nickname, { path: '/' });
 
-      const { accessToken, refreshToken, userInfo } = response;
-      navigateTo('/home');
-
-
-
-      //201 일시 가입완료
+      if (response.status == 201) {
+        modalOpen({
+          content: ('환영합니다!\n회원 가입 완료'),
+          handle: navigateTo('/user/nickname', { replace: true }),
+        })
+      } else {
+        navigateTo('/home', { replace: true });
+      }
 
     } catch (error) {
-      console.log('에러')
-      console.log(error.response)
-
-      /*
-                modalOpen({
-                  content: ('요청이 실패하였습니다.'),
-                  link:'/login'
-                })
-                */
+      console.log(error)
+      modalOpen({
+        content: ('요청이 실패하였습니다.'),
+        handle: navigateTo('/login', { replace: true })
+      })
     }
 
   }
 
+  const getCode = () => {
+    setCode(params.get('code'))
+  }
   useEffect(() => {
-    const params = new URL(document.URL).searchParams;
-    const code = params.get("code");
-    kakaoAxios(code);
+    if (code) kakaoAxios(code);
+  }, [code]);
+
+  useEffect(() => {
+    getCode()
   }, []);
 
   return (

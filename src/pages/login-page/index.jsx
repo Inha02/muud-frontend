@@ -25,8 +25,6 @@ const LoginPage = () => {
 
   const handleKakaoLogin = () => {
     window.location.href = KAKAO_AUTH_URL;
-    //navigateTo('');
-
   };
 
   const onChangeUser = (event) => {

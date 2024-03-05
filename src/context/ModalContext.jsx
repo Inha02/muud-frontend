@@ -44,7 +44,10 @@ export function ModalProvider({ children }) {
 
     const modalClose = () => {
         // console.log(contents.link)
-        if (contents.link != '') {
+        if (contents.handle) {
+            contents.handle()
+        }
+        else if (contents.link != '') {
             navigateTo(contents.link)
         }
         setIsOpen(false)

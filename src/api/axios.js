@@ -8,7 +8,7 @@ export const be = axios.create({
 export const setConfig = (accessToken)=>{
 
     //1
-    be.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+    if(accessToken) be.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
     
   /*  //2
     be.interceptors.request.use(config => {
@@ -18,6 +18,10 @@ export const setConfig = (accessToken)=>{
         return config;
     });
 */
+}
+
+export const clearConfig = (accessToken)=>{
+    delete be.defaults.headers.common['Authorization'];    
 }
 
 
