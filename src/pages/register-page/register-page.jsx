@@ -18,7 +18,8 @@ const RegisterPageView = ({ user, onChangeUser, handleRegister, isRegisterActive
         required
       />
 
-      <div >닉네임</div>
+      <div >뮤디에서 사용할 이름을 입력해주세요</div>
+      <div>공백없이 10자 이하만 가능합니다.</div>
       <input type="text"
         name="nickname"
         onChange={onChangeUser}

@@ -10,7 +10,7 @@ import MoodResultPage from './pages/mood-result-page'
 import SuggestPlaylistPage from './pages/suggest-playlist-page'
 import CompleteDiaryPage from './pages/complete-diary-page'
 import ReportPage from './pages/report-page'
-import CalendarPage from './pages/calendar-page'
+import HomePage from './pages/home-page'
 import UserNicknamePage from './pages/user-nickname-page';
 import IntroducePage from './pages/introduce-page';
 import MoodChoosePage from './pages/mood-choose-page';
@@ -29,6 +29,7 @@ const Pages = () => {
   return (
     <Routes>
       <Route path="/*" element={<BackBtnContainer />}>
+        <Route path="home" element={<HomePage />} />
         <Route path="mood/result" element={<MoodResultPage />} />
         <Route path="playlist" element={<SuggestPlaylistPage />} />
         <Route path="diary/complete" element={<CompleteDiaryPage />} />
@@ -38,10 +39,8 @@ const Pages = () => {
         <Route path="mood/test" element={<MoodChoosePage />} />
       </Route>
       <Route path="/" element={<LoginPage />} />
-      <Route path="/home" element={<CalendarPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
-      <Route path="/calendar" element={<CalendarPage />} />
       <Route path="/oauth2/callback/kakao" element={<KakaoCallback />} />
 
     </Routes>

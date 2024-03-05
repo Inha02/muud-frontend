@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
-import CalendarPageView from './calendar-page'
+import HomePageView from './home-page'
 import moment from 'moment';
 import 'moment/locale/ko';
 
-const CalendarPage = () => {
+const HomePage = () => {
   useEffect(() => { }, [])
 
   // 일기 작성 날짜 리스트
@@ -19,6 +19,14 @@ const CalendarPage = () => {
   // const activeDate = moment(currentDate).format('YYYY-MM-DD');
   const monthOfActiveDate = moment(currentDate).format('YYYY-MM');
   const [activeMonth, setActiveMonth] = useState(monthOfActiveDate);
+  const [playlist, setPlaylist] = useState(
+    {
+      title: '제목',
+      videoId: 'JUzPQ0JalHE',
+      channel: '뮤플리',
+      tags: ['태그1', '태그2'],
+    }
+  )
 
   const updateActiveMonth = (activeStartDate) => {
     const newActiveMonth = moment(activeStartDate).format('YYYY-MM');
@@ -45,7 +53,7 @@ const CalendarPage = () => {
     return <div>{contents}</div>;
   };
 
-  return <CalendarPageView moment={moment} currentDate={currentDate} setCurrentDate={setCurrentDate} addContent={addContent} updateActiveMonth={updateActiveMonth} />
+  return <HomePageView playlist={playlist} moment={moment} currentDate={currentDate} setCurrentDate={setCurrentDate} addContent={addContent} updateActiveMonth={updateActiveMonth} />
 }
 
-export default CalendarPage
+export default HomePage

@@ -4,7 +4,7 @@ import styles from './BackBtnContainer.module.css'
 
 const BackBtnContainer = () => {
     return (
-        <div className={styles.topbarContainer}>
+        <div className={styles.backBtnContainer}>
             <TopBar option={'back'} ></TopBar>
             <Outlet></Outlet>
         </div>
