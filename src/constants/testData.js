@@ -57,7 +57,18 @@ const moodDataArray = [
     tags: ['스트레스', '우울', '숨막혀요'],
   },
 ]
+const playList =[
+  {
+    title:
+      '[Playlist] 아니, 이런 노래는 어떻게 아는거야?? 너무 좋자나... | 노래 좀 듣는 애 플레이리스트😎ㅣShe has good taste...',
+    videoId: 'g7c0W-8rNmw',
+    channelName
+      : 'essential;',
+    tags: ['음잘알', '트렌디한', '힙스터', '음악', '플레이리스트', '팝송'],
+  },
+]
 
+/* 통계 */
 const timeData = [
   {
     value: 199,
@@ -332,4 +343,4 @@ const data = [
     value: 73,
   },
 ]
-export { timeData, data, moodQnAArray, moodDataArray }
+export { timeData, data, moodQnAArray, moodDataArray ,playList}

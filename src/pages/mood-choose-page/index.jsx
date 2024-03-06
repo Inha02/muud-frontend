@@ -16,7 +16,7 @@ const MoodChoosePage = () => {
 
   const handleButtonClick = () => {
     if (selectedOption != null)
-      navigateTo(`/mood/result?mood=${selectedOption}`) //, { state: selectedOption }); //감정 전달
+      navigateTo(`/mood/result`, { state: selectedOption }); //감정 전달
   };
 
 

@@ -12,6 +12,25 @@ const getMoodData = (mood) => {
  return moodDataArray.filter(item => item.id == mood)[0];
 }
 
+const getMoodIcon = (moodText) => {
+  switch (moodText) {
+    case '기쁨': //
+      return '/images/ico_sunny-mood.png'
+    case '분노': //
+      return '/images/ico_thunder-mood.png'
+    case '슬픔': //
+      return '/images/ico_rainy-mood.png'
+    case '피곤': //
+      return '/images/ico_foggy-mood.png'
+    case '덤덤': //
+      return '/images/ico_cloudy-mood.png'
+    case '우울': //
+      return '/images/ico_typhoon-mood.png'
+    default:
+      return '/'
+  }
+}
+
 /*
 const getMoodImg = (mood) => {
   switch (mood) {
@@ -34,4 +53,4 @@ const getMoodImg = (mood) => {
 }
 */
 
-export { validateEmail, validatePswd,getMoodData }
+export { validateEmail, validatePswd,getMoodData,getMoodIcon }

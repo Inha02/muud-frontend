@@ -1,10 +1,13 @@
-import styles from './RoundButton.module.css'
+import './RoundButton.css'
 
-const RoundButtonView = ({ text, onClick, active }) => {
+/**
+ * @param {string} size 
+ */
+const RoundButtonView = ({ text, onClick, active, size }) => {
   return (
-    <div className={styles.btnContainer}>
+    <div>
       <button
-        className={active ? styles.roundBtn + ' ' + styles.active : styles.roundBtn + ' ' + styles.inactive}
+        className={`roundBtn ${active ? 'active' : 'inactive'} ${size}`}
         onClick={active ? onClick : null}
       >{text}</button>
     </div >

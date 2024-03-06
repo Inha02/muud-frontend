@@ -19,13 +19,16 @@ const MoodResultPage = () => {
   const enteredChars = text.length;
 
   const handleSkipClick = () => {
-    postDiaryAxios('');
-
+    navigateTo(`/playlist`, {
+      state: mood,
+    });
   }
 
   const handleRightClick = () => {
-    postDiaryAxios(text);
-
+    navigateTo(`/playlist`, {
+      state: mood,
+      diary: text
+    });
   }
 
   const handleChange = (e) => {
@@ -41,17 +44,6 @@ const MoodResultPage = () => {
     setText(inputValue);
   };
 
-  const postDiaryAxios = async (content) => {
-    try {
-      const response = await Post('/diaries', { content: content, emotionName: mood, playlistId: '' });
-      navigateTo(`/playlist`, {
-        state: mood
-      });
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
-
   const getMoodAxios = async (mood) => {
     try {
       const response = await Get('emotions/' + mood);
@@ -63,8 +55,9 @@ const MoodResultPage = () => {
   };
 
   useEffect(() => {
-    const params = new URL(document.URL).searchParams;
-    setMood(params.get("mood"));
+    //const params = new URL(document.URL).searchParams;
+    //setMood(params.get("mood"));
+    setMood(state)
   }, []);
 
   useEffect(() => {
