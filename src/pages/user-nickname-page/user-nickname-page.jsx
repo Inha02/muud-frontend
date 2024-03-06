@@ -6,11 +6,11 @@ const UserNicknamePageView = ({ nickname, onChangeNickname, isBtnActive, handleC
 
   return (
     <div className='appContainer topbar'>
-      <div>뮤디에서 사용할<br />
+      <div className={styles.muuudMainText}>뮤드에서 사용할<br />
         이름을 입력해주세요.
       </div>
-      <div>
-        이름은 공백없이 10자 이하만
+      <div className={styles.text}>
+        이름은 공백없이 10자 이하만<br />
         가능합니다.
       </div>
       <input type="text"
@@ -19,8 +19,12 @@ const UserNicknamePageView = ({ nickname, onChangeNickname, isBtnActive, handleC
         placeholder='이름을 입력해주세요'
         required
         maxLength={10}
+        className={styles.box}
       />
-      <RoundButton onClick={handleClick} active={isBtnActive}>완료</RoundButton>
+
+      <div style={{ marginTop: '25em' }}>
+        <RoundButton onClick={handleClick} active={isBtnActive}>완료</RoundButton>
+      </div>
 
     </div >
   )
