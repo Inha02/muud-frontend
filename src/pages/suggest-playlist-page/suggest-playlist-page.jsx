@@ -29,39 +29,33 @@ const SuggestPlaylistPageView = ({
       }
       <div>{userInfo.nickname}님을 위한 플레이리스트</div>
       <div>마음에 드는 플리를 선택해서 감정과 함께 저장해보세요</div>
-      <Slider
-        className={styles.slider}
-        {...slickSettings}
-        ref={sliderRef}
-      >
-        <div>테스트</div>
-        <div>테스트</div>
-
-      </Slider>
       <div>
         <Slider
           className={styles.slider}
           {...slickSettings}
           ref={sliderRef}
         >
-          {playlistArr && playlistArr.map((content, index) => {
-            return (
-              <div key={index}>
-                <div className={styles.cardContainer + ' ' + (selectedOption[index] && styles.checked) + ' ' + (currentSlide != index && styles.sideSlide)}>
-                  <MusicPlayer video={content.videoId} />
-                  <div className={styles.pliContentWrap}>
-                    <div >{content.channelName
-                    }</div>
-                    <div >{content.title}</div>
-                    <div>
-                      {content.tags && content.tags.map((item) => (<span key={item} >#{item}</span>))}
-                    </div>
-                    <CheckBox index={index} value={index} isChecked={selectedOption[index]} handleCheckboxChange={handleOptionChange}></CheckBox>
+          {playlistArr && playlistArr.map((content, index) => (
+            <div key={index}>
+
+              {/*
+              <div className={styles.cardContainer + ' ' + (selectedOption[index] && styles.checked) + ' ' + (currentSlide != index && styles.sideSlide)}>
+                <MusicPlayer video={content.videoId} />
+                <div className={styles.pliContentWrap}>
+                  <div >{content.channelName
+                  }</div>
+                  <div >{content.title}</div>
+                  <div>
+                    {content.tags && content.tags.map((item) => (<span key={item} >#{item}</span>))}
                   </div>
+                  <CheckBox index={index} value={index} isChecked={selectedOption[index]} handleCheckboxChange={handleOptionChange}></CheckBox>
                 </div>
               </div>
-            )
-          })}
+
+                */}
+            </div>
+          )
+          )}
         </Slider>
       </div>
 
