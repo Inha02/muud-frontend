@@ -1,26 +1,34 @@
 import { useEffect, useState, useContext, useRef } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
-import { UserContext } from '../../context/UserContext';
+import { useUserContext } from '../../context/UserContext';
 import MoodResultPageView from './mood-result-page'
-
+import { Get, Post } from '../../api/axios';
+import { getMoodData } from '../../utils';
 
 const MoodResultPage = () => {
   const location = useLocation();
+  const [mood, setMood] = useState('');
   const { state } = location;
-  const { currentDate } = useContext(UserContext);
+  const { currentDate } = useUserContext();
   const [text, setText] = useState('');
   const [isBtnActive, setIsBtnActive] = useState(false);
-  const navigateTo = useNavigate();
+  const [moodResultData, setMoodResultData] = useState({});
 
+  const navigateTo = useNavigate();
   const maxLength = 200;
   const enteredChars = text.length;
 
-  if (state) {
-    console.log('전달된 데이터:', state);
+  const handleSkipClick = () => {
+    navigateTo(`/playlist`, {
+      state: mood,
+    });
   }
 
-  const handleSkipClick = () => {
-    navigateTo('/playlist');
+  const handleRightClick = () => {
+    navigateTo(`/playlist`, {
+      state: mood,
+      diary: text
+    });
   }
 
   const handleChange = (e) => {
@@ -36,12 +44,31 @@ const MoodResultPage = () => {
     setText(inputValue);
   };
 
-  const handleRightClick = () => {
-    navigateTo('/playlist');
-  }
+  const getMoodAxios = async (mood) => {
+    try {
+      const response = await Get('emotions/' + mood);
+      setMoodResultData(response);
+
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  useEffect(() => {
+    //const params = new URL(document.URL).searchParams;
+    //setMood(params.get("mood"));
+    setMood(state)
+  }, []);
+
+  useEffect(() => {
+    if (mood) {
+      setMoodResultData(getMoodData(mood));
+      //getMoodAxios(mood);
+    }
+  }, [mood]);
 
   return (
-    <MoodResultPageView currentDate={currentDate} handleChange={handleChange} handleSkipClick={handleSkipClick} handleRightClick={handleRightClick} enteredChars={enteredChars} maxLength={maxLength} isRightBtnActive={isBtnActive} />
+    <MoodResultPageView currentDate={currentDate} handleChange={handleChange} handleSkipClick={handleSkipClick} handleRightClick={handleRightClick} enteredChars={enteredChars} maxLength={maxLength} isRightBtnActive={isBtnActive} moodResultData={moodResultData} />
   )
 }
 

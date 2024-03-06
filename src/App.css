@@ -86,3 +86,52 @@ textarea {
   display: inline-block;
   vertical-align: middle;
 }
+
+
+/* Slider */
+/* 슬라이더 dot 커스터마이징 */
+.slick-dots {
+  list-style: none;
+  text-align: center;
+  width: 100%;
+}
+
+.slick-dots li button:before,
+.slick-dots li.slick-active button:before {
+  color: transparent;
+}
+
+/* 각 dot 스타일 설정 */
+.slick-dots li {
+  display: inline-block;
+  margin: 0 5px;
+  width: 10px;
+  height: 10px;
+}
+
+/* 선택된 dot의 스타일 설정 */
+.slick-dots li.slick-active button {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+
+/* 선택되지 않은 dot의 스타일 설정 */
+.slick-dots li button {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--neutral50-color);
+  padding: 0;
+
+}
+
+/* Dots */
+.slick-dotted.slick-slider {
+  margin-bottom: 30px;
+}
+
+.slick-dots li button:before {
+  content: unset;
+}

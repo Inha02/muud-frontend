@@ -2,7 +2,7 @@ import styles from './Modal.module.css'
 
 const ModalView = ({ text, handleClose }) => {
   return (
-    <div className={`${styles.modalContainer}`} onClick={handleClose}>
+    <div className={`${styles.modalContainer}`}>
       <div className={styles.modalBody} onClick={(e) => e.stopPropagation()}>
         <div className={styles.modalText}>
           {text}

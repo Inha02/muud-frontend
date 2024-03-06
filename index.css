@@ -102,13 +102,22 @@ html {
 :root {
   /*color 정의*/
   --primary-color: #7F71FC;
+  --primary30-color: #513EC6;
+  --primary40-color: #6557E7;
+  --primary60-color: #8F82FF;
+  --primary65-color: #EFEDFF;
   --neutral-color: #191919;
   --neutral20-color: #252525;
   --neutral30-color: #363636;
   --neutral40-color: #4A4A4A;
   --neutral50-color: #68676B;
   --neutral60-color: #88868D;
-  --neutral70-color: #DDDBE0;
+  --neutral70-color: #A9A7AF;
+  --neutral90-color: #DDDBE0;
+  --neutral99-color: #FAF9FA;
+
+
+
 
 
   /*size 정의*/

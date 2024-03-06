@@ -1,0 +1,13 @@
+.checkIco {
+    height: 24px;
+    width: 24px;
+    background-image: url("/images/ico_check_circle.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.cardContainer {
+    background-color: white;
+    border-radius: 16px;
+    padding: 20px;
+}

@@ -1,2 +1,8 @@
+User-agent: Googlebot
+Disallow: /
+Allow: /login
+
+# User-agent: Naverbot
 User-agent: *
-Allow: /
+Disallow: /
+Allow: /login

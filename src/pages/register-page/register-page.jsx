@@ -18,6 +18,16 @@ const RegisterPageView = ({ user, onChangeUser, handleRegister, isRegisterActive
         required
       />
 
+      <div >뮤디에서 사용할 이름을 입력해주세요</div>
+      <div>공백없이 10자 이하만 가능합니다.</div>
+      <input type="text"
+        name="nickname"
+        onChange={onChangeUser}
+        value={user.nickname}
+        required
+        className={styles.box}
+      />
+
       <div>비밀번호 만들기</div>
       <div>8~15자로 입력해주세요.</div>
       <div className='pswdWrap'>

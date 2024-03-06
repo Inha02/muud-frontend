@@ -1,3 +1,74 @@
+const moodQnAArray = [
+  { mood: 'JOY', text: '두근두근 기분이 좋고,웃을 일이 많아요' },
+  { mood: 'ANGER', text: '왠지 모르게 작은 일에도 쉽게 화가 나요' },
+  { mood: 'SAD', text: '뭔가 입맛이 없고, 자꾸 슬퍼져요' },
+  { mood: 'TIRED', text: '할 일이 너무 많고, 하루가 길게 느껴져요' },
+  { mood: 'CALM', text: '내 마음은 조용하고 단순한 분위기예요' },
+  { mood: 'BLUE', text: '답답하고, 스트레스를 많이 받았어요' },
+]
+
+const moodDataArray = [
+  {
+    id: 'JOY',
+    titleEmotion: '기쁨',
+    combinedName: '쨍쨍한 햇빛',
+    description: '반짝반짝, 햇빛 샤워',
+    emoji: '/images/sunny-mood.png',
+    tags: ['기쁨', '설렘', '행복'],
+  },
+  {
+    id: 'ANGER',
+    titleEmotion: '분노',
+    combinedName: '우르르 쾅쾅',
+    description: '화가 마음을 쾅쾅 두드려요',
+    emoji: '/images/thunder-mood.png',
+    tags: ['분노', '짜증', '극대노'],
+  },
+  {
+    id: 'SAD',
+    titleEmotion: '슬픔',
+    combinedName: '호우주의보',
+    description: '거센 비가 마음을 적셔요',
+    emoji: '/images/rainy-mood.png',
+    tags: ['눈물나는', '후회', '슬픔'],
+  },
+  {
+    id: 'TIRED',
+    titleEmotion: '피곤',
+    combinedName: '안개주의보',
+    description: '안개가 뒤덮인 회색빛 마음',
+    emoji: '/images/foggy-mood.png',
+    tags: ['피곤한', '지침', '기운없음'],
+  },
+  {
+    id: 'CALM',
+    titleEmotion: '덤덤',
+    combinedName: '잔잔한 구름',
+    description: '마음 위에 구름이 둥둥',
+    emoji: '/images/cloudy-mood.png',
+    tags: ['그저 그럼', 'SOSO', '덤덤'],
+  },
+  {
+    id: 'BLUE',
+    titleEmotion: '우울',
+    combinedName: '태풍의 눈',
+    description: '마음이 어질어질 빙글빙글',
+    emoji: '/images/typhoon-mood.png',
+    tags: ['스트레스', '우울', '숨막혀요'],
+  },
+]
+const playList =[
+  {
+    title:
+      '[Playlist] 아니, 이런 노래는 어떻게 아는거야?? 너무 좋자나... | 노래 좀 듣는 애 플레이리스트😎ㅣShe has good taste...',
+    videoId: 'g7c0W-8rNmw',
+    channelName
+      : 'essential;',
+    tags: ['음잘알', '트렌디한', '힙스터', '음악', '플레이리스트', '팝송'],
+  },
+]
+
+/* 통계 */
 const timeData = [
   {
     value: 199,
@@ -272,4 +343,4 @@ const data = [
     value: 73,
   },
 ]
-export { timeData, data }
+export { timeData, data, moodQnAArray, moodDataArray ,playList}

@@ -18,3 +18,8 @@
     font-weight: 500;
     line-height: 24px;
 }
+
+.roundBtn.small {
+    width: 218px;
+    height: 48px;
+}

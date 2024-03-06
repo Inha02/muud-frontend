@@ -1,0 +1,8 @@
+.slick-dots {
+    position: absolute;
+    bottom: 20px;
+}
+
+.slick-list{
+    min-height: 400px;
+}
