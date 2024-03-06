@@ -27,6 +27,9 @@ const LoginPage = () => {
 
     const isPswdEmpty = name === 'pswd' || user.pswd !== '';
     const isIdEmpty = name === 'id' || user.id !== '';
+    if (!validateEmail(user.id)) {
+      <div>올바른 이메일 형식을 입력해주세요</div>
+    };
     setIsLoginActive(value !== '' && isPswdEmpty && isIdEmpty);
   }
 
@@ -37,10 +40,16 @@ const LoginPage = () => {
     setIsShownPswd(!isShownPswd);
   };
 
+  const rightInfoEmail = () => {
+    if (!validateEmail(user.id)) {
+      <div>올바른 이메일 형식을 입력해주세요</div>
+    };
+  };
+
   const validateInfo = () => {
     if (!validateEmail(user.id) || !validatePswd(user.pswd)) {
       modalOpen({
-        content: <div>등록된 아이디가 아니에요.<br />이메일 또는 비밀번호를확인 해주세요.</div>,
+        content: <div>등록된 아이디가 아니에요.<br />이메일 또는 비밀번호를 확인 해주세요.</div>,
       });
     } else {
       modalOpen({
@@ -58,6 +67,7 @@ const LoginPage = () => {
       isShownPswd={isShownPswd}
       toggleShowPswd={toggleShowPswd}
       isLoginActive={isLoginActive}
+      rightInfoEmail={rightInfoEmail}
     />
   );
 };

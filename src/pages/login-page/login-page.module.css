@@ -61,7 +61,7 @@
 */
 .muudText {
     margin-top: 7rem;
-    color: #7F71FC;
+    color: var(--primary-color);
     font-size: 1.5rem;
     font-weight: bold;
     font-family: Pretendard;
@@ -70,7 +70,13 @@
 .text {
     font-family: Pretendard;
     font-size: var(--font-small);
-    color: #DDDBE0;
+    color: var(--neutral170-color);
+}
+
+.wrongInfo {
+    font-family: Pretendard;
+    font-size: var(--font-micro);
+    color: #EB4141;
 }
 
 
@@ -91,6 +97,38 @@
     align-items: center;
 }
 
+.find {
+    text-decoration: none;
+    color: var(--neutral70-color);
+    display: inline-block;
+    font-size: var(--font-small);
+}
+
+.find:hover {
+    color: var(--neutral50-color);
+    cursor: pointer;
+    display: inline-block;
+    font-size: var(--font-small);
+}
+
+.snsText {
+    font-size: var(--font-small);
+}
+
 .kakaoLoginBtn {
-    background-image: url('C:\Users\bella\OneDrive\바탕 화면\muud-frontend\public\images\kakao_login_medium_narrow.png');
+    background-image: url('/images/kakao_login_medium_narrow.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: inline-block;
+    width: 160px;
+    height: 40px;
+
+}
+
+.kakaoLoginBtn:hover {
+    filter: brightness(80%);
 }
