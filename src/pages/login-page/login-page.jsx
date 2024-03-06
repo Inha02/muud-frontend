@@ -22,6 +22,8 @@ const LoginPageView = ({ user, onChangeUser, handleLogin, handleKakaoLogin, isSh
           className={styles.box}
         />
 
+        <div className={styles.wrongInfo}>*올바른 이메일 형식을 입력해주세요</div>
+
         <div className='pswdText'>비밀번호</div>
         <div className='pswdWrap'>
           <input
@@ -40,23 +42,27 @@ const LoginPageView = ({ user, onChangeUser, handleLogin, handleKakaoLogin, isSh
           </div>
         </div>
 
+        <div className={styles.wrongInfo}>*아직 8자리가 아니에요</div>
+
         <div style={{ marginTop: '1.5em' }}>
           <RoundButton onClick={handleLogin} active={isLoginActive}>로그인</RoundButton>
         </div>
 
         <div style={{ marginTop: '0.5em' }} className={styles.textCenter}>
-          <span style={{ display: 'inline-block', marginRight: '10px' }}><a onClick={handleClickRegister}>회원가입</a></span>
-          <span>|</span>
-          <span style={{ display: 'inline-block', marginRight: '10px', marginLeft: '10px' }}><a>이메일 찾기</a></span>
-          <span>|</span>
-          <span style={{ display: 'inline-block', marginLeft: '10px' }}><a>비밀번호 찾기</a></span>
+          <span className={styles.find} onClick={handleClickRegister}>회원가입</span>
+          <span style={{ marginRight: '1em', marginLeft: '1em' }}>|</span>
+          <span className={styles.find}>이메일 찾기</span>
+          <span style={{ marginRight: '1em', marginLeft: '1em' }}>|</span>
+          <span className={styles.find}>비밀번호 찾기</span>
         </div>
 
-        <div style={{ marginTop: '10em', textAlign: 'center' }}>SNS 계정으로 간편 가입하기</div>
+        <div style={{ marginTop: '15em', textAlign: 'center' }} className={styles.snsText}>SNS 계정으로 간편 가입하기</div>
 
         <div style={{ marginTop: '0.5em', textAlign: 'center' }}>
-          <button onClick={handleKakaoLogin}>카카오 로그인</button>
+          <button className={styles.kakaoLoginBtn} onClick={handleKakaoLogin}></button>
         </div>
+
+
       </div>
     </>
   )

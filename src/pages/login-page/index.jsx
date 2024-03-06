@@ -33,6 +33,9 @@ const LoginPage = () => {
 
     const isPswdEmpty = name === 'pswd' || user.pswd !== '';
     const isIdEmpty = name === 'id' || user.id !== '';
+    if (!validateEmail(user.id)) {
+      <div>올바른 이메일 형식을 입력해주세요</div>
+    };
     setIsLoginActive(value !== '' && isPswdEmpty && isIdEmpty);
   }
 

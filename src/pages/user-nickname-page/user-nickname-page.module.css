@@ -1,0 +1,25 @@
+.muuudMainText {
+    margin-top: 7rem;
+    color: #FFF;
+    font-size: var(--font-large);
+    font-weight: bold;
+    font-family: Pretendard;
+}
+
+.text {
+    font-family: Pretendard;
+    font-size: 0.84rem;
+    color: var(--neutral160-color);
+}
+
+.box {
+    margin-top: 3rem;
+    background: transparent;
+    width: 100%;
+    padding: 8px 0 8px 0;
+    font-size: var(--font-small);
+    color: #fff;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--neutral50-color);
+}
