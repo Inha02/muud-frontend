@@ -15,8 +15,11 @@ const LoginPage = () => {
   })
   const [isShownPswd, setIsShownPswd] = useState(false);
   const [isLoginActive, setIsLoginActive] = useState(false);
+  const [isIdNoticeActive, setIsIdNoticeActive] = useState(false);
+  const [isPwNoticeActive, setIsPwNoticeActive] = useState(false);
+
   const { modalOpen } = useModal();
-  const [cookies, setCookie, removeCookie] = useCookies(['accessToken', 'refreshToken', 'id', 'nickname']);
+  const [cookies, setCookie] = useCookies(['accessToken', 'refreshToken', 'id', 'nickname']);
 
   const REST_API_KEY = import.meta.env.VITE_KAKAO_KEY;
   const REDIRECT_URI = `${import.meta.env.VITE_HOST}/oauth2/callback/kakao`;
@@ -27,31 +30,36 @@ const LoginPage = () => {
     window.location.href = KAKAO_AUTH_URL;
   };
 
+  const handleClickRegister = () => {
+    navigateTo('/register');
+  };
+
+  const handleLogin = () => {
+    if (validate(user.id, user.pswd)) return
+    loginAxios();
+
+  };
+
+  const validate = (id, pswd) => {
+    const idCheck = id !== '' && !validateEmail(id);
+    const pwCheck = pswd !== '' && !validatePswd(pswd);
+    setIsIdNoticeActive(idCheck);
+    setIsPwNoticeActive(pwCheck);
+    return idCheck || pwCheck;
+  }
+
   const onChangeUser = (event) => {
     const { name, value } = event.target
     setUser((curr) => ({ ...curr, [name]: value }))
 
     const isPswdEmpty = name === 'pswd' || user.pswd !== '';
     const isIdEmpty = name === 'id' || user.id !== '';
-    if (!validateEmail(user.id)) {
-      <div>올바른 이메일 형식을 입력해주세요</div>
-    }
     setIsLoginActive(value !== '' && isPswdEmpty && isIdEmpty);
+    if (name === 'id') validate(value, user.pswd)
+    if (name === 'pswd') validate(user.id, value)
+
   }
 
-  const handleClickRegister = () => {
-    navigateTo('/register');
-  };
-
-  const handleLogin = () => {
-    if (!validateEmail(user.id) || !validatePswd(user.pswd)) {
-      modalOpen({
-        content: '등록된 아이디가 아니에요.\n이메일 또는 비밀번호를확인 해주세요',
-      });
-    } else {
-      loginAxios();
-    }
-  };
   const toggleShowPswd = () => {
     setIsShownPswd(!isShownPswd);
   };
@@ -70,9 +78,17 @@ const LoginPage = () => {
       navigateTo('/home');
 
     } catch (error) {
-      modalOpen({
-        content: ('로그인에 실패했습니다.'),
-      })
+      console.log(error)
+      if (error.response.status == 401) {
+        modalOpen({
+          content: ('등록된 아이디가 아니에요.\n이메일 또는 비밀번호를확인 해주세요'),
+        })
+      } else {
+        modalOpen({
+          content: ('로그인 요청 실패'),
+        })
+      }
+
       /* ToDo: 배포전 주석해제
       setUser({
         id: '',
@@ -90,6 +106,8 @@ const LoginPage = () => {
       isShownPswd={isShownPswd}
       toggleShowPswd={toggleShowPswd}
       isLoginActive={isLoginActive}
+      isIdNoticeActive={isIdNoticeActive}
+      isPwNoticeActive={isPwNoticeActive}
       handleClickRegister={handleClickRegister}
     />
   );

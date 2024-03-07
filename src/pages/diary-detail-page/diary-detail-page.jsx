@@ -28,9 +28,7 @@ const DiaryDetailPageView = ({
               {diary.emotion.tags &&
                 diary.emotion.tags.map((item) => <Tag key={item}>{item}</Tag>)}
             </div>
-            <textarea className={styles.moodTextarea} placeholder='오늘의 감정을 기록해보세요' maxLength={200} value={text} onChange={handleChange} >
-              {diary && diary.description}
-            </textarea>
+            <textarea id='content' className={styles.moodTextarea} placeholder='오늘의 감정을 기록해보세요' maxLength={200} value={text} onChange={handleChange} >{text}</textarea>
           </div>
         </>
       )}

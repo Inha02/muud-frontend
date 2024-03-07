@@ -39,11 +39,10 @@ const HomePageView = ({ moment, handleRecord, handleEdit, tileClassNames, update
               <MusicPlayer video={currentDiary.playlist && currentDiary.playlist.videoId} />
               <div>
                 {currentDiary.emotion.tags &&
-                  currentDiary.emotion.tags.map((item) => <Tag key={item.id}>{item}</Tag>)}
+                  currentDiary.emotion.tags.map((item) => <Tag key={item}>{item}</Tag>)}
               </div>
               <div>
                 {currentDiary.content}
-                가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차가나다라마바사아자차
               </div>
 
             </>

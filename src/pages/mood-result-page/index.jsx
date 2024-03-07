@@ -56,7 +56,12 @@ const MoodResultPage = () => {
   useEffect(() => {
     //const params = new URL(document.URL).searchParams;
     //setMood(params.get("mood"));
-    setMood(state)
+    if (state) {
+      setMood(state)
+    }
+    else {
+      navigateTo('/mood/choose')
+    }
   }, []);
 
   useEffect(() => {

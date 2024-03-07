@@ -7,9 +7,8 @@ export const be = axios.create({
 
 export const setConfig = ({ accessToken, contentType }) => {
   //1
-  if (accessToken)
-    be.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
-  if (contentType) be.defaults.headers.common['Content-Type'] = contentType
+    if (accessToken) be.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
+    if (contentType) be.defaults.headers.common['Content-Type'] = contentType
   /*  //2
     be.interceptors.request.use(config => {
         if (accessToken) {
@@ -40,7 +39,9 @@ export const Get = async (url, config) => {
   } catch (error) {
     console.log(error.response.status)
     if (error.response.status == 401 || error.response.status == 403) {
-      window.location.href = `${import.meta.env.VITE_HOST}/login`
+      alert(error.response.status)
+
+      //window.location.href = `${import.meta.env.VITE_HOST}/login`
     } else {
       throw error
     }
@@ -59,13 +60,14 @@ export const Post = async (url, data, config) => {
     const response = await be.post(url, data, config)
     return response
   } catch (error) {
-    console.log(error.response.status)
     if (error.response.status == 401 || error.response.status == 403) {
-        alert('접근 권한이 필요합니다')
-      window.location.href = `${import.meta.env.VITE_HOST}/login`
-    } else {
-      throw error
+      alert(error.response.status)
+
+       // alert('접근 권한이 필요합니다')
+      //window.location.href = `${import.meta.env.VITE_HOST}/login`
     }
+    throw error
+
   }
 }
 
@@ -97,7 +99,9 @@ export const Patch = async (url, data, config) => {
   } catch (error) {
     console.log(error.response.status)
     if (error.response.status == 401 || error.response.status == 403) {
-      window.location.href = `${import.meta.env.VITE_HOST}/login`
+      alert(error.response.status)
+    
+    //  window.location.href = `${import.meta.env.VITE_HOST}/login`
     } else {
       throw error
     }
@@ -117,6 +121,11 @@ export const Delete = async (url, config) => {
 }
 
 be.interceptors.request.use((config) => {
+  if (!config.headers.Authorization) {
+    // Authorization이 없으면 요청을 보내지 않음
+alert('토큰없음')
+   // throw new Error('Unauthorized');
+  }
   return config
 })
 

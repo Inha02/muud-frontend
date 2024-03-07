@@ -2,7 +2,7 @@ import { useEffect, useState, useContext, useRef } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../context/UserContext';
 import DiaryDetailPageView from './diary-detail-page'
-import { Get, Post } from '../../api/axios';
+import { Get, Post, Put, be } from '../../api/axios';
 import { getMoodData } from '../../utils';
 import moment from 'moment';
 import { useModal } from '../../context/ModalContext';
@@ -14,79 +14,80 @@ const DiaryDetailPage = () => {
   const [text, setText] = useState('');
   const [isBtnActive, setIsBtnActive] = useState(false);
   const [moodData, setMoodData] = useState({});
-  const [diary, setDiary] = useState(
-    {
-      "date": '2024-03-02',
-      "diaryId": 1,
-      "content": "안녕하세요안녕하세요",
-      "emotion": {
-        "titleEmotion": "우울",
-        "combinedName": "우르르 쾅쾅",
-        "description": "마음을 쾅쾅 두드리는 화가 가득해요",
-        "tags": [
-          "분노",
-          "짜증",
-          "극대노"
-        ]
-      },
-      "createdDate": "2024-02-24T15:10:41.96862",
-      "updatedDate": "2024-02-24T15:10:41.96862",
-      "playlist": {
-        "title": "제목",
-        "videoId": "JUzPQ0JalHE",
-      }
-    }
-  )
+  const [diary, setDiary] = useState({})
   const navigateTo = useNavigate();
   const maxLength = 200;
   const enteredChars = text.length;
+  const [initialText, setInitialText] = useState('');
 
   const handleLeftClick = () => {
     navigateTo(`/home`);
   }
 
   const handleRightClick = () => {
-
+    editDiaryAxios()
   }
 
   const handleChange = (e) => {
     const inputValue = e.target.value;
-    if (inputValue !== '') {
-      setIsBtnActive(true)
-    } else {
-      setIsBtnActive(false)
-    }
     if (inputValue.length > maxLength) {
       return
+    }
+    if (initialText == inputValue || inputValue == "") {
+      setIsBtnActive(false)
+    } else {
+      setIsBtnActive(true)
     }
     setText(inputValue);
   };
 
   const getDiaryAxios = async (diaryId) => {
+    if (!be.defaults.headers.common['Authorization']) return
+
     try {
       const response = await Get(`/diaries/${diaryId}`)
-      console.log(response.data)
-      if (response.data) {
-        setDiary(response.data)
+      const data = response.data
+      if (data) {
+        setInitialText(data.content)
+        setDiary(data)
+        setText(data.content)
       }
     } catch (error) {
       console.log(error)
     }
   }
 
-  useEffect(() => {
-    //const params = new URL(document.URL).searchParams;
-    //setMood(params.get("mood"));
-  }, []);
+  const editDiaryAxios = async () => {
+    if (!be.defaults.headers.common['Authorization']) return
+
+    try {
+      const response = await Put(`/diaries/${diary.id}`, {
+        content: text
+      })
+      modalOpen({
+        content: '수정 완료되었습니다',
+        handle: navigateTo('/home', { replace: true }),
+      });
+
+    } catch (error) {
+      console.log(error)
+      modalOpen({
+        content: '오류가 발생했습니다',
+        handle: navigateTo('/home', { replace: true }),
+      });
+    }
+  }
 
   useEffect(() => {
-    const params = new URL(document.URL).searchParams.get("id");
-    getDiaryAxios(params)
-    //setMood(params.get("mood"));
+    const diaryId = new URL(document.URL).searchParams.get("id");
+    getDiaryAxios(diaryId)
+    if (!diaryId) {
+      navigateTo('/home')
+    }
   }, []);
 
   return (
-    <DiaryDetailPageView diary={diary} currentDateKor={currentDateKor} handleChange={handleChange} handleLeftClick={handleLeftClick} handleRightClick={handleRightClick} enteredChars={enteredChars} maxLength={maxLength} isRightBtnActive={isBtnActive} />
+    <DiaryDetailPageView diary={diary} currentDateKor={currentDateKor} handleChange={handleChange} handleLeftClick={handleLeftClick} handleRightClick={handleRightClick} enteredChars={enteredChars} maxLength={maxLength} isRightBtnActive={isBtnActive} text={text} />
   )
 }
 

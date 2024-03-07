@@ -1,7 +1,7 @@
 import RoundButton from '../../components/common/RoundButton';
 import styles from './login-page.module.css';
 
-const LoginPageView = ({ user, onChangeUser, handleLogin, handleKakaoLogin, isShownPswd, toggleShowPswd, isLoginActive, handleClickRegister }) => { //프롭스 대신 객체로 넣기(타입)
+const LoginPageView = ({ user, isPwNoticeActive, isIdNoticeActive, onChangeUser, handleLogin, handleKakaoLogin, isShownPswd, toggleShowPswd, isLoginActive, handleClickRegister }) => { //프롭스 대신 객체로 넣기(타입)
 
   return (
     <>
@@ -23,8 +23,9 @@ const LoginPageView = ({ user, onChangeUser, handleLogin, handleKakaoLogin, isSh
             className={styles.box}
           />
 
-          <div className={styles.wrongInfo}>*올바른 이메일 형식을 입력해주세요</div>
-
+          {isIdNoticeActive &&
+            <div className={styles.wrongInfo}>*올바른 이메일 형식을 입력해주세요</div>
+          }
           <div className='pswdText'>비밀번호</div>
           <div className='pswdWrap'>
             <input
@@ -43,8 +44,9 @@ const LoginPageView = ({ user, onChangeUser, handleLogin, handleKakaoLogin, isSh
             </div>
           </div>
 
-          <div className={styles.wrongInfo}>*아직 8자리가 아니에요</div>
-
+          {isPwNoticeActive &&
+            <div className={styles.wrongInfo}>*아직 8자리가 아니에요</div>
+          }
           <div style={{ marginTop: '1.5em' }}>
             <RoundButton onClick={handleLogin} active={isLoginActive}>로그인</RoundButton>
           </div>

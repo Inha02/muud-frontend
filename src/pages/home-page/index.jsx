@@ -5,7 +5,7 @@ import moment from 'moment';
 import 'moment/locale/ko';
 import { getMoodIcon } from '../../utils'
 import { diarySample } from '../../constants/testData'
-import { Get } from '../../api/axios'
+import { Get, be, setConfig } from '../../api/axios'
 import { useUserContext } from '../../context/UserContext';
 import { useModal } from '../../context/ModalContext';
 
@@ -24,14 +24,14 @@ const HomePage = () => {
   }
 
   const handleEdit = () => {
-    navigateTo(`/diary/detail?id=${currentDiary.diaryId}`)
+    navigateTo(`/diary/detail?id=${currentDiary.id}`)
   }
 
   const updateActiveMonth = (activeStartDate) => {
     const newActiveMonth = moment(activeStartDate).format('yyyy-MM');
     setActiveMonth(newActiveMonth);
     setCurrentDate(moment(activeStartDate));
-    getMonthDiaryAxios(newActiveMonth);
+    //getMonthDiaryAxios(newActiveMonth);
   };
 
   const updateActiveDay = (date) => {
@@ -51,10 +51,12 @@ const HomePage = () => {
   }
 
   const getMonthDiaryAxios = async () => {
+    if (!be.defaults.headers.common['Authorization']) return
     try {
+      //setConfig()
       const response = await Get(`/diaries/month?date=${activeMonth}`)
       //console.log(response.data)
-      if (response.data) {
+      if (response) {
         setCurrentMonthDiary(response.data)
       }
     } catch (error) {
@@ -96,7 +98,8 @@ const HomePage = () => {
     //updateActiveMonth(currentDate); // 활성 월 업데이트
   }, [currentDate]);
   useEffect(() => {
-    getMonthDiaryAxios()
+    //현재 달을 바꿀떄 
+    if (activeMonth) getMonthDiaryAxios()
   }, [activeMonth]);
   useEffect(() => {
     //현재 다이어리 출력 

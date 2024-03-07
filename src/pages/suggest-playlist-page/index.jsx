@@ -24,7 +24,7 @@ const SuggestPlaylistPage = () => {
   ])
   const [isRecordActive, setIsRecordActive] = useState(false)
   const [currentSlide, setCurrentSlide] = useState(0)
-  //const [mood, setMood] = useState('')
+  const [mood, setMood] = useState('')
   const [selectedOption, setSelectedOption] = useState([
     false,
     false,
@@ -85,7 +85,7 @@ const SuggestPlaylistPage = () => {
       formData.append('emotionName', state.mood)
       formData.append('playlistId', parseInt(playlistArr[currentSlide].id))
       formData.append('referenceDate', currentDate.format('yyyy-MM-DD'))
-      setConfig('multipart/form-data')
+      setConfig({ contentType: 'multipart/form-data' })
       const response = await Post('/diaries', formData)
       clearConfig('Content-Type')
       navigateTo(`/diary/complete`, {
@@ -99,10 +99,11 @@ const SuggestPlaylistPage = () => {
   }
 
   useEffect(() => {
-    //setMood(state.mood)
-    if (state) console.log(state.diary + ' ' + state.mood)
+    if (state) {
+      setMood(state.mood)
+    }
     else {
-      navigateTo('mood/choose')
+      navigateTo('/mood/choose')
     }
     getPliAxios()
   }, [])
@@ -118,7 +119,7 @@ const SuggestPlaylistPage = () => {
       selectedOption={selectedOption}
       isRecordActive={isRecordActive}
       handleRecord={handleRecord}
-      mood={state.mood}
+      mood={mood}
     />
   )
 }
