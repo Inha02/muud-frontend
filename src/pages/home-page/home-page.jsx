@@ -7,7 +7,7 @@ import MusicPlayer from '../../components/MusicPlayer'
 import Tag from '../../components/common/Tag'
 import RoundButton from '../../components/common/RoundButton'
 
-const HomePageView = ({ moment, updateActiveDay, currentDate, addContent, updateActiveMonth, playlist, currentDiary }) => {
+const HomePageView = ({ moment, tileClassNames, updateActiveDay, currentDate, addContent, updateActiveMonth, playlist, currentDiary }) => {
   return (
     <div className={styles.homeContainer}>
       <div className={styles.calendarContainer}>
@@ -21,6 +21,7 @@ const HomePageView = ({ moment, updateActiveDay, currentDate, addContent, update
           }
           formatDay={(locale, date) => moment(date).format('D')}
           tileContent={addContent}
+          tileClassName={tileClassNames}
           showNeighboringMonth={false}
           onActiveStartDateChange={({ activeStartDate }) => //activeStartDate :현재 보여지는 년, 월, 일의 가장 첫 날짜
             updateActiveMonth(activeStartDate)
