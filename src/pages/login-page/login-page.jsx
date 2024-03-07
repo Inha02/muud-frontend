@@ -12,41 +12,43 @@ const LoginPageView = ({ user, onChangeUser, handleLogin, handleKakaoLogin, isSh
           <div className={styles.text}>순간의 감정을 음악과 함께 기록하세요</div>
         </div>
 
-        <div className='emailText'>이메일 주소</div>
-        <input type="text"
-          name="id"
-          onChange={onChangeUser}
-          value={user.id}
-          placeholder='예)muud@muud.co.kr'
-          required
-          className={styles.box}
-        />
-
-        <div className={styles.wrongInfo}>*올바른 이메일 형식을 입력해주세요</div>
-
-        <div className='pswdText'>비밀번호</div>
-        <div className='pswdWrap'>
-          <input
-            className='pswdInput'
-            type={isShownPswd ? "text" : "password"}
-            name="pswd"
+        <form>
+          <div className='emailText'>이메일 주소</div>
+          <input type="text"
+            name="id"
             onChange={onChangeUser}
-            value={user.pswd}
-            minLength={8}
+            value={user.id}
+            placeholder='예)muud@muud.co.kr'
             required
+            className={styles.box}
           />
 
-          <div className='eyeBtnContainer'>
-            <div className={'eyeBtn ' + (isShownPswd ? 'show' : 'hide')} onClick={toggleShowPswd}>
+          <div className={styles.wrongInfo}>*올바른 이메일 형식을 입력해주세요</div>
+
+          <div className='pswdText'>비밀번호</div>
+          <div className='pswdWrap'>
+            <input
+              className='pswdInput'
+              type={isShownPswd ? "text" : "password"}
+              name="pswd"
+              onChange={onChangeUser}
+              value={user.pswd}
+              minLength={8}
+              required
+            />
+
+            <div className='eyeBtnContainer'>
+              <div className={'eyeBtn ' + (isShownPswd ? 'show' : 'hide')} onClick={toggleShowPswd}>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className={styles.wrongInfo}>*아직 8자리가 아니에요</div>
+          <div className={styles.wrongInfo}>*아직 8자리가 아니에요</div>
 
-        <div style={{ marginTop: '1.5em' }}>
-          <RoundButton onClick={handleLogin} active={isLoginActive}>로그인</RoundButton>
-        </div>
+          <div style={{ marginTop: '1.5em' }}>
+            <RoundButton onClick={handleLogin} active={isLoginActive}>로그인</RoundButton>
+          </div>
+        </form>
 
         <div style={{ marginTop: '0.5em' }} className={styles.textCenter}>
           <span className={styles.find} onClick={handleClickRegister}>회원가입</span>

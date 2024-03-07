@@ -25,7 +25,11 @@ const RegisterPage = () => {
 
     const isPswdValid = validatePswd(name === 'pswd' ? value : user.pswd);
     const isIdValid = validateEmail(name === 'id' ? value : user.id);
-    setIsRegisterActive(value !== '' && isPswdValid && isIdValid && user.pswdCheck !== '' && user.nickname !== '');
+    const isNickValid = '' !== (name === 'nickname' ? value : user.nickname);
+    const isPswdCheckValid = '' !== (name === 'pswdCheck' ? value : user.pswdCheck);
+
+
+    setIsRegisterActive(value !== '' && isPswdValid && isIdValid && isPswdCheckValid && isNickValid);
   }
 
   const validatePswdCheck = () => {
@@ -36,7 +40,11 @@ const RegisterPage = () => {
     setIsShownPswd(!isShownPswd)
   }
 
-  const handleRegister = () => {
+  const handleClickClose = () => {
+    navigateTo('/login', { replace: true })
+  }
+  const handleRegister = (event) => {
+    event.preventDefault();
     if (!validateEmail(user.id) || !validatePswd(user.pswd) || !validatePswdCheck()) {
       modalOpen({
         content: ('잘못된 회원 정보입니다.\n이메일 또는 비밀번호를 확인해주세요.'
@@ -105,6 +113,7 @@ const RegisterPage = () => {
       isRegisterActive={isRegisterActive}
       toggleShowPswd={toggleShowPswd}
       handleRegister={handleRegister}
+      handleClickClose={handleClickClose}
     />
   )
 }

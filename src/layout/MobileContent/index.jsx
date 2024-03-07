@@ -11,7 +11,7 @@ const MobileContent = ({ children }) => {
     const [cookies] = useCookies(['accessToken', 'refreshToken', 'id', 'nickname']);
 
     useEffect(() => {
-        setConfig(cookies.accessToken);
+        setConfig({ accessToken: cookies.accessToken });
         console.log('Access Token:', cookies.accessToken);
     }, [cookies.accessToken]);
 
