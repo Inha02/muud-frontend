@@ -6,12 +6,14 @@ import { useCookies } from 'react-cookie'
 import { useModal } from '../../context/ModalContext'
 import { playList } from '../../constants/testData'
 import moment from 'moment';
+import { useUserContext } from '../../context/UserContext'
 
 
 const SuggestPlaylistPage = () => {
   const location = useLocation()
   const { state } = location
   const navigateTo = useNavigate()
+  const { currentDate } = useUserContext();
   const { modalOpen } = useModal()
   const sliderRef = useRef(null)
   const [cookies, setCookie] = useCookies([
@@ -82,7 +84,7 @@ const SuggestPlaylistPage = () => {
       formData.append('content', state.diary)
       formData.append('emotionName', state.mood)
       formData.append('playlistId', parseInt(playlistArr[currentSlide].id))
-      formData.append('referenceDate', state.date)
+      formData.append('referenceDate', currentDate.format('yyyy-MM-DD'))
       setConfig('multipart/form-data')
       const response = await Post('/diaries', formData)
       clearConfig('Content-Type')
@@ -98,7 +100,10 @@ const SuggestPlaylistPage = () => {
 
   useEffect(() => {
     //setMood(state.mood)
-    if (state) console.log(state.diary + ' ' + state.mood + ' ' + state.date)
+    if (state) console.log(state.diary + ' ' + state.mood)
+    else {
+      navigateTo('mood/choose')
+    }
     getPliAxios()
   }, [])
 

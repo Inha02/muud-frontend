@@ -61,7 +61,7 @@ export const Post = async (url, data, config) => {
   } catch (error) {
     console.log(error.response.status)
     if (error.response.status == 401 || error.response.status == 403) {
-        alert(error.response.message)
+        alert('접근 권한이 필요합니다')
       window.location.href = `${import.meta.env.VITE_HOST}/login`
     } else {
       throw error

@@ -1,13 +1,16 @@
 import { useEffect, useState, useContext, useRef } from 'react'
 import { useUserContext } from '../../context/UserContext';
+import { useLocation, useNavigate } from 'react-router-dom'
 import { Post } from '../../api/axios';
 import MoodChoosePageView from './mood-choose-page'
-import { useNavigate } from 'react-router-dom';
 import { moodQnAArray } from '../../constants/testData'
 
+
 const MoodChoosePage = () => {
+  //  const location = useLocation();
+  //  const { state } = location;
   const [selectedOption, setSelectedOption] = useState(null);
-  const { currentDateKor } = useUserContext();
+  const { currentDateKor, currentDate, setCurrentDate } = useUserContext();
   const navigateTo = useNavigate();
 
   const handleMoodClick = (option) => {
@@ -18,6 +21,9 @@ const MoodChoosePage = () => {
     if (selectedOption != null)
       navigateTo(`/mood/result`, { state: selectedOption }); //감정 전달
   };
+
+  useEffect(() => {
+  }, []);
 
   return (
     <MoodChoosePageView

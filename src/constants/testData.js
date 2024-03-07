@@ -95,7 +95,7 @@ const playList =[
 const diarySample =[
   {
     "date": '2024-03-02',
-    "diaryId": 1,
+    "id": 12,
     "content": "안녕하세요안녕하세요",
     "emotion": {
       "titleEmotion": "우울",
@@ -116,7 +116,7 @@ const diarySample =[
   },
   {
     "date": '2024-03-05',
-    "diaryId": 2,
+    "id": 11,
     "content": "안녕하세요안녕하세요",
     "emotion": {
       "titleEmotion": "우울",
@@ -137,7 +137,7 @@ const diarySample =[
   },
   {
     "date": '2024-03-06',
-    "diaryId": 2,
+    "id":9,
     "content": "안녕하세요안녕하세요",
     "emotion": {
       "titleEmotion": "우울",
@@ -158,7 +158,7 @@ const diarySample =[
   },
   {
     "date": '2024-03-23',
-    "diaryId": 2,
+    "id": 8,
     "content": "안녕하세요안녕하세요",
     "emotion": {
       "titleEmotion": "우울",
@@ -179,7 +179,7 @@ const diarySample =[
   },
   {
     "date": '2024-03-30',
-    "diaryId": 2,
+    "id": 7,
     "content": "안녕하세요안녕하세요",
     "emotion": {
       "titleEmotion": "우울",
@@ -200,7 +200,7 @@ const diarySample =[
   },
   {
     "date": '2024-03-09',
-    "diaryId": 2,
+    "id": 6,
     "content": "안녕하세요안녕하세요",
     "emotion": {
       "titleEmotion": "우울",
@@ -221,7 +221,7 @@ const diarySample =[
   },
   {
     "date": '2024-03-16',
-    "diaryId": 2,
+    "id": 5,
     "content": "안녕하세요안녕하세요",
     "emotion": {
       "titleEmotion": "우울",
@@ -242,7 +242,7 @@ const diarySample =[
   },
   {
     "date": '2024-03-04',
-    "diaryId": 2,
+    "id": 4,
     "content": "안녕하세요안녕하세요",
     "emotion": {
       "titleEmotion": "우울",
@@ -263,7 +263,7 @@ const diarySample =[
   },
   {
     "date": '2024-03-07',
-    "diaryId": 2,
+    "id": 3,
     "content": "안녕하세요안녕하세요",
     "emotion": {
       "titleEmotion": "우울",
@@ -284,7 +284,7 @@ const diarySample =[
   },
   {
     "date": '2024-03-08',
-    "diaryId": 2,
+    "id": 2,
     "content": "안녕하세요안녕하세요",
     "emotion": {
       "titleEmotion": "우울",
@@ -305,7 +305,7 @@ const diarySample =[
   },
   {
     "date": '2024-03-10',
-    "diaryId": 2,
+    "id": 1,
     "content": "안녕하세요안녕하세요",
     "emotion": {
       "titleEmotion": "우울",

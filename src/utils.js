@@ -31,7 +31,6 @@ const getMoodIcon = (moodText) => {
   }
 }
 
-/*
 const getMoodImg = (mood) => {
   switch (mood) {
     case 'EMOTION1': //EMOTION1
@@ -51,6 +50,5 @@ const getMoodImg = (mood) => {
       return '/'
   }
 }
-*/
 
 export { validateEmail, validatePswd,getMoodData,getMoodIcon }

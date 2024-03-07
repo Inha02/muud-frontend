@@ -8,8 +8,8 @@ import moment from 'moment';
 
 const MoodResultPage = () => {
   const location = useLocation();
-  const [mood, setMood] = useState('');
   const { state } = location;
+  const [mood, setMood] = useState('');
   const { currentDateKor, currentDate } = useUserContext();
   const [text, setText] = useState('');
   const [isBtnActive, setIsBtnActive] = useState(false);
@@ -20,17 +20,14 @@ const MoodResultPage = () => {
   const enteredChars = text.length;
 
   const handleSkipClick = () => {
-    console.log(currentDate.format('yyyy-MM-DD'))
     navigateTo(`/playlist`, {
-      state: { mood: mood, diary: '', date: currentDate.format('yyyy-MM-DD') }
+      state: { mood: mood, diary: '' }
     });
   }
 
   const handleRightClick = () => {
-    console.log(currentDate.format('yyyy-MM-DD'))
-
     navigateTo(`/playlist`, {
-      state: { mood: mood, diary: text, date: currentDate.format('yyyy-MM-DD') }
+      state: { mood: mood, diary: text }
     });
   }
 

@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
-import CompleteDiaryPageView from './complete-diary-page'
+import DiaryCompletePageView from './diary-complete-page'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useUserContext } from '../../context/UserContext';
 import { Get } from '../../api/axios'
 
 
-const CompleteDiaryPage = () => {
+const DiaryCompletePage = () => {
   const location = useLocation()
   const { state } = location
   const { currentDateKor } = useUserContext();
@@ -63,7 +63,7 @@ const CompleteDiaryPage = () => {
   }, [])
 
   return (
-    <CompleteDiaryPageView
+    <DiaryCompletePageView
       currentDateKor={currentDateKor}
       diary={diary}
       playlist={playlist}
@@ -72,4 +72,4 @@ const CompleteDiaryPage = () => {
   )
 }
 
-export default CompleteDiaryPage
+export default DiaryCompletePage

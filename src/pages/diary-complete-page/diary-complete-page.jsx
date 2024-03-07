@@ -1,9 +1,9 @@
 import MusicPlayer from '../../components/MusicPlayer'
 import Tag from '../../components/common/Tag'
 import RoundButton from '../../components/common/RoundButton'
-import styles from './complete-diary-page.module.css' // CSS 모듈 임포트
+import styles from './diary-complete-page.module.css' // CSS 모듈 임포트
 
-const CompleteDiaryPageView = ({ diary, currentDateKor, playlist, handleClick }) => {
+const DiaryCompletePageView = ({ diary, currentDateKor, playlist, handleClick }) => {
   return (
     <div className='appContainer'>
       <div className={styles.checkIco}></div>
@@ -35,4 +35,4 @@ const CompleteDiaryPageView = ({ diary, currentDateKor, playlist, handleClick })
   )
 }
 
-export default CompleteDiaryPageView
+export default DiaryCompletePageView

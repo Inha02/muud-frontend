@@ -7,6 +7,7 @@ const UserContext = createContext();
 // Context Provider 컴포넌트 
 export const UserDataProvider = ({ children }) => {
   moment.updateLocale('ko', { weekdays: ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"], weekdaysShort: ["일", "월", "화", "수", "목", "금", "토"], });
+  const [today, setToday] = useState(moment());
   const [currentDate, setCurrentDate] = useState(moment());
   const [currentDateKor, setCurrentDateKor] = useState(moment().format('M월 D일 dddd'));
 
@@ -18,7 +19,7 @@ export const UserDataProvider = ({ children }) => {
   }, [currentDate]);
 
   return (
-    <UserContext.Provider value={{ currentDate, setCurrentDate, currentDateKor }}>
+    <UserContext.Provider value={{ today, currentDate, setCurrentDate, currentDateKor }}>
       {children}
     </UserContext.Provider>
   );
