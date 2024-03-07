@@ -66,8 +66,265 @@ const playList =[
       : 'essential;',
     tags: ['음잘알', '트렌디한', '힙스터', '음악', '플레이리스트', '팝송'],
   },
+  {
+    title:
+      '[Playlist] 아니, 이런 노래는 어떻게 아는거야?? 너무 좋자나... | 노래 좀 듣는 애 플레이리스트😎ㅣShe has good taste...',
+    videoId: 'g7c0W-8rNmw',
+    channelName
+      : 'essential;',
+    tags: ['음잘알', '트렌디한', '힙스터', '음악', '플레이리스트', '팝송'],
+  },
+  {
+    title:
+      '[Playlist] 아니, 이런 노래는 어떻게 아는거야?? 너무 좋자나... | 노래 좀 듣는 애 플레이리스트😎ㅣShe has good taste...',
+    videoId: 'g7c0W-8rNmw',
+    channelName
+      : 'essential;',
+    tags: ['음잘알', '트렌디한', '힙스터', '음악', '플레이리스트', '팝송'],
+  },
+  {
+    title:
+      '[Playlist] 아니, 이런 노래는 어떻게 아는거야?? 너무 좋자나... | 노래 좀 듣는 애 플레이리스트😎ㅣShe has good taste...',
+    videoId: 'g7c0W-8rNmw',
+    channelName
+      : 'essential;',
+    tags: ['음잘알', '트렌디한', '힙스터', '음악', '플레이리스트', '팝송'],
+  },
 ]
 
+const diarySample =[
+  {
+    "date": '2024-03-02',
+    "diaryId": 1,
+    "content": "안녕하세요안녕하세요",
+    "emotion": {
+      "titleEmotion": "우울",
+      "combinedName": "우르르 쾅쾅",
+      "description": "마음을 쾅쾅 두드리는 화가 가득해요",
+      "tags": [
+        "분노",
+        "짜증",
+        "극대노"
+      ]
+    },
+    "createdDate": "2024-02-24T15:10:41.96862",
+    "updatedDate": "2024-02-24T15:10:41.96862",
+    "playlist": {
+      "title": "제목",
+      "videoId": "JUzPQ0JalHE",
+    }
+  },
+  {
+    "date": '2024-03-05',
+    "diaryId": 2,
+    "content": "안녕하세요안녕하세요",
+    "emotion": {
+      "titleEmotion": "우울",
+      "combinedName": "우르르 쾅쾅",
+      "description": "마음을 쾅쾅 두드리는 화가 가득해요",
+      "tags": [
+        "분노",
+        "짜증",
+        "극대노"
+      ]
+    },
+    "createdDate": "2024-02-24T15:10:42.828103",
+    "updatedDate": "2024-02-24T15:10:42.828103",
+    "playlist": {
+      "title": "제목",
+      "videoId": "JUzPQ0JalHE",
+    }
+  },
+  {
+    "date": '2024-03-06',
+    "diaryId": 2,
+    "content": "안녕하세요안녕하세요",
+    "emotion": {
+      "titleEmotion": "우울",
+      "combinedName": "우르르 쾅쾅",
+      "description": "마음을 쾅쾅 두드리는 화가 가득해요",
+      "tags": [
+        "분노",
+        "짜증",
+        "극대노"
+      ]
+    },
+    "createdDate": "2024-02-24T15:10:42.828103",
+    "updatedDate": "2024-02-24T15:10:42.828103",
+    "playlist": {
+      "title": "제목",
+      "videoId": "JUzPQ0JalHE",
+    }
+  },
+  {
+    "date": '2024-03-23',
+    "diaryId": 2,
+    "content": "안녕하세요안녕하세요",
+    "emotion": {
+      "titleEmotion": "우울",
+      "combinedName": "우르르 쾅쾅",
+      "description": "마음을 쾅쾅 두드리는 화가 가득해요",
+      "tags": [
+        "분노",
+        "짜증",
+        "극대노"
+      ]
+    },
+    "createdDate": "2024-02-24T15:10:42.828103",
+    "updatedDate": "2024-02-24T15:10:42.828103",
+    "playlist": {
+      "title": "제목",
+      "videoId": "JUzPQ0JalHE",
+    }
+  },
+  {
+    "date": '2024-03-30',
+    "diaryId": 2,
+    "content": "안녕하세요안녕하세요",
+    "emotion": {
+      "titleEmotion": "우울",
+      "combinedName": "우르르 쾅쾅",
+      "description": "마음을 쾅쾅 두드리는 화가 가득해요",
+      "tags": [
+        "분노",
+        "짜증",
+        "극대노"
+      ]
+    },
+    "createdDate": "2024-02-24T15:10:42.828103",
+    "updatedDate": "2024-02-24T15:10:42.828103",
+    "playlist": {
+      "title": "제목",
+      "videoId": "JUzPQ0JalHE",
+    }
+  },
+  {
+    "date": '2024-03-09',
+    "diaryId": 2,
+    "content": "안녕하세요안녕하세요",
+    "emotion": {
+      "titleEmotion": "우울",
+      "combinedName": "우르르 쾅쾅",
+      "description": "마음을 쾅쾅 두드리는 화가 가득해요",
+      "tags": [
+        "분노",
+        "짜증",
+        "극대노"
+      ]
+    },
+    "createdDate": "2024-02-24T15:10:42.828103",
+    "updatedDate": "2024-02-24T15:10:42.828103",
+    "playlist": {
+      "title": "제목",
+      "videoId": "JUzPQ0JalHE",
+    }
+  },
+  {
+    "date": '2024-03-16',
+    "diaryId": 2,
+    "content": "안녕하세요안녕하세요",
+    "emotion": {
+      "titleEmotion": "우울",
+      "combinedName": "우르르 쾅쾅",
+      "description": "마음을 쾅쾅 두드리는 화가 가득해요",
+      "tags": [
+        "분노",
+        "짜증",
+        "극대노"
+      ]
+    },
+    "createdDate": "2024-02-24T15:10:42.828103",
+    "updatedDate": "2024-02-24T15:10:42.828103",
+    "playlist": {
+      "title": "제목",
+      "videoId": "JUzPQ0JalHE",
+    }
+  },
+  {
+    "date": '2024-03-04',
+    "diaryId": 2,
+    "content": "안녕하세요안녕하세요",
+    "emotion": {
+      "titleEmotion": "우울",
+      "combinedName": "우르르 쾅쾅",
+      "description": "마음을 쾅쾅 두드리는 화가 가득해요",
+      "tags": [
+        "분노",
+        "짜증",
+        "극대노"
+      ]
+    },
+    "createdDate": "2024-02-24T15:10:42.828103",
+    "updatedDate": "2024-02-24T15:10:42.828103",
+    "playlist": {
+      "title": "제목",
+      "videoId": "JUzPQ0JalHE",
+    }
+  },
+  {
+    "date": '2024-03-07',
+    "diaryId": 2,
+    "content": "안녕하세요안녕하세요",
+    "emotion": {
+      "titleEmotion": "우울",
+      "combinedName": "우르르 쾅쾅",
+      "description": "마음을 쾅쾅 두드리는 화가 가득해요",
+      "tags": [
+        "분노",
+        "짜증",
+        "극대노"
+      ]
+    },
+    "createdDate": "2024-02-24T15:10:42.828103",
+    "updatedDate": "2024-02-24T15:10:42.828103",
+    "playlist": {
+      "title": "제목",
+      "videoId": "JUzPQ0JalHE",
+    }
+  },
+  {
+    "date": '2024-03-08',
+    "diaryId": 2,
+    "content": "안녕하세요안녕하세요",
+    "emotion": {
+      "titleEmotion": "우울",
+      "combinedName": "우르르 쾅쾅",
+      "description": "마음을 쾅쾅 두드리는 화가 가득해요",
+      "tags": [
+        "분노",
+        "짜증",
+        "극대노"
+      ]
+    },
+    "createdDate": "2024-02-24T15:10:42.828103",
+    "updatedDate": "2024-02-24T15:10:42.828103",
+    "playlist": {
+      "title": "제목",
+      "videoId": "JUzPQ0JalHE",
+    }
+  },
+  {
+    "date": '2024-03-10',
+    "diaryId": 2,
+    "content": "안녕하세요안녕하세요",
+    "emotion": {
+      "titleEmotion": "우울",
+      "combinedName": "우르르 쾅쾅",
+      "description": "마음을 쾅쾅 두드리는 화가 가득해요",
+      "tags": [
+        "분노",
+        "짜증",
+        "극대노"
+      ]
+    },
+    "createdDate": "2024-02-24T15:10:42.828103",
+    "updatedDate": "2024-02-24T15:10:42.828103",
+    "playlist": {
+      "title": "제목",
+      "videoId": "JUzPQ0JalHE",
+    }
+  },
+]
 /* 통계 */
 const timeData = [
   {
@@ -343,4 +600,4 @@ const data = [
     value: 73,
   },
 ]
-export { timeData, data, moodQnAArray, moodDataArray ,playList}
+export { timeData, data, moodQnAArray, moodDataArray ,playList,diarySample}

@@ -3,12 +3,12 @@ import Tag from '../../components/common/Tag'
 import RoundButton from '../../components/common/RoundButton'
 import styles from './complete-diary-page.module.css' // CSS 모듈 임포트
 
-const CompleteDiaryPageView = ({ currentDate, playlist, handleClick }) => {
+const CompleteDiaryPageView = ({ diary, currentDateKor, playlist, handleClick }) => {
   return (
     <div className='appContainer'>
       <div className={styles.checkIco}></div>
       <div>기록완료</div>
-      <div>{currentDate}</div>
+      <div>{currentDateKor}</div>
 
       <div>
         <div>

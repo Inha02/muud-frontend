@@ -3,7 +3,7 @@ import Tag from '../../components/common/Tag';
 import styles from './mood-result-page.module.css';
 
 const MoodResultPageView = ({
-  currentDate,
+  currentDateKor,
   isRightBtnActive,
   handleSkipClick,
   handleRightClick,
@@ -11,26 +11,18 @@ const MoodResultPageView = ({
   handleChange,
   enteredChars,
   maxLength,
-  moodResultData
+  moodData
 }) => {
-  /*
-  const moodResultData = {
-    "combinedName": "잔잔한 구름",
-    "description": "조용하고 잔잔한 봄날의 그늘",
-    "emoji": "/images/cloudy-mood.png",
-    "tags": ["그저그럼", "SOSO", "덤덤"],
-  };
-  */
   return (
     <div className='appContainer topbar'>
-      <div>{currentDate}
+      <div>{currentDateKor}
       </div>
 
-      {moodResultData && (<>
-        <img className={styles.moodEmoji} src={moodResultData.emoji} alt='emotion' />
-        <div>{moodResultData.combinedName}</div>
-        <div>{moodResultData.description}</div>
-        {moodResultData.tags && moodResultData.tags.map((item) => (<Tag key={item}>{item}</Tag>))}
+      {moodData && (<>
+        <img className={styles.moodEmoji} src={moodData.emoji} alt='emotion' />
+        <div>{moodData.combinedName}</div>
+        <div>{moodData.description}</div>
+        {moodData.tags && moodData.tags.map((item) => (<Tag key={item}>{item}</Tag>))}
       </>
       )}
 

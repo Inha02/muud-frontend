@@ -37,8 +37,6 @@ const SuggestPlaylistPageView = ({
         >
           {playlistArr && playlistArr.map((content, index) => (
             <div key={index}>
-
-              {/*
               <div className={styles.cardContainer + ' ' + (selectedOption[index] && styles.checked) + ' ' + (currentSlide != index && styles.sideSlide)}>
                 <MusicPlayer video={content.videoId} />
                 <div className={styles.pliContentWrap}>
@@ -51,8 +49,6 @@ const SuggestPlaylistPageView = ({
                   <CheckBox index={index} value={index} isChecked={selectedOption[index]} handleCheckboxChange={handleOptionChange}></CheckBox>
                 </div>
               </div>
-
-                */}
             </div>
           )
           )}
