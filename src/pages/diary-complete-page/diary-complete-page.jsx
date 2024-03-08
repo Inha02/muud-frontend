@@ -6,8 +6,10 @@ import styles from './diary-complete-page.module.css' // CSS 모듈 임포트
 const DiaryCompletePageView = ({ diary, currentDateKor, handleClick }) => {
   return (
     <div className='appContainer'>
-      <div className={styles.checkIco}></div>
-      <div>기록완료</div>
+      <div className={styles.iconContainer}>
+        <div className={styles.checkIco}></div>
+      </div>
+      <div className={styles.textComplete}>기록완료</div>
       <div>{currentDateKor}</div>
 
       <div>
@@ -30,12 +32,14 @@ const DiaryCompletePageView = ({ diary, currentDateKor, handleClick }) => {
         </div>
       </div>
 
-      <RoundButton
-        onClick={handleClick}
-        active
-      >
-        확인
-      </RoundButton>
+      <div className={styles.btnMargin}>
+        <RoundButton
+          onClick={handleClick}
+          active
+        >
+          확인
+        </RoundButton>
+      </div>
     </div>
   )
 }
