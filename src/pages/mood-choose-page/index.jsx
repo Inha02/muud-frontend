@@ -1,7 +1,6 @@
-import { useEffect, useState, useContext, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import { useUserContext } from '../../context/UserContext';
 import { useLocation, useNavigate } from 'react-router-dom'
-import { Post } from '../../api/axios';
 import MoodChoosePageView from './mood-choose-page'
 import { moodQnAArray } from '../../constants/testData'
 

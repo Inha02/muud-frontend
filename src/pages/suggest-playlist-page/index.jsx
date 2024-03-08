@@ -81,10 +81,13 @@ const SuggestPlaylistPage = () => {
   const postDiaryAxios = async () => {
     try {
       const formData = new FormData()
-      formData.append('content', state.diary)
+      const id = parseInt(playlistArr[currentSlide].id)
+      const date = currentDate.format('yyyy-MM-DD')
+      if (!(id && date && state.mood)) { throw new Error(); }
+
+      formData.append('playlistId', id)
+      formData.append('referenceDate', date)
       formData.append('emotionName', state.mood)
-      formData.append('playlistId', parseInt(playlistArr[currentSlide].id))
-      formData.append('referenceDate', currentDate.format('yyyy-MM-DD'))
       setConfig({ contentType: 'multipart/form-data' })
       const response = await Post('/diaries', formData)
       clearConfig('Content-Type')

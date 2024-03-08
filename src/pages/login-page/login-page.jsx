@@ -45,7 +45,7 @@ const LoginPageView = ({ user, isPwNoticeActive, isIdNoticeActive, onChangeUser,
           </div>
 
           {isPwNoticeActive &&
-            <div className={styles.wrongInfo}>*아직 8자리가 아니에요</div>
+            <div className={styles.wrongInfo}>*아직 8자리 이상 15자리 이하가 아니에요</div>
           }
           <div style={{ marginTop: '1.5em' }}>
             <RoundButton onClick={handleLogin} active={isLoginActive}>로그인</RoundButton>

@@ -20,9 +20,7 @@ const DiaryCompletePage = () => {
   const getDiaryAxios = async () => {
     try {
       const response = await Get(`/diaries/${state.diaryId}`)
-      if (response.data) {
-        setDiary(response.data)
-      }
+      setDiary(response.data)
     } catch (error) {
       console.log(error)
       modalOpen({

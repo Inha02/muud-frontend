@@ -1,13 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Patch } from '../../api/axios';
-import { useUserContext } from '../../context/UserContext';
 import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import { useModal } from '../../context/ModalContext'
 import UserNicknamePageView from './user-nickname-page'
 
 const UserNicknamePage = () => {
-  const [cookies, setCookie, removeCookie] = useCookies(['accessToken', 'refreshToken', 'id', 'nickname']);
+  const [cookies, setCookie] = useCookies(['accessToken', 'refreshToken', 'id', 'nickname']);
   const [nickname, setNickname] = useState('')
   const [isBtnActive, setIsBtnActive] = useState(false)
   const navigateTo = useNavigate();
@@ -30,10 +29,9 @@ const UserNicknamePage = () => {
 
   const updateNicknameAxios = async () => {
     try {
-      const response = await Patch(`/users/${cookies.id}/nickname`, {
+      await Patch(`/users/${cookies.id}/nickname`, {
         nickname: nickname
       });
-      console.log(response)
       navigateTo('/introduce');
 
     } catch (error) {

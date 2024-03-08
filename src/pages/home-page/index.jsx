@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import HomePageView from './home-page'
 import moment from 'moment';
 import 'moment/locale/ko';
 import { getMoodIcon } from '../../utils'
 import { diarySample } from '../../constants/testData'
-import { Get, be, setConfig } from '../../api/axios'
+import { Get } from '../../api/axios'
 import { useUserContext } from '../../context/UserContext';
 import { useModal } from '../../context/ModalContext';
 
@@ -70,9 +70,6 @@ const HomePage = () => {
   };
 
   const getMonthDiaryAxios = async () => {
-    //if (!(be.defaults.headers.common['Authorization'])) { return }
-    //console.log('헤더' + be.defaults.headers.common['Authorization'])
-
     try {
       const response = await Get(`/diaries/month?date=${activeMonth}`)
       if (response) setCurrentMonthDiary(response.data)

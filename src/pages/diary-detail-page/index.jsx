@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../context/UserContext';
 import DiaryDetailPageView from './diary-detail-page'
-import { Get, Post, Put, be } from '../../api/axios';
+import { Get, Put, be } from '../../api/axios';
 import { useModal } from '../../context/ModalContext';
 
 const DiaryDetailPage = () => {
-  const { currentDateKor, currentDate } = useUserContext();
+  const { currentDateKor } = useUserContext();
   const { modalOpen } = useModal();
   const [text, setText] = useState('');
   const [isBtnActive, setIsBtnActive] = useState(false);
@@ -38,15 +38,13 @@ const DiaryDetailPage = () => {
   };
 
   const getDiaryAxios = async (diaryId) => {
-    if (!be.defaults.headers.common['Authorization']) return
-
     try {
       const response = await Get(`/diaries/${diaryId}`)
       const data = response.data
       if (data) {
         setInitialText(data.content)
         setDiary(data)
-        setText(data.content)
+        setText(data.content ? data.content : '')
       }
     } catch (error) {
       console.log(error)
@@ -58,17 +56,14 @@ const DiaryDetailPage = () => {
   }
 
   const editDiaryAxios = async () => {
-    if (!be.defaults.headers.common['Authorization']) return
-
     try {
-      const response = await Put(`/diaries/${diary.id}`, {
+      await Put(`/diaries/${diary.id}`, {
         content: text
       })
       modalOpen({
         content: '수정 완료되었습니다',
         handle: navigateTo('/home', { replace: true }),
       });
-
     } catch (error) {
       console.log(error)
       modalOpen({

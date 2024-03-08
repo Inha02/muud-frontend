@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { ModalProvider } from '../../context/ModalContext.jsx'
 import styles from './MobileContent.module.css'
-import { be, setConfig } from '../../api/axios.js';
+import { setConfig } from '../../api/axios.js';
 import { useCookies } from 'react-cookie';
 
 const MobileContent = ({ children }) => {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
 import LoginPageView from './login-page';
@@ -20,7 +20,7 @@ const LoginPage = () => {
 
   const { modalOpen } = useModal();
   const [cookies, setCookie] = useCookies(['accessToken', 'refreshToken', 'id', 'nickname']);
-  const { isAuthenticated, setIsAuthenticated } = useUserContext()
+  const { setIsAuthenticated } = useUserContext()
   const REST_API_KEY = import.meta.env.VITE_KAKAO_KEY;
   const REDIRECT_URI = `${import.meta.env.VITE_HOST}/oauth2/callback/kakao`;
   // oauth 요청 URL
@@ -79,7 +79,12 @@ const LoginPage = () => {
 
     } catch (error) {
       console.log(error)
-      if (error.response.status == 401) {
+      if (error.response.status == 400) {
+        modalOpen({
+          content: ('입력 형식 오류\n이메일 또는 비밀번호를확인 해주세요'),
+        })
+      }
+      else if (error.response.status == 401) {
         modalOpen({
           content: ('등록된 아이디가 아니에요.\n이메일 또는 비밀번호를확인 해주세요'),
         })
@@ -88,12 +93,10 @@ const LoginPage = () => {
           content: ('로그인 요청 실패'),
         })
       }
-
-      /* ToDo: 배포전 주석해제
       setUser({
         id: '',
         pswd: '',
-    })*/
+      })
     }
   }
 

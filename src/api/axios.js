@@ -63,7 +63,8 @@ export const Post = async (url, data, config) => {
     const response = await be.post(url, data, config)
     return response
   } catch (error) {
-    handleError(error)
+    if(url !=='/auth/signin')handleError(error)
+    else throw error
   }
 }
 
@@ -115,11 +116,6 @@ export const Delete = async (url, config) => {
 }
 
 be.interceptors.request.use((config) => {
-  if (!config.headers.Authorization) {
-    // Authorization이 없으면 요청을 보내지 않음
-    alert('토큰없음')
-    // throw new Error('Unauthorized');
-  }
   return config
 })
 

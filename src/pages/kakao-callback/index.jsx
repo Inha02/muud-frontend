@@ -5,7 +5,7 @@ import { Post } from '../../api/axios';
 import { useUserContext } from '../../context/UserContext';
 import { useModal } from '../../context/ModalContext';
 
-const KakaoCallback = (props) => {
+const KakaoCallback = () => {
   const { setIsAuthenticated } = useUserContext()
   const navigateTo = useNavigate();
   const { modalOpen } = useModal();

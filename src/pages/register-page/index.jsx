@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useModal } from '../../context/ModalContext'
 import RegisterPageView from './register-page'
 import { validateEmail, validatePswd } from '../../utils'
-import { Post, setConfig } from '../../api/axios';
+import { Post } from '../../api/axios';
 
 const RegisterPage = () => {
   const { modalOpen } = useModal()
@@ -57,7 +57,7 @@ const RegisterPage = () => {
 
   const registerAxios = async () => {
     try {
-      const response = await Post('/auth/signup', {
+      await Post('/auth/signup', {
         email: user.id,
         password: user.pswd,
         nickname: user.nickname
