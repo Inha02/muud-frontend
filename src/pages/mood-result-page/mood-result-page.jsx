@@ -15,34 +15,40 @@ const MoodResultPageView = ({
 }) => {
   return (
     <div className='appContainer topbar'>
-      <div>{currentDateKor}
+
+      <div className={styles.textDate}>{currentDateKor}
       </div>
 
-      {moodData && (<>
-        <img className={styles.moodEmoji} src={moodData.emoji} alt='emotion' />
-        <div>{moodData.combinedName}</div>
-        <div>{moodData.description}</div>
-        {moodData.tags && moodData.tags.map((item) => (<Tag key={item}>{item}</Tag>))}
-      </>
+      {moodData && (
+        <div className={styles.moodResultContainer}>
+          <img className={styles.moodEmoji} src={moodData.emoji} alt='emotion' />
+          <div className={styles.moodResult}>{moodData.combinedName}</div>
+          <div className={styles.moodResultDescription}>{moodData.description}</div>
+          <div className={styles.tagsContainer}>
+            {moodData.tags && moodData.tags.map((item) => (<Tag key={item}>{item}</Tag>))}
+          </div>
+        </div>
       )}
 
       <div>
-        <textarea className={styles.moodTextarea} placeholder='오늘의 감정을 기록해보세요' maxLength={200} value={text} onChange={handleChange} >
+        <textarea className={styles.moodTextArea} placeholder='오늘의 감정을 기록해보세요' maxLength={200} value={text} onChange={handleChange} >
 
         </textarea>
-        <div>
+        <div className={styles.charCounter}>
           {enteredChars}/{maxLength}
         </div>
       </div>
-      <DoubleButton
-        leftTxt={'건너뛰기'}
-        leftStyle={{ 'backgroundColor': 'white', 'color': '#252525' }}
-        rightTxt={'다음'}
-        leftActive={true}
-        rightActive={isRightBtnActive}
-        handleLeftClick={handleSkipClick}
-        handleRightClick={handleRightClick}
-      ></DoubleButton>
+      <div className={styles.btn}>
+        <DoubleButton
+          leftTxt={'건너뛰기'}
+          leftStyle={{ 'backgroundColor': 'white', 'color': '#252525' }}
+          rightTxt={'다음'}
+          leftActive={true}
+          rightActive={isRightBtnActive}
+          handleLeftClick={handleSkipClick}
+          handleRightClick={handleRightClick}
+        ></DoubleButton>
+      </div>
 
     </div >
   )

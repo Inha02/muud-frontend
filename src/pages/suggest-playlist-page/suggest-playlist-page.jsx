@@ -27,9 +27,9 @@ const SuggestPlaylistPageView = ({
       {mood && (<img className={styles.moodEmojiSmall} src={getMoodData(mood).emoji} alt='emotion' />)
 
       }
-      <div>{userInfo.nickname}님을 위한 플레이리스트</div>
-      <div>마음에 드는 플리를 선택해서 감정과 함께 저장해보세요</div>
-      <div>
+      <div className={styles.textPlylist}>{userInfo.nickname}님을 위한 플레이리스트</div>
+      <div className={styles.textDescription}>마음에 드는 플리를 선택해서 감정과 함께 저장해보세요</div>
+      <div className={styles.sliderMargin}>
         <Slider
           className={styles.slider}
           {...slickSettings}
@@ -40,13 +40,15 @@ const SuggestPlaylistPageView = ({
               <div className={styles.cardContainer + ' ' + (selectedOption[index] && styles.checked) + ' ' + (currentSlide != index && styles.sideSlide)}>
                 <MusicPlayer video={content.videoId} />
                 <div className={styles.pliContentWrap}>
-                  <div >{content.channelName
+                  <div className={styles.textChannelName}>{content.channelName
                   }</div>
-                  <div >{content.title}</div>
-                  <div>
-                    {content.tags && content.tags.map((item) => (<span key={item} >#{item}</span>))}
+                  <div className={styles.textTitle}>{content.title}</div>
+                  <div className={styles.textTags}>
+                    {content.tags && content.tags.map((item) => (<span key={item} >#{item} </span>))}
                   </div>
-                  <CheckBox index={index} value={index} isChecked={selectedOption[index]} handleCheckboxChange={handleOptionChange}></CheckBox>
+                  <div className={styles.checkBox}>
+                    <CheckBox index={index} value={index} isChecked={selectedOption[index]} handleCheckboxChange={handleOptionChange}></CheckBox>
+                  </div>
                 </div>
               </div>
             </div>
@@ -54,8 +56,9 @@ const SuggestPlaylistPageView = ({
           )}
         </Slider>
       </div>
-
-      <RoundButton onClick={handleRecord} active={isRecordActive}>기록하기</RoundButton>
+      <div className={styles.btn}>
+        <RoundButton onClick={handleRecord} active={isRecordActive}>기록하기</RoundButton>
+      </div>
     </ >
   )
 }
