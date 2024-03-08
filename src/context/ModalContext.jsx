@@ -9,41 +9,12 @@ export function ModalProvider({ children }) {
     const [contents, setContents] = useState({ type: '', title: '', content: '', link: '', handle: null })
     const navigateTo = useNavigate();
 
-    /*
-        const showPopup = () => {
-            const { type, title, children, onConfirm, redirect, text1, text2, text3, cancelText, confirmText, redirectCancel } =
-                toast;
-            switch (type) {
-                case 'ok':
-                    return;
-                case 'okCancel':
-                    return;
-                default:
-                    return (
-                        <Modal
-                            visible={isModalOpen}
-                            onConfirm={() => {
-                                setIsModalOpen(false);
-                                onConfirm && onConfirm();
-                                redirect && redirect();
-                                setToast();
-                            }}
-                            title={text1}
-                        >
-                            <div >{text2}</div>
-                            {text3 && <div>{text3}</div>}
-                        </Modal>
-                    );
-            }
-        };
-    */
     const modalOpen = ({ type, title, content, link, handle }) => {
         setContents({ type, title, content, link, handle })
         setIsOpen(true);
     }
 
     const modalClose = () => {
-        // console.log(contents.link)
         if (contents.handle) {
             contents.handle()
         }

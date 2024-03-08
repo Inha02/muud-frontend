@@ -28,8 +28,9 @@ export const clearConfig = (name) => {
 
 const handleError = (error) => {
   if (error.response.status == 401 || error.response.status == 403) {
-    alert(error.response.status)
-    //window.location.href = `${import.meta.env.VITE_HOST}/login`
+    window.location.href = `${import.meta.env.VITE_HOST}/login`
+    localStorage.setItem('isAuthenticated', false);
+    localStorage.removeItem('activeDate');
   } else {
     throw error
   }

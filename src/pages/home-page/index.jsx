@@ -70,7 +70,9 @@ const HomePage = () => {
   };
 
   const getMonthDiaryAxios = async () => {
-    if (!(be.defaults.headers.common['Authorization'])) return
+    if (!(be.defaults.headers.common['Authorization'])) { return }
+    console.log('헤더' + be.defaults.headers.common['Authorization'])
+
     try {
       const response = await Get(`/diaries/month?date=${activeMonth}`)
       if (response) setCurrentMonthDiary(response.data)
@@ -83,7 +85,9 @@ const HomePage = () => {
   }
 
   useEffect(() => {
-    if (activeMonth) getMonthDiaryAxios()
+    if (activeMonth) {
+      getMonthDiaryAxios()
+    }
   }, [activeMonth]);
   useEffect(() => {
     //현재 다이어리 출력 

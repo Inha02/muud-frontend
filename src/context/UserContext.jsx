@@ -4,7 +4,6 @@ import 'moment/locale/ko'; // 한국어 locale을 불러옵니다.
 
 const UserContext = createContext();
 
-// Context Provider 컴포넌트 
 export const UserDataProvider = ({ children }) => {
   moment.updateLocale('ko', { weekdays: ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"], weekdaysShort: ["일", "월", "화", "수", "목", "금", "토"], });
   const [today, setToday] = useState(moment());
@@ -19,12 +18,10 @@ export const UserDataProvider = ({ children }) => {
   });
 
   useEffect(() => {
-
-    //setCurrentDate(moment().format('M월 D일 dddd'));
   }, []);
   useEffect(() => {
-    //setCurrentDateKor(moment(currentDate).format('M월 D일 dddd'));
-    // console.log("액티브 날짜" + moment(currentDate).format('M월 D일 dddd'))
+    setCurrentDateKor(currentDate.format('M월 D일 dddd'));
+    console.log("액티브 날짜" + currentDate.format('M월 D일 dddd'))
     localStorage.setItem('activeDate', currentDate);
   }, [currentDate]);
   useEffect(() => {
