@@ -24,3 +24,31 @@
     background-color: var(--neutral20-color);
 
 }
+
+.textDate {
+    margin-top: 4rem;
+    font-family: Pretendard;
+    font-size: var(--font-small);
+    text-align: center;
+    color: white;
+}
+
+.textMood {
+    margin-top: 0.3rem;
+    font-family: Pretendard;
+    font-size: var(--font-large);
+    text-align: center;
+    color: white;
+}
+
+.textOne {
+    margin-top: 0.3rem;
+    font-family: Pretendard;
+    font-size: var(--font-small);
+    text-align: center;
+    color: var(--neutral60-color);
+}
+
+.btnNext {
+    margin-top: 1rem;
+}
