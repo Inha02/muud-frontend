@@ -19,18 +19,16 @@ const MoodResultPageView = ({
       <div className={styles.textDate}>{currentDateKor}
       </div>
 
-      {moodResultData && (
+      {moodData && (
         <div className={styles.moodResultContainer}>
-          <img className={styles.moodEmoji} src={moodResultData.emoji} alt='emotion' />
-          <div className={styles.moodResult}>{moodResultData.combinedName}</div>
-          <div className={styles.moodResultDescription}>{moodResultData.description}</div>
+          <img className={styles.moodEmoji} src={moodData.emoji} alt='emotion' />
+          <div className={styles.moodResult}>{moodData.combinedName}</div>
+          <div className={styles.moodResultDescription}>{moodData.description}</div>
           <div className={styles.tagsContainer}>
-            {moodResultData.tags && moodResultData.tags.map((item) => (<Tag key={item}>{item}</Tag>))}
+            {moodData.tags && moodData.tags.map((item) => (<Tag key={item}>{item}</Tag>))}
           </div>
         </div>
       )}
-
-
 
       <div>
         <textarea className={styles.moodTextArea} placeholder='오늘의 감정을 기록해보세요' maxLength={200} value={text} onChange={handleChange} >
