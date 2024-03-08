@@ -1,9 +1,9 @@
 import axios from 'axios'
 
 const backend = () =>{
-  if(!((import.meta.env.VITE_PUBLIC_BASE_URL).includes('localhost')) ){
-    return 'api'
-  }
+  // if(!((import.meta.env.VITE_PUBLIC_BASE_URL).includes('localhost')) ){
+  //   return 'api'
+  // }
   return import.meta.env.VITE_BACKEND_URL
 }
 
