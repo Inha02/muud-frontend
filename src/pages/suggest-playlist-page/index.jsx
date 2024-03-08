@@ -85,6 +85,7 @@ const SuggestPlaylistPage = () => {
       const date = currentDate.format('yyyy-MM-DD')
       if (!(id && date && state.mood)) { throw new Error(); }
 
+      formData.append('content', state.diary)
       formData.append('playlistId', id)
       formData.append('referenceDate', date)
       formData.append('emotionName', state.mood)
