@@ -1,18 +1,18 @@
-import { useEffect, useState, useContext, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../context/UserContext';
 import MoodResultPageView from './mood-result-page'
-import { Get, Post } from '../../api/axios';
+import { Get } from '../../api/axios';
 import { getMoodData } from '../../utils';
 
 const MoodResultPage = () => {
   const location = useLocation();
-  const [mood, setMood] = useState('');
   const { state } = location;
-  const { currentDate } = useUserContext();
+  const [mood, setMood] = useState('');
+  const { currentDateKor } = useUserContext();
   const [text, setText] = useState('');
   const [isBtnActive, setIsBtnActive] = useState(false);
-  const [moodResultData, setMoodResultData] = useState({});
+  const [moodData, setMoodData] = useState({});
 
   const navigateTo = useNavigate();
   const maxLength = 200;
@@ -20,14 +20,13 @@ const MoodResultPage = () => {
 
   const handleSkipClick = () => {
     navigateTo(`/playlist`, {
-      state: mood,
+      state: { mood: mood, diary: '' }
     });
   }
 
   const handleRightClick = () => {
     navigateTo(`/playlist`, {
-      state: mood,
-      diary: text
+      state: { mood: mood, diary: text }
     });
   }
 
@@ -47,8 +46,7 @@ const MoodResultPage = () => {
   const getMoodAxios = async (mood) => {
     try {
       const response = await Get('emotions/' + mood);
-      setMoodResultData(response);
-
+      setMoodData(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -57,18 +55,23 @@ const MoodResultPage = () => {
   useEffect(() => {
     //const params = new URL(document.URL).searchParams;
     //setMood(params.get("mood"));
-    setMood(state)
+    if (state) {
+      setMood(state)
+    }
+    else {
+      navigateTo('/mood/choose')
+    }
   }, []);
 
   useEffect(() => {
     if (mood) {
-      setMoodResultData(getMoodData(mood));
+      setMoodData(getMoodData(mood));
       //getMoodAxios(mood);
     }
   }, [mood]);
 
   return (
-    <MoodResultPageView currentDate={currentDate} handleChange={handleChange} handleSkipClick={handleSkipClick} handleRightClick={handleRightClick} enteredChars={enteredChars} maxLength={maxLength} isRightBtnActive={isBtnActive} moodResultData={moodResultData} />
+    <MoodResultPageView currentDateKor={currentDateKor} handleChange={handleChange} handleSkipClick={handleSkipClick} handleRightClick={handleRightClick} enteredChars={enteredChars} maxLength={maxLength} isRightBtnActive={isBtnActive} moodData={moodData} />
   )
 }
 

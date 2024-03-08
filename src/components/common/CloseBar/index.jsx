@@ -2,14 +2,10 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import CloseBarView from './CloseBar'
 
-const CloseBar = ({ option }) => {
+const CloseBar = ({ onClick }) => {
   const navigateTo = useNavigate();
 
-  const handleClick = () => {
-
-  };
-
-  return <CloseBarView handleClick={handleClick} />
+  return <CloseBarView handleClick={onClick} />
 }
 
 export default CloseBar

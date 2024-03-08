@@ -1,16 +1,18 @@
-import { useEffect, useState, useContext, useRef } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import SuggestPlaylistPageView from './suggest-playlist-page'
-import { Get, Post } from '../../api/axios'
+import { Get, Post, clearConfig, setConfig } from '../../api/axios'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useCookies } from 'react-cookie'
-import { useModal } from '../../context/ModalContext';
+import { useModal } from '../../context/ModalContext'
 import { playList } from '../../constants/testData'
+import { useUserContext } from '../../context/UserContext'
 
 const SuggestPlaylistPage = () => {
   const location = useLocation()
-  const navigateTo = useNavigate();
-  const { state, diary } = location
-  const { modalOpen } = useModal();
+  const { state } = location
+  const navigateTo = useNavigate()
+  const { currentDate } = useUserContext();
+  const { modalOpen } = useModal()
   const sliderRef = useRef(null)
   const [cookies, setCookie] = useCookies([
     'accessToken',
@@ -32,11 +34,6 @@ const SuggestPlaylistPage = () => {
     nickname: cookies.nickname,
   }
   const [playlistArr, setPlaylistArr] = useState(playList)
-  const handleSlideChange = (current, next) => {
-
-    setCurrentSlide(current)
-
-  }
   const slickSettings = {
     dots: true,
     infinite: true,
@@ -47,8 +44,9 @@ const SuggestPlaylistPage = () => {
     centerPadding: '25px',
     slidesToShow: 1,
     // 슬라이드가 변경될 때마다 호출되는 콜백 함수를 설정합니다.
-    afterChange: handleSlideChange,
-
+    afterChange: (current, next) => {
+      setCurrentSlide(current)
+    },
     className: 'center',
   }
   //const noCORS = 'https://cors-anywhere.herokuapp.com/';
@@ -58,59 +56,60 @@ const SuggestPlaylistPage = () => {
     newValue[index] = !selectedOption[index]
     setSelectedOption(newValue)
     setIsRecordActive(!selectedOption[index])
-    //console.log('현재 선택 영상' + playlistArr[currentSlide].title)
   }
 
-
-
-
-
   const handleRecord = () => {
-    postDiaryAxios();
+    postDiaryAxios()
   }
 
   const getPliAxios = async () => {
     try {
-      const response = await Get(`/playlists?emotion=${state}`)
-      const { content } = response
-      //console.log(content)
-      if (content.length != 0) {
+      const response = await Get(`/playlists?emotion=${state.mood}`)
+      const { content } = response.data
+      if (content && content.length != 0) {
         setPlaylistArr(content)
       }
     } catch (error) {
       console.log(error)
-      setPlaylistArr(playList)
       modalOpen({
-        content: '유튜브 데이터 가져오기 실패',
-      });
-
+        content: ('추천 플레이리스트 요청에 실패했습니다.'),
+      })
+      setPlaylistArr(playList)
     }
   }
 
   const postDiaryAxios = async () => {
     try {
-      const response = await Post('/diaries', { content: diary, emotionName: mood, playlistId: playlistArr[currentSlide].videoId });
-      // const { diaryId } = response.data
-      console.log(response.headers)
-      console.log(response.data.headers['location']);
-      console.log(response.data.headers.get('location'));
+      const formData = new FormData()
+      const id = parseInt(playlistArr[currentSlide].id)
+      const date = currentDate.format('yyyy-MM-DD')
+      if (!(id && date && state.mood)) { throw new Error(); }
 
-      //  const loc = response.headers.location;
-      //  const diaryId = loc.replace("/diaries/", "");
-
-      // console.log(diaryId)
-
+      formData.append('playlistId', id)
+      formData.append('referenceDate', date)
+      formData.append('emotionName', state.mood)
+      setConfig({ contentType: 'multipart/form-data' })
+      const response = await Post('/diaries', formData)
+      clearConfig('Content-Type')
       navigateTo(`/diary/complete`, {
-        //  diaryId: diaryId
-      });
+        state: { diaryId: response.data }
+      })
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.log(error)
+      modalOpen({
+        content: ('일기 작성에 실패했습니다'),
+      })
     }
-  };
+  }
 
   useEffect(() => {
-    setMood(state)
-    // getPliAxios()
+    if (state) {
+      setMood(state.mood)
+      getPliAxios()
+    }
+    else {
+      navigateTo('/mood/choose')
+    }
   }, [])
 
   return (

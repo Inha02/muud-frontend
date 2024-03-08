@@ -82,17 +82,27 @@
 .react-calendar__tile:enabled:hover,
 .react-calendar__tile:enabled:focus,
 .react-calendar__tile--active {
-  background-color: var(--neutral40-color);
+  background-color: var(--primary60-color);
 }
 
-/* 현재날짜 */
+/* 오늘날짜 */
 .react-calendar__tile--now {
-  background: var(--primary60-color);
+  background: var(--neutral-color);
   border-radius: 3.26px;
 }
 
-/* 현재날짜 hover, focus 시 */
+/* 오늘날짜 hover, focus 시 */
 .react-calendar__tile--now:enabled:hover,
 .react-calendar__tile--now:enabled:focus {
-  background: var(--primary30-color)
+  /*background: var(--primary30-color)*/
+}
+
+/* user prop */
+.react-calendar__tile.pastDay:enabled:hover,
+.react-calendar__tile.pastDay:enabled:focus,
+.react-calendar__tile--active.pastDay {
+  background: var(--neutral-color);
+  border-style: solid;
+  border-width: 1.5px;
+  border-color: var(--primary60-color);
 }

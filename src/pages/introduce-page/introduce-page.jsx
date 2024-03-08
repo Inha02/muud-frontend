@@ -8,8 +8,11 @@ import styles from './introduce-page.module.css'
 const SlideCard = ({ content }) => {
     return (
         <div className={styles.cardContainer}>
-            <div >{content.main}</div>
-            <div >{content.sub}</div>
+            <div className={styles.main}>{content.main}</div>
+            <div className={styles.sub}>{content.sub}</div>
+            <div className={styles.imageContainer}>
+                <img src="public\images\Rectangle 92.png" />
+            </div>
         </div>
     )
 }
@@ -31,17 +34,21 @@ const IntroducePageView = ({ slickSettings, sliderRef, currentSlide, handleClick
                 </Slider>
             </div>
 
+
             {currentSlide != 1 && (
-                <div>
+                <div className={styles.skip}>
                     <a onClick={handleSkipClick}>건너뛰기</a>
                 </div>
             )}
-            <RoundButton
-                onClick={handleClick}
-                active
-            >
-                {currentSlide != 1 ? '다음' : '시작하기'}
-            </RoundButton>
+            <div className={styles.btn}>
+                <RoundButton
+                    onClick={handleClick}
+                    active
+                >
+                    {currentSlide != 1 ? '다음' : '시작하기'}
+                </RoundButton>
+            </div>
+
         </div>
     )
 }

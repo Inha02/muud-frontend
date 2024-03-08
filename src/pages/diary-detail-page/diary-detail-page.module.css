@@ -1,0 +1,14 @@
+.moodEmoji {
+    width: 44px;
+}
+
+.moodTextarea {
+    width: 100%;
+    min-height: 324px;
+}
+
+.cardContainer {
+    background-color: white;
+    border-radius: 16px;
+    padding: 20px;
+}

@@ -5,7 +5,8 @@ import { Post } from '../../api/axios';
 import { useUserContext } from '../../context/UserContext';
 import { useModal } from '../../context/ModalContext';
 
-const KakaoCallback = (props) => {
+const KakaoCallback = () => {
+  const { setIsAuthenticated } = useUserContext()
   const navigateTo = useNavigate();
   const { modalOpen } = useModal();
   const [cookies, setCookie] = useCookies(['accessToken', 'refreshToken', 'id', 'nickname']);
@@ -23,13 +24,14 @@ const KakaoCallback = (props) => {
       setCookie('refreshToken', refreshToken, { path: '/' });
       setCookie('id', userInfo.id, { path: '/' });
       setCookie('nickname', userInfo.nickname, { path: '/' });
-
+      setIsAuthenticated(true)
       if (response.status == 201) {
         modalOpen({
           content: ('환영합니다!\n회원 가입 완료'),
           handle: navigateTo('/user/nickname', { replace: true }),
         })
       } else {
+        //console.log('카카오로그인 완료')
         navigateTo('/home', { replace: true });
       }
 
