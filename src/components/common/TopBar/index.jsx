@@ -7,12 +7,12 @@ const TopBar = ({ option }) => {
 
   const handleClick = () => {
     switch (option) {
-      case 'x':
-        break;
       case 'back':
         navigateTo(-1);
         break;
       default:
+        navigateTo(-1);
+        break;
     }
   };
 

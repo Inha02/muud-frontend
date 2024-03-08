@@ -1,4 +1,15 @@
 {
-    "rewrites": [{ "source": "/(.*)", "destination": "/" }]
-  }
+    "rewrites": [
+      { "source": "/(.*)", "destination": "/" },
+      {
+        "source": "/api/:path*",
+        "destination": "http://ec2-3-39-74-244.ap-northeast-2.compute.amazonaws.com:8080/:path*"
+      },
+      {
+        "source": "/api/:path*/",
+        "destination": "http://ec2-3-39-74-244.ap-northeast-2.compute.amazonaws.com:8080/:path*/"
+      }
+    
+    ]
+}
   
