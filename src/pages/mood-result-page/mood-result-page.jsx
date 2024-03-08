@@ -15,9 +15,8 @@ const MoodResultPageView = ({
 }) => {
   return (
     <div className='appContainer topbar'>
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <div className={styles.textDate}>{currentDate}
+
+      <div className={styles.textDate}>{currentDateKor}
       </div>
 
       {moodResultData && (
@@ -29,23 +28,8 @@ const MoodResultPageView = ({
             {moodResultData.tags && moodResultData.tags.map((item) => (<Tag key={item}>{item}</Tag>))}
           </div>
         </div>
-=======
-      <div>{currentDateKor}
-      </div>
-
-=======
-      <div>{currentDateKor}
-      </div>
-
->>>>>>> 0498c850cd3caabeb8b2f39881931c03a46105c1
-      {moodData && (<>
-        <img className={styles.moodEmoji} src={moodData.emoji} alt='emotion' />
-        <div>{moodData.combinedName}</div>
-        <div>{moodData.description}</div>
-        {moodData.tags && moodData.tags.map((item) => (<Tag key={item}>{item}</Tag>))}
-      </>
->>>>>>> 0498c850cd3caabeb8b2f39881931c03a46105c1
       )}
+
 
 
       <div>
