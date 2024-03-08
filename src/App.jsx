@@ -62,7 +62,6 @@ function App() {
     <div className="App">
       <UserDataProvider>
         <BrowserView>
-          <NavBar />
           <Routes>
             <Route path="*" element={
               <MobileContainer>
