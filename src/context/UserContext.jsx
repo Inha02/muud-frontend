@@ -21,11 +21,9 @@ export const UserDataProvider = ({ children }) => {
   }, []);
   useEffect(() => {
     setCurrentDateKor(currentDate.format('M월 D일 dddd'));
-    console.log("액티브 날짜" + currentDate.format('M월 D일 dddd'))
     localStorage.setItem('activeDate', currentDate);
   }, [currentDate]);
   useEffect(() => {
-    console.log("로그인여부" + isAuthenticated)
     localStorage.setItem('isAuthenticated', isAuthenticated);
   }, [isAuthenticated]);
 

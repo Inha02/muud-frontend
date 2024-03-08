@@ -66,7 +66,6 @@ const SuggestPlaylistPage = () => {
     try {
       const response = await Get(`/playlists?emotion=${state.mood}`)
       const { content } = response.data
-      console.log(content)
       if (content && content.length != 0) {
         setPlaylistArr(content)
       }
@@ -103,11 +102,11 @@ const SuggestPlaylistPage = () => {
   useEffect(() => {
     if (state) {
       setMood(state.mood)
+      getPliAxios()
     }
     else {
       navigateTo('/mood/choose')
     }
-    getPliAxios()
   }, [])
 
   return (

@@ -70,8 +70,8 @@ const HomePage = () => {
   };
 
   const getMonthDiaryAxios = async () => {
-    if (!(be.defaults.headers.common['Authorization'])) { return }
-    console.log('헤더' + be.defaults.headers.common['Authorization'])
+    //if (!(be.defaults.headers.common['Authorization'])) { return }
+    //console.log('헤더' + be.defaults.headers.common['Authorization'])
 
     try {
       const response = await Get(`/diaries/month?date=${activeMonth}`)

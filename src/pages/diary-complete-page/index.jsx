@@ -33,7 +33,6 @@ const DiaryCompletePage = () => {
 
   useEffect(() => {
     if (state) {
-      console.log("감정결과 아이디" + state.diaryId)
       getDiaryAxios()
     } else {
       navigateTo('/mood/choose')

@@ -12,11 +12,9 @@ const MobileContent = ({ children }) => {
 
     useEffect(() => {
         setConfig({ accessToken: cookies.accessToken });
-        console.log('Access Token:', cookies.accessToken);
     }, [cookies.accessToken]);
 
     useEffect(() => {
-        console.log('Current Headers:', be.defaults.headers);
         if (container) {
             container.scrollTo(0, 0); // 컨테이너의 스크롤 위치를 최상단으로 설정합니다.
         }

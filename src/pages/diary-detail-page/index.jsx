@@ -80,8 +80,9 @@ const DiaryDetailPage = () => {
 
   useEffect(() => {
     const diaryId = new URL(document.URL).searchParams.get("id");
-    getDiaryAxios(diaryId)
-    if (!diaryId) {
+    if (diaryId) {
+      getDiaryAxios(diaryId)
+    } else {
       navigateTo('/home')
     }
   }, []);
