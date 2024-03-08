@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { useCookies } from 'react-cookie'
 
 export const be = axios.create({
   baseURL: import.meta.env.VITE_BACKEND_URL,
@@ -7,8 +6,9 @@ export const be = axios.create({
 
 export const setConfig = ({ accessToken, contentType }) => {
   //1
-    if (accessToken) be.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
-    if (contentType) be.defaults.headers.common['Content-Type'] = contentType
+  if (accessToken)
+    be.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
+  if (contentType) be.defaults.headers.common['Content-Type'] = contentType
   /*  //2
     be.interceptors.request.use(config => {
         if (accessToken) {
@@ -26,6 +26,15 @@ export const clearConfig = (name) => {
   delete be.defaults.headers.common[name]
 }
 
+const handleError = (error) => {
+  if (error.response.status == 401 || error.response.status == 403) {
+    alert(error.response.status)
+    //window.location.href = `${import.meta.env.VITE_HOST}/login`
+  } else {
+    throw error
+  }
+}
+
 /**
  * Get Axios
  * @param {string} url
@@ -37,14 +46,7 @@ export const Get = async (url, config) => {
     const response = await be.get(url, config)
     return response
   } catch (error) {
-    console.log(error.response.status)
-    if (error.response.status == 401 || error.response.status == 403) {
-      alert(error.response.status)
-
-      //window.location.href = `${import.meta.env.VITE_HOST}/login`
-    } else {
-      throw error
-    }
+    handleError(error)
   }
 }
 
@@ -60,14 +62,7 @@ export const Post = async (url, data, config) => {
     const response = await be.post(url, data, config)
     return response
   } catch (error) {
-    if (error.response.status == 401 || error.response.status == 403) {
-      alert(error.response.status)
-
-       // alert('접근 권한이 필요합니다')
-      //window.location.href = `${import.meta.env.VITE_HOST}/login`
-    }
-    throw error
-
+    handleError(error)
   }
 }
 
@@ -79,9 +74,12 @@ export const Post = async (url, data, config) => {
  * @returns Promise<response>
  */
 export const Put = async (url, data, config) => {
-  const response = await be.put(url, data, config)
-
-  return response
+  try {
+    const response = await be.put(url, data, config)
+    return response
+  } catch (error) {
+    handleError(error)
+  }
 }
 
 /**
@@ -94,17 +92,9 @@ export const Put = async (url, data, config) => {
 export const Patch = async (url, data, config) => {
   try {
     const response = await be.patch(url, data, config)
-
     return response
   } catch (error) {
-    console.log(error.response.status)
-    if (error.response.status == 401 || error.response.status == 403) {
-      alert(error.response.status)
-    
-    //  window.location.href = `${import.meta.env.VITE_HOST}/login`
-    } else {
-      throw error
-    }
+    handleError(error)
   }
 }
 
@@ -115,16 +105,19 @@ export const Patch = async (url, data, config) => {
  * @returns Promise<response>
  */
 export const Delete = async (url, config) => {
-  const response = await be.delete(url, config)
-
-  return response
+  try {
+    const response = await be.delete(url, config)
+    return response
+  } catch (error) {
+    handleError(error)
+  }
 }
 
 be.interceptors.request.use((config) => {
   if (!config.headers.Authorization) {
     // Authorization이 없으면 요청을 보내지 않음
-alert('토큰없음')
-   // throw new Error('Unauthorized');
+    alert('토큰없음')
+    // throw new Error('Unauthorized');
   }
   return config
 })

@@ -5,7 +5,7 @@ import LoginPageView from './login-page';
 import { useModal } from '../../context/ModalContext';
 import { useUserContext } from '../../context/UserContext';
 import { validateEmail, validatePswd } from '../../utils';
-import { Post, setConfig } from '../../api/axios';
+import { Post } from '../../api/axios';
 
 const LoginPage = () => {
   const navigateTo = useNavigate();
@@ -20,7 +20,7 @@ const LoginPage = () => {
 
   const { modalOpen } = useModal();
   const [cookies, setCookie] = useCookies(['accessToken', 'refreshToken', 'id', 'nickname']);
-
+  const { isAuthenticated, setIsAuthenticated } = useUserContext()
   const REST_API_KEY = import.meta.env.VITE_KAKAO_KEY;
   const REDIRECT_URI = `${import.meta.env.VITE_HOST}/oauth2/callback/kakao`;
   // oauth 요청 URL
@@ -37,7 +37,6 @@ const LoginPage = () => {
   const handleLogin = () => {
     if (validate(user.id, user.pswd)) return
     loginAxios();
-
   };
 
   const validate = (id, pswd) => {
@@ -75,6 +74,7 @@ const LoginPage = () => {
       setCookie('refreshToken', refreshToken, { path: '/' });
       setCookie('id', userInfo.id, { path: '/' });
       setCookie('nickname', userInfo.nickname, { path: '/' });
+      setIsAuthenticated(true)
       navigateTo('/home');
 
     } catch (error) {

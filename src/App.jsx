@@ -1,8 +1,9 @@
 import { useEffect, useState, useContext } from 'react';
 import { useCookies } from 'react-cookie';
-import { Route, Routes, Link, Outlet } from 'react-router-dom'
+import { Route, Routes, Link, Outlet, Navigate } from 'react-router-dom'
 import { UserDataProvider } from './context/UserContext';
 import { BrowserView, MobileView } from 'react-device-detect'
+import { useUserContext } from './context/UserContext'
 
 import LoginPage from './pages/login-page'
 import RegisterPage from './pages/register-page'
@@ -24,27 +25,34 @@ import NavBar from "./components/NavBar";
 
 import './App.css';
 
-
-//헤더 뒤로가기, 탑바 없기 구분해야함 
 const Pages = () => {
+  const { isAuthenticated } = useUserContext();
+
   return (
     <Routes>
-      <Route path="/*" element={<BackBtnContainer />}>
-        <Route path="home" element={<HomePage />} />
-        <Route path="mood/result" element={<MoodResultPage />} />
-        <Route path="playlist" element={<SuggestPlaylistPage />} />
-        <Route path="diary/complete" element={<DiaryCompletePage />} />
-        <Route path="diary/detail" element={<DiaryDetailPage />} />
-        <Route path="mood/report" element={<ReportPage />} />
-        <Route path="user/nickname" element={<UserNicknamePage />} />
-        <Route path="introduce" element={<IntroducePage />} />
-        <Route path="mood/choose" element={<MoodChoosePage />} />
-      </Route>
-      <Route path="/" element={<LoginPage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/register" element={<RegisterPage />} />
-      <Route path="/oauth2/callback/kakao" element={<KakaoCallback />} />
-
+      {(isAuthenticated) ? (//로그인 사용자 
+        <Route path="/*" element={<BackBtnContainer />}>
+          <Route path="home" element={<HomePage />} />
+          <Route path="mood/result" element={<MoodResultPage />} />
+          <Route path="playlist" element={<SuggestPlaylistPage />} />
+          <Route path="diary/complete" element={<DiaryCompletePage />} />
+          <Route path="diary/detail" element={<DiaryDetailPage />} />
+          <Route path="mood/report" element={<ReportPage />} />
+          <Route path="user/nickname" element={<UserNicknamePage />} />
+          <Route path="introduce" element={<IntroducePage />} />
+          <Route path="mood/choose" element={<MoodChoosePage />} />
+          <Route path="*" element={<Navigate to="/home" />} />
+        </Route>
+      ) :  //비로그인 사용자
+        (
+          <Route path="/*" element={<Outlet></Outlet>}>
+            <Route path="login" element={<LoginPage />} />
+            <Route path="register" element={<RegisterPage />} />
+            <Route path="oauth2/callback/kakao" element={<KakaoCallback />} />
+            <Route path="*" element={<Navigate to="/login" />} />
+          </Route>
+        )
+      }
     </Routes>
   )
 }

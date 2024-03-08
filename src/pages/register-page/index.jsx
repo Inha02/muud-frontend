@@ -65,8 +65,7 @@ const RegisterPage = () => {
       loginAxios(user.id, user.pswd);
 
     } catch (error) {
-      console.log('error:' + error)
-
+      console.log(error)
       if (error.response.status == 409) {
         modalOpen({
           content: ('이미 가입된 이메일 입니다'),

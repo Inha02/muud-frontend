@@ -1,19 +1,15 @@
-import { useEffect, useState, useContext, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../context/UserContext';
 import DiaryDetailPageView from './diary-detail-page'
 import { Get, Post, Put, be } from '../../api/axios';
-import { getMoodData } from '../../utils';
-import moment from 'moment';
 import { useModal } from '../../context/ModalContext';
 
 const DiaryDetailPage = () => {
-  //const [mood, setMood] = useState('');
   const { currentDateKor, currentDate } = useUserContext();
   const { modalOpen } = useModal();
   const [text, setText] = useState('');
   const [isBtnActive, setIsBtnActive] = useState(false);
-  const [moodData, setMoodData] = useState({});
   const [diary, setDiary] = useState({})
   const navigateTo = useNavigate();
   const maxLength = 200;
@@ -54,6 +50,10 @@ const DiaryDetailPage = () => {
       }
     } catch (error) {
       console.log(error)
+      modalOpen({
+        content: ('일기 조회에 실패했습니다.'),
+        handle: navigateTo('/home', { replace: true }),
+      })
     }
   }
 
@@ -72,7 +72,7 @@ const DiaryDetailPage = () => {
     } catch (error) {
       console.log(error)
       modalOpen({
-        content: '오류가 발생했습니다',
+        content: '수정 오류가 발생했습니다',
         handle: navigateTo('/home', { replace: true }),
       });
     }

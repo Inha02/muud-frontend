@@ -1,13 +1,11 @@
-import { useEffect, useState, useContext, useRef } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import SuggestPlaylistPageView from './suggest-playlist-page'
 import { Get, Post, clearConfig, setConfig } from '../../api/axios'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useCookies } from 'react-cookie'
 import { useModal } from '../../context/ModalContext'
 import { playList } from '../../constants/testData'
-import moment from 'moment';
 import { useUserContext } from '../../context/UserContext'
-
 
 const SuggestPlaylistPage = () => {
   const location = useLocation()
@@ -74,6 +72,9 @@ const SuggestPlaylistPage = () => {
       }
     } catch (error) {
       console.log(error)
+      modalOpen({
+        content: ('추천 플레이리스트 요청에 실패했습니다.'),
+      })
       setPlaylistArr(playList)
     }
   }
@@ -92,6 +93,7 @@ const SuggestPlaylistPage = () => {
         state: { diaryId: response.data }
       })
     } catch (error) {
+      console.log(error)
       modalOpen({
         content: ('일기 작성에 실패했습니다'),
       })

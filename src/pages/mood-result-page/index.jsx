@@ -1,16 +1,15 @@
-import { useEffect, useState, useContext, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../context/UserContext';
 import MoodResultPageView from './mood-result-page'
-import { Get, Post } from '../../api/axios';
+import { Get } from '../../api/axios';
 import { getMoodData } from '../../utils';
-import moment from 'moment';
 
 const MoodResultPage = () => {
   const location = useLocation();
   const { state } = location;
   const [mood, setMood] = useState('');
-  const { currentDateKor, currentDate } = useUserContext();
+  const { currentDateKor } = useUserContext();
   const [text, setText] = useState('');
   const [isBtnActive, setIsBtnActive] = useState(false);
   const [moodData, setMoodData] = useState({});
