@@ -1,25 +1,20 @@
 import axios from 'axios'
 
+const backend = () =>{
+  // if(!((import.meta.env.VITE_PUBLIC_BASE_URL).includes('localhost')) ){
+  //   return 'api'
+  // }
+  return import.meta.env.VITE_BACKEND_URL
+}
+
 export const be = axios.create({
-  baseURL: import.meta.env.VITE_BACKEND_URL,
+  baseURL: backend()
 })
 
 export const setConfig = ({ accessToken, contentType }) => {
-  //1
   if (accessToken)
     be.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
   if (contentType) be.defaults.headers.common['Content-Type'] = contentType
-  /*  //2
-    be.interceptors.request.use(config => {
-        if (accessToken) {
-            config.headers.Authorization = `Bearer ${accessToken}`;
-        }
-        if (contentType) {
-            config.headers['Content-Type'] = contentType;
-        }
-        return config;
-    });
-*/
 }
 
 export const clearConfig = (name) => {
@@ -28,7 +23,7 @@ export const clearConfig = (name) => {
 
 const handleError = (error) => {
   if (error.response.status == 401 || error.response.status == 403) {
-    window.location.href = `${import.meta.env.VITE_HOST}/login`
+    window.location.href = `${import.meta.env.VITE_PUBLIC_BASE_URL}/login`
     localStorage.setItem('isAuthenticated', false);
     localStorage.removeItem('activeDate');
   } else {

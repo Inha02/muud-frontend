@@ -22,7 +22,7 @@ const LoginPage = () => {
   const [cookies, setCookie] = useCookies(['accessToken', 'refreshToken', 'id', 'nickname']);
   const { setIsAuthenticated } = useUserContext()
   const REST_API_KEY = import.meta.env.VITE_KAKAO_KEY;
-  const REDIRECT_URI = `${import.meta.env.VITE_HOST}/oauth2/callback/kakao`;
+  const REDIRECT_URI = `${import.meta.env.VITE_PUBLIC_BASE_URL}/oauth2/callback/kakao`;
   // oauth 요청 URL
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 

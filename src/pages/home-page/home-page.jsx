@@ -49,7 +49,7 @@ const HomePageView = ({ moment, handleRecord, handleEdit, tileClassNames, update
           ) : (
             <>
 
-              <div>아직 검색 기록이 없어요.</div>
+              <div>아직 일기 기록이 없어요.</div>
               <div>감정도 기록하고,감정에 맞는 {'\n'}
                 플리도 추천 받을 수 있어요</div>
               <img className={styles.characterImg} src='/images/happy_write_character.png' />
