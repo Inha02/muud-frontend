@@ -1,7 +1,7 @@
 import RoundButton from '../../components/common/RoundButton';
 import styles from './mood-choose-page.module.css';
 
-const MoodChoosePageView = ({ handleMoodClick, handleButtonClick, selectedOption, currentDate, moodQnAArray }) => {
+const MoodChoosePageView = ({ handleMoodClick, handleButtonClick, selectedOption, currentDateKor, moodQnAArray }) => {
 
   const MoodButton = ({ children, mood }) => {
     const style = (selectedOption == mood) ? styles.moodBtn + ' ' + styles.active : (selectedOption == undefined) ? styles.moodBtn : styles.moodBtn + ' ' + styles.inactive;
@@ -17,7 +17,7 @@ const MoodChoosePageView = ({ handleMoodClick, handleButtonClick, selectedOption
 
   return (
     <div className='appContainer topbar'>
-      <div className={styles.textDate}>{currentDate}
+      <div className={styles.textDate}>{currentDateKor}
       </div>
 
       <div className={styles.textMood}>오늘 느낀 감정을 골라주세요</div>

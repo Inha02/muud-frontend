@@ -1,29 +1,40 @@
-import axios from "axios";
-import { useCookies } from 'react-cookie';
+import axios from 'axios'
 
 export const be = axios.create({
-    baseURL: import.meta.env.VITE_BACKEND_URL,
-});
+  baseURL: import.meta.env.VITE_BACKEND_URL,
+})
 
-export const setConfig = (accessToken)=>{
-
-    //1
-    if(accessToken) be.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
-    
+export const setConfig = ({ accessToken, contentType }) => {
+  //1
+  if (accessToken)
+    be.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
+  if (contentType) be.defaults.headers.common['Content-Type'] = contentType
   /*  //2
     be.interceptors.request.use(config => {
         if (accessToken) {
             config.headers.Authorization = `Bearer ${accessToken}`;
+        }
+        if (contentType) {
+            config.headers['Content-Type'] = contentType;
         }
         return config;
     });
 */
 }
 
-export const clearConfig = (accessToken)=>{
-    delete be.defaults.headers.common['Authorization'];    
+export const clearConfig = (name) => {
+  delete be.defaults.headers.common[name]
 }
 
+const handleError = (error) => {
+  if (error.response.status == 401 || error.response.status == 403) {
+    window.location.href = `${import.meta.env.VITE_HOST}/login`
+    localStorage.setItem('isAuthenticated', false);
+    localStorage.removeItem('activeDate');
+  } else {
+    throw error
+  }
+}
 
 /**
  * Get Axios
@@ -32,10 +43,13 @@ export const clearConfig = (accessToken)=>{
  * @returns Promise<response>
  */
 export const Get = async (url, config) => {
-    const response = await be.get(url, config);
-
-    return response.data;
-};
+  try {
+    const response = await be.get(url, config)
+    return response
+  } catch (error) {
+    handleError(error)
+  }
+}
 
 /**
  * Post Axios
@@ -45,9 +59,14 @@ export const Get = async (url, config) => {
  * @returns Promise<response>
  */
 export const Post = async (url, data, config) => {
-    const response = await be.post(url, data, config);
-    return response;
-};
+  try {
+    const response = await be.post(url, data, config)
+    return response
+  } catch (error) {
+    if(url !=='/auth/signin')handleError(error)
+    else throw error
+  }
+}
 
 /**
  * Put Axios
@@ -57,10 +76,13 @@ export const Post = async (url, data, config) => {
  * @returns Promise<response>
  */
 export const Put = async (url, data, config) => {
-    const response = await be.put(url, data, config);
-
-    return response.data;
-};
+  try {
+    const response = await be.put(url, data, config)
+    return response
+  } catch (error) {
+    handleError(error)
+  }
+}
 
 /**
  * Patch Axios
@@ -70,10 +92,13 @@ export const Put = async (url, data, config) => {
  * @returns Promise<response>
  */
 export const Patch = async (url, data, config) => {
-    const response = await be.patch(url, data, config);
-
-    return response.data;
-};
+  try {
+    const response = await be.patch(url, data, config)
+    return response
+  } catch (error) {
+    handleError(error)
+  }
+}
 
 /**
  * Delete Axios
@@ -82,18 +107,18 @@ export const Patch = async (url, data, config) => {
  * @returns Promise<response>
  */
 export const Delete = async (url, config) => {
-    const response = await be.delete(url, config);
-
-    return response.data;
-};
-
+  try {
+    const response = await be.delete(url, config)
+    return response
+  } catch (error) {
+    handleError(error)
+  }
+}
 
 be.interceptors.request.use((config) => {
-
-    return config;
-
-});
+  return config
+})
 
 be.interceptors.response.use((res) => {
-    return res;
-});
+  return res
+})

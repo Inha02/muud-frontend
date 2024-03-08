@@ -18,7 +18,7 @@ const NavBarView = () => {
           <Link to="/introduce">소개페이지</Link>
         </li>
         <li>
-          <Link to="/mood/test">감정 선택</Link>
+          <Link to="/mood/choose">감정 선택</Link>
         </li>
         <li>
           <Link to="/mood/result">감정 결과</Link>
@@ -28,6 +28,9 @@ const NavBarView = () => {
         </li>
         <li>
           <Link to="/diary/complete">일기 작성 완료</Link>
+        </li>
+        <li>
+          <Link to="/diary/detail">일기 수정</Link>
         </li>
         <li>
           <Link to="/home">홈</Link>

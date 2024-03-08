@@ -41,7 +41,7 @@ const IntroducePage = () => {
 
   const handleClick = () => {
     if (currentSlide != 1) sliderRef.current.slickNext()
-    else navigateTo(`/mood/test`);
+    else navigateTo(`/mood/choose`);
 
   }
 

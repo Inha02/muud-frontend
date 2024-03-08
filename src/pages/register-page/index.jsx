@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useModal } from '../../context/ModalContext'
 import RegisterPageView from './register-page'
 import { validateEmail, validatePswd } from '../../utils'
-import { Post, setConfig } from '../../api/axios';
+import { Post } from '../../api/axios';
 
 const RegisterPage = () => {
   const { modalOpen } = useModal()
@@ -25,7 +25,11 @@ const RegisterPage = () => {
 
     const isPswdValid = validatePswd(name === 'pswd' ? value : user.pswd);
     const isIdValid = validateEmail(name === 'id' ? value : user.id);
-    setIsRegisterActive(value !== '' && isPswdValid && isIdValid && user.pswdCheck !== '' && user.nickname !== '');
+    const isNickValid = '' !== (name === 'nickname' ? value : user.nickname);
+    const isPswdCheckValid = '' !== (name === 'pswdCheck' ? value : user.pswdCheck);
+
+
+    setIsRegisterActive(value !== '' && isPswdValid && isIdValid && isPswdCheckValid && isNickValid);
   }
 
   const validatePswdCheck = () => {
@@ -36,7 +40,11 @@ const RegisterPage = () => {
     setIsShownPswd(!isShownPswd)
   }
 
-  const handleRegister = () => {
+  const handleClickClose = () => {
+    navigateTo('/login', { replace: true })
+  }
+  const handleRegister = (event) => {
+    event.preventDefault();
     if (!validateEmail(user.id) || !validatePswd(user.pswd) || !validatePswdCheck()) {
       modalOpen({
         content: ('잘못된 회원 정보입니다.\n이메일 또는 비밀번호를 확인해주세요.'
@@ -49,7 +57,7 @@ const RegisterPage = () => {
 
   const registerAxios = async () => {
     try {
-      const response = await Post('/auth/signup', {
+      await Post('/auth/signup', {
         email: user.id,
         password: user.pswd,
         nickname: user.nickname
@@ -57,8 +65,7 @@ const RegisterPage = () => {
       loginAxios(user.id, user.pswd);
 
     } catch (error) {
-      console.log('error:' + error)
-
+      console.log(error)
       if (error.response.status == 409) {
         modalOpen({
           content: ('이미 가입된 이메일 입니다'),
@@ -105,6 +112,7 @@ const RegisterPage = () => {
       isRegisterActive={isRegisterActive}
       toggleShowPswd={toggleShowPswd}
       handleRegister={handleRegister}
+      handleClickClose={handleClickClose}
     />
   )
 }
