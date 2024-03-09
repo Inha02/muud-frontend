@@ -40,9 +40,7 @@ const SuggestPlaylistPageView = ({
                   <div className={styles.textChannelName}>{content.channelName
                   }</div>
                   <EllipsizedText text={content.title} className={styles.textTitle} maxHeight={100}></EllipsizedText>
-                  <div className={styles.textTags}>
-                    {content.tags && content.tags.map((item) => (<span key={item} >#{item} </span>))}
-                  </div>
+                  <EllipsizedText className={styles.textTags} maxHeight={10} text={content.tags && content.tags.map((item) => (<span key={item} >#{item} </span>))}></EllipsizedText>
                   <div className={styles.checkBox}>
                     <CheckBox index={index} value={index} isChecked={selectedOption[index]} handleCheckboxChange={handleOptionChange}></CheckBox>
                   </div>
@@ -51,8 +49,8 @@ const SuggestPlaylistPageView = ({
             </div>
           )
           )}
-        </Slider>
-      </div>
+        </Slider >
+      </div >
       <div className={styles.btn}>
         <RoundButton onClick={handleRecord} active={isRecordActive} bottom>기록하기</RoundButton>
       </div>

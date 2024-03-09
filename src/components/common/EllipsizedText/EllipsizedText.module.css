@@ -5,3 +5,7 @@
     -webkit-line-clamp: 3;
     /* 세 줄까지 표시하고 나머지는 잘라내기 */
 }
+
+.small.ellipsized {
+    -webkit-line-clamp: 2;
+}

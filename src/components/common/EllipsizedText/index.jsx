@@ -3,6 +3,7 @@ import styles from './EllipsizedText.module.css'
 const EllipsizedText = ({ text, maxHeight, className }) => {
     const [isEllipsized, setIsEllipsized] = useState(false);
 
+    const small = maxHeight < 100 ? styles.small : ''
     useEffect(() => {
         const container = document.getElementById('textContainer');
         if (container.scrollHeight > maxHeight) {
@@ -12,7 +13,7 @@ const EllipsizedText = ({ text, maxHeight, className }) => {
         }
     }, [text, maxHeight]);
     return (
-        <div className={className + ' ' + (isEllipsized ? styles['ellipsized'] : '')} id="textContainer">
+        <div className={className + ' ' + small + ' ' + (isEllipsized ? styles['ellipsized'] : '')} id="textContainer">
             {text}
         </div>
     );
