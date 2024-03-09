@@ -21,6 +21,7 @@ const LoginPageView = ({ user, isPwNoticeActive, isIdNoticeActive, onChangeUser,
             placeholder='예)muud@muud.co.kr'
             required
             className={styles.box}
+            autoComplete='true'
           />
 
           {isIdNoticeActive &&
@@ -36,6 +37,7 @@ const LoginPageView = ({ user, isPwNoticeActive, isIdNoticeActive, onChangeUser,
               value={user.pswd}
               minLength={8}
               required
+              autoComplete='true'
             />
 
             <div className='eyeBtnContainer'>

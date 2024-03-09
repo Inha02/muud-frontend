@@ -17,6 +17,7 @@ const RegisterPageView = ({ user, onChangeUser, handleClickClose, handleRegister
           value={user.id}
           placeholder='예)muud@muud.co.kr'
           required
+          autoComplete='true'
         />
 
         <div >뮤디에서 사용할 이름을 입력해주세요</div>
@@ -27,6 +28,7 @@ const RegisterPageView = ({ user, onChangeUser, handleClickClose, handleRegister
           value={user.nickname}
           required
           className={styles.box}
+          autoComplete='true'
         />
 
         <div>비밀번호 만들기</div>

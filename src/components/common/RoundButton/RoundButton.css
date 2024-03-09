@@ -1,3 +1,9 @@
+.bottom {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 50px;
+}
+
 .roundBtn.active {
     background-color: var(--primary-color);
     color: white;

@@ -1,4 +1,6 @@
 .backBtnContainer {
     padding-top: 45px;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }

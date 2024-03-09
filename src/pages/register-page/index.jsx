@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
+import { useUserContext } from '../../context/UserContext';
 import { useModal } from '../../context/ModalContext'
 import RegisterPageView from './register-page'
 import { validateEmail, validatePswd } from '../../utils'
@@ -10,6 +11,7 @@ const RegisterPage = () => {
   const { modalOpen } = useModal()
   const navigateTo = useNavigate();
   const [cookies, setCookie] = useCookies(['accessToken', 'refreshToken', 'id', 'nickname']);
+  const { setIsAuthenticated } = useUserContext()
   const [isShownPswd, setIsShownPswd] = useState(false)
   const [isRegisterActive, setIsRegisterActive] = useState(true)
   const [user, setUser] = useState({
@@ -90,6 +92,7 @@ const RegisterPage = () => {
       setCookie('refreshToken', refreshToken, { path: '/' });
       setCookie('id', userInfo.id, { path: '/' });
       setCookie('nickname', userInfo.nickname, { path: '/' });
+      setIsAuthenticated(true)
       modalOpen({
         content: ('환영합니다!\n회원 가입 완료'),
         link: '/introduce',
