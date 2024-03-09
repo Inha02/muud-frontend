@@ -84,12 +84,11 @@ const SuggestPlaylistPage = () => {
       const id = parseInt(playlistArr[currentSlide].id)
       const date = currentDate.format('yyyy-MM-DD')
       if (!(id && date && state.mood)) { throw new Error(); }
-
+      setConfig({ contentType: 'multipart/form-data' })
       formData.append('content', state.diary)
       formData.append('playlistId', id)
       formData.append('referenceDate', date)
       formData.append('emotionName', state.mood)
-      setConfig({ contentType: 'multipart/form-data' })
       const response = await Post('/diaries', formData)
       clearConfig('Content-Type')
       navigateTo(`/diary/complete`, {

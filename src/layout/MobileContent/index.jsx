@@ -8,7 +8,7 @@ import { useCookies } from 'react-cookie';
 const MobileContent = ({ children }) => {
     const { pathname } = useLocation();
     const container = document.getElementById('mobileContent');
-    const [cookies] = useCookies(['accessToken', 'refreshToken', 'id', 'nickname']);
+    const [cookies, setCookie] = useCookies(['accessToken', 'refreshToken', 'id', 'nickname']);
 
     useEffect(() => {
         setConfig({ accessToken: cookies.accessToken });

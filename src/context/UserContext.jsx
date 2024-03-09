@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect } from 'react';
 import moment from 'moment';
 import 'moment/locale/ko'; // 한국어 locale을 불러옵니다.
+import { useCookies } from 'react-cookie';
 
 const UserContext = createContext();
 
@@ -16,15 +17,16 @@ export const UserDataProvider = ({ children }) => {
     const storedAuth = localStorage.getItem('isAuthenticated');
     return storedAuth === 'true';
   });
+  const [, , removeCookie] = useCookies(['accessToken', 'refreshToken', 'id', 'nickname']);
 
-  useEffect(() => {
-  }, []);
+
   useEffect(() => {
     setCurrentDateKor(currentDate.format('M월 D일 dddd'));
     localStorage.setItem('activeDate', currentDate);
   }, [currentDate]);
   useEffect(() => {
     localStorage.setItem('isAuthenticated', isAuthenticated);
+    if (!isAuthenticated) { removeCookie('accessToken') }
   }, [isAuthenticated]);
 
   return (

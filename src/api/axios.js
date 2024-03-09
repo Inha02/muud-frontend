@@ -12,8 +12,7 @@ export const be = axios.create({
 })
 
 export const setConfig = ({ accessToken, contentType }) => {
-  if (accessToken)
-    be.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
+  if (accessToken) be.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
   if (contentType) be.defaults.headers.common['Content-Type'] = contentType
 }
 
@@ -23,10 +22,10 @@ export const clearConfig = (name) => {
 
 const handleError = (error) => {
   if (error.response.status == 401 || error.response.status == 403) {
-    window.location.href = `${import.meta.env.VITE_PUBLIC_BASE_URL}/login`
     alert('로그인이 필요합니다')
     localStorage.setItem('isAuthenticated', false);
     localStorage.removeItem('activeDate');
+    window.location.href = `${import.meta.env.VITE_PUBLIC_BASE_URL}/login`
   } else {
     throw error
   }
@@ -39,12 +38,10 @@ const handleError = (error) => {
  * @returns Promise<response>
  */
 export const Get = async (url, config) => {
-  try {
     const response = await be.get(url, config)
     return response
-  } catch (error) {
-    handleError(error)
-  }
+    
+    //if(!(url.includes('diaries/month')))handleError(error)
 }
 
 /**
@@ -59,7 +56,7 @@ export const Post = async (url, data, config) => {
     const response = await be.post(url, data, config)
     return response
   } catch (error) {
-    if(url !=='/auth/signin' || url !=='/home')handleError(error)
+    if(url !=='/auth/signin' || url !=='/auth/signup'|| url !=='/auth/kakao/signin')handleError(error)
     else throw error
   }
 }

@@ -1,6 +1,4 @@
-import { useEffect, useState, useContext } from 'react';
-import { useCookies } from 'react-cookie';
-import { Route, Routes, Link, Outlet, Navigate } from 'react-router-dom'
+import { Route, Routes, Outlet, Navigate } from 'react-router-dom'
 import { UserDataProvider } from './context/UserContext';
 import { BrowserView, MobileView } from 'react-device-detect'
 import { useUserContext } from './context/UserContext'
@@ -21,7 +19,6 @@ import KakaoCallback from './pages/kakao-callback'
 import MobileContent from './layout/MobileContent';
 import MobileContainer from "./layout/MobileContainer";
 import BackBtnContainer from "./layout/BackBtnContainer";
-import NavBar from "./components/NavBar";
 
 import './App.css';
 

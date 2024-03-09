@@ -5,7 +5,7 @@ import moment from 'moment';
 import 'moment/locale/ko';
 import { getMoodIcon } from '../../utils'
 import { diarySample } from '../../constants/testData'
-import { Get } from '../../api/axios'
+import { Get, be } from '../../api/axios'
 import { useUserContext } from '../../context/UserContext';
 import { useModal } from '../../context/ModalContext';
 
@@ -70,6 +70,7 @@ const HomePage = () => {
   };
 
   const getMonthDiaryAxios = async () => {
+    if (!(be.defaults.headers.common['Authorization'])) { return }
     try {
       const response = await Get(`/diaries/month?date=${activeMonth}`)
       if (response) setCurrentMonthDiary(response.data)
