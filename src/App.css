@@ -52,14 +52,12 @@ textarea {
 }
 
 .emailText {
-  font-family: Pretendard;
   font-size: var(--font-medium);
   color: white;
   margin-top: 2.56rem;
 }
 
 .pswdText {
-  font-family: Pretendard;
   font-size: var(--font-medium);
   color: white;
   margin-top: 1rem;

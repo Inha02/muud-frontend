@@ -30,20 +30,22 @@ const Pages = () => {
 
   return (
     <Routes>
-      {(isAuthenticated) ? (//로그인 사용자 
-        <Route path="/*" element={<BackBtnContainer />}>
-          <Route path="home" element={<HomePage />} />
-          <Route path="mood/result" element={<MoodResultPage />} />
-          <Route path="playlist" element={<SuggestPlaylistPage />} />
+      {(isAuthenticated) ? (
+        <>
+          <Route path="/*" element={<BackBtnContainer />}>
+            <Route path="home" element={<HomePage />} />
+            <Route path="mood/result" element={<MoodResultPage />} />
+            <Route path="playlist" element={<SuggestPlaylistPage />} />
+            <Route path="diary/detail" element={<DiaryDetailPage />} />
+            <Route path="mood/report" element={<ReportPage />} />
+            <Route path="introduce" element={<IntroducePage />} />
+            <Route path="mood/choose" element={<MoodChoosePage />} />
+            <Route path="*" element={<Navigate to="/home" />} />
+          </Route>
           <Route path="diary/complete" element={<DiaryCompletePage />} />
-          <Route path="diary/detail" element={<DiaryDetailPage />} />
-          <Route path="mood/report" element={<ReportPage />} />
           <Route path="user/nickname" element={<UserNicknamePage />} />
-          <Route path="introduce" element={<IntroducePage />} />
-          <Route path="mood/choose" element={<MoodChoosePage />} />
-          <Route path="*" element={<Navigate to="/home" />} />
-        </Route>
-      ) :  //비로그인 사용자
+        </>
+      ) :
         (
           <Route path="/*" element={<Outlet></Outlet>}>
             <Route path="login" element={<LoginPage />} />

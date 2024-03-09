@@ -31,30 +31,35 @@ const HomePageView = ({ moment, handleRecord, handleEdit, tileClassNames, update
       </div>
       <div className={styles.diaryContainer}>
         <div>
-          <span>{moment(currentDate).format('YYYY.MM.DD (ddd)')}</span>
+          <div className={styles.diaryHeader}>
+            <span className={styles.diaryTitleTxt}>{moment(currentDate).format('YYYY.MM.DD (ddd)')}</span>
+            {currentDiary.emotion && (
+              <>
+                <span><img src={getMoodIcon(currentDiary.emotion.titleEmotion)} className={styles.moodIcon} /></span>
+                <span className={styles.editBtnArea}><button className={styles.editIcon} onClick={handleEdit}></button></span>
+              </>)}
+          </div>
           {currentDiary.emotion ? (
             <>
-              <span><img src={getMoodIcon(currentDiary.emotion.titleEmotion)} className={styles.moodIcon} /></span>
-              <span className={styles.editBtnArea}><button className={styles.editIcon} onClick={handleEdit}></button></span>
               <MusicPlayer video={currentDiary.playlist && currentDiary.playlist.videoId} />
-              <div>
+              <div className={styles.tagContainer}>
                 {currentDiary.emotion.tags &&
                   currentDiary.emotion.tags.map((item) => <Tag key={item}>{item}</Tag>)}
               </div>
               <div>
                 {currentDiary.content}
               </div>
-
             </>
           ) : (
-            <>
-
-              <div>아직 일기 기록이 없어요.</div>
-              <div>감정도 기록하고,감정에 맞는 {'\n'}
+            <div className={styles.diaryContent}>
+              <div className={styles.diaryTitleTxt}>아직 일기 기록이 없어요.</div>
+              <div className={styles.diaryTxt}>감정도 기록하고,감정에 맞는 {'\n'}
                 플리도 추천 받을 수 있어요</div>
-              <img className={styles.characterImg} src='/images/happy_write_character.png' />
+              <div>
+                <img className={styles.characterImg} src='/images/happy_write_character.png' />
+              </div>
               <RoundButton size='small' active onClick={handleRecord}>감정 기록하기</RoundButton>
-            </>
+            </div>
           )}
 
         </div>

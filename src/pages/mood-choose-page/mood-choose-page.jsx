@@ -26,7 +26,7 @@ const MoodChoosePageView = ({ handleMoodClick, handleButtonClick, selectedOption
       {moodQnAArray.map((item, index) => (<MoodButton key={index} index={index} mood={item.mood}>{item.text}</MoodButton>))}
 
       <div className={styles.btnNext}>
-        <RoundButton onClick={handleButtonClick} active={(selectedOption != undefined)} >다음</RoundButton>
+        <RoundButton onClick={handleButtonClick} active={(selectedOption != undefined)} bottom >다음</RoundButton>
       </div>
 
     </div>

@@ -59,7 +59,7 @@ export const Post = async (url, data, config) => {
     const response = await be.post(url, data, config)
     return response
   } catch (error) {
-    if(url !=='/auth/signin')handleError(error)
+    if(url !=='/auth/signin' || url !=='/home')handleError(error)
     else throw error
   }
 }

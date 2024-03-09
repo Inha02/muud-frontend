@@ -14,24 +14,9 @@
     /* for Firefox */
     scrollbar-width: none;
 
-    /*
-    scrollbar-arrow-color: #000000;
-    scrollbar-color: #bd6cff rgba(33, 121, 244, 0);
-
-    &::-webkit-scrollbar {
-    }
-
-    &::-webkit-scrollbar-thumb {
-        border-radius: 10px;
-        height: 30%;
-        background: #6801bd;
-        background-color: #bd6cff;
-    }
-
-    &::-webkit-scrollbar-track {
-        background: rgba(33, 121, 244, 0);
-    }
-    */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 

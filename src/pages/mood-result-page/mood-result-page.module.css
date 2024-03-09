@@ -4,7 +4,6 @@
 }
 
 .moodTextArea {
-    margin-top: 0.8rem;
     width: 100%;
     min-height: 290px;
     background-color: white;
@@ -83,10 +82,15 @@
     color: var(--neutral60-color);
 }
 
+.boxContainer {
+    margin-top: 0.8rem;
+    position: relative;
+}
+
 .charCounter {
     position: absolute;
-    bottom: 170px;
-    right: 30px;
+    bottom: 20px;
+    right: 20px;
     background-color: white;
     /* 배경색을 textarea와 동일하게 */
     padding: 0 5px;

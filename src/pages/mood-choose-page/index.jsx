@@ -9,7 +9,7 @@ const MoodChoosePage = () => {
   //  const location = useLocation();
   //  const { state } = location;
   const [selectedOption, setSelectedOption] = useState(null);
-  const { currentDateKor, currentDate, setCurrentDate } = useUserContext();
+  const { currentDateKor } = useUserContext();
   const navigateTo = useNavigate();
 
   const handleMoodClick = (option) => {

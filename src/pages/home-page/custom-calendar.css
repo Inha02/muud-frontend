@@ -2,9 +2,8 @@
 .react-calendar {
   background: var(--neutral-color);
   border: none;
-  font-family: 'Pretendard-Regular', sans-serif;
+  font-family: Pretendard-Regular;
 }
-
 
 /*달력 헤더*/
 .react-calendar__navigation {
@@ -12,6 +11,7 @@
   height: 60px;
   border-radius: 20px 20px 0 0;
   justify-content: center;
+  margin-bottom: 0.5em;
 
   /* 헤더 타이틀 */
   span {
@@ -38,7 +38,6 @@
 }
 
 .react-calendar__navigation button:disabled {
-  background-color: pink;
   border-radius: 20px 20px 0 0;
 }
 
@@ -47,9 +46,9 @@
   background-color: var(--neutral40-color);
 }
 
+
 /* 월 달력 뷰*/
 .react-calendar__month-view {
-
   abbr {
     font-size: 16px;
     font-weight: 500;
@@ -62,6 +61,7 @@
     color: var(--neutral99-color);
     font-size: 12px;
     font-weight: 100;
+    text-decoration: none;
   }
 }
 
@@ -76,6 +76,9 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  padding: 6px 6.6667px;
+  border-radius: 4px;
+
 }
 
 /*hover, focus, 선택됐을 시 */
@@ -88,7 +91,6 @@
 /* 오늘날짜 */
 .react-calendar__tile--now {
   background: var(--neutral-color);
-  border-radius: 3.26px;
 }
 
 /* 오늘날짜 hover, focus 시 */

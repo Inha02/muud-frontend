@@ -1,7 +1,7 @@
 .bottom {
     position: absolute;
     bottom: 0;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .roundBtn.active {
@@ -20,9 +20,9 @@
     height: 56px;
     border-radius: 16px;
     padding: 10px;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 24px;
+    line-height: 150%;
+    font-family: Pretendard-Medium;
+    font-weight: 100;
 }
 
 .roundBtn.small {
