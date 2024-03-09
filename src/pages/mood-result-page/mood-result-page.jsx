@@ -30,7 +30,7 @@ const MoodResultPageView = ({
       )}
 
       <div className={styles.boxContainer}>
-        <textarea className={styles.moodTextArea} placeholder='오늘의 감정을 기록해보세요' maxLength={200} value={text} onChange={handleChange} >
+        <textarea className={styles.moodTextArea} placeholder='오늘의 감정을 기록해보세요' maxLength={maxLength} value={text} onChange={handleChange} >
         </textarea>
         <div className={styles.charCounter}>
           {enteredChars}/{maxLength}

@@ -15,7 +15,7 @@ const MoodResultPage = () => {
   const [moodData, setMoodData] = useState({});
 
   const navigateTo = useNavigate();
-  const maxLength = 200;
+  const maxLength = 300;
   const enteredChars = text.length;
 
   const handleSkipClick = () => {

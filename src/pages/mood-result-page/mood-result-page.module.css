@@ -27,8 +27,8 @@
 }
 
 .textDate {
-    font-family: Pretendard;
-    font-size: var(--font-small);
+    font-family: Pretendard-Medium;
+    font-size: 15px;
     text-align: center;
     color: white;
 }
@@ -73,8 +73,8 @@
 }
 
 .moodResultDescription {
-    font-family: Pretendard;
-    font-size: var(--font-small);
+    font-family: Pretendard-Medium;
+    font-size: 14px;
     text-align: center;
     color: var(--neutral60-color);
 }
