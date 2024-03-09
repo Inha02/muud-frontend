@@ -32,23 +32,21 @@ const MoodResultPageView = ({
 
       <div>
         <textarea className={styles.moodTextArea} placeholder='오늘의 감정을 기록해보세요' maxLength={200} value={text} onChange={handleChange} >
-
         </textarea>
         <div className={styles.charCounter}>
           {enteredChars}/{maxLength}
         </div>
       </div>
-      <div className={styles.btn}>
-        <DoubleButton
-          leftTxt={'건너뛰기'}
-          leftStyle={{ 'backgroundColor': 'white', 'color': '#252525' }}
-          rightTxt={'다음'}
-          leftActive={true}
-          rightActive={isRightBtnActive}
-          handleLeftClick={handleSkipClick}
-          handleRightClick={handleRightClick}
-        ></DoubleButton>
-      </div>
+      <DoubleButton
+        leftTxt={'건너뛰기'}
+        leftStyle={{ 'backgroundColor': 'white', 'color': '#252525' }}
+        rightTxt={'다음'}
+        leftActive={true}
+        rightActive={isRightBtnActive}
+        handleLeftClick={handleSkipClick}
+        handleRightClick={handleRightClick}
+        bottom
+      ></DoubleButton>
 
     </div >
   )

@@ -36,6 +36,7 @@ const DiaryCompletePageView = ({ diary, currentDateKor, handleClick }) => {
         <RoundButton
           onClick={handleClick}
           active
+          bottom
         >
           확인
         </RoundButton>

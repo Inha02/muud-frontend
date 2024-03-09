@@ -9,7 +9,8 @@ const DoubleButton = ({
   handleLeftClick,
   handleRightClick,
   leftStyle,
-  rightStyle
+  rightStyle,
+  bottom
 }) => {
   return <DoubleButtonView
     leftTxt={leftTxt}
@@ -20,6 +21,7 @@ const DoubleButton = ({
     handleRightClick={handleRightClick}
     leftStyle={leftStyle}
     rightStyle={rightStyle}
+    bottom={bottom && 'bottom'}
   />
 }
 

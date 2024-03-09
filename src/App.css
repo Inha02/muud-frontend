@@ -9,6 +9,7 @@ input {
 }
 
 .appContainer {
+  position: relative;
   margin: 20px;
   flex-grow: 1;
 }

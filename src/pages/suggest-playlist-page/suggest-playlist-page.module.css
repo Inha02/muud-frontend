@@ -21,6 +21,7 @@
 .pliContentWrap {
     padding: 18px 20px;
     height: 182px;
+    position: relative;
 }
 
 .cardContainer.sideSlide {
@@ -40,6 +41,7 @@
     font-size: var(--font-small);
     text-align: center;
     color: var(--neutral60-color);
+    margin-bottom: 20px;
 }
 
 .sliderMargin {
@@ -65,8 +67,9 @@
 }
 
 .checkBox {
-    margin-left: 14.5rem;
-    margin-top: 2rem;
+    position: absolute;
+    right: 20px;
+    bottom: 18px;
 }
 
 .btn {

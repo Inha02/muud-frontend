@@ -1,9 +1,8 @@
 
-import { useEffect, useState, useContext, useRef } from 'react'
-
 import MusicPlayer from "../../components/MusicPlayer";
 import RoundButton from '../../components/common/RoundButton';
 import CheckBox from '../../components/common/CheckBox';
+import EllipsizedText from '../../components/common/EllipsizedText';
 import { getMoodData } from "../../utils";
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css'
@@ -42,7 +41,7 @@ const SuggestPlaylistPageView = ({
                 <div className={styles.pliContentWrap}>
                   <div className={styles.textChannelName}>{content.channelName
                   }</div>
-                  <div className={styles.textTitle}>{content.title}</div>
+                  <EllipsizedText text={content.title} className={styles.textTitle} maxHeight={100}></EllipsizedText>
                   <div className={styles.textTags}>
                     {content.tags && content.tags.map((item) => (<span key={item} >#{item} </span>))}
                   </div>
@@ -57,7 +56,7 @@ const SuggestPlaylistPageView = ({
         </Slider>
       </div>
       <div className={styles.btn}>
-        <RoundButton onClick={handleRecord} active={isRecordActive}>기록하기</RoundButton>
+        <RoundButton onClick={handleRecord} active={isRecordActive} bottom>기록하기</RoundButton>
       </div>
     </ >
   )

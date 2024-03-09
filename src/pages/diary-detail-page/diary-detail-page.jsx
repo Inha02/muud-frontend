@@ -44,6 +44,7 @@ const DiaryDetailPageView = ({
         rightActive={isRightBtnActive}
         handleLeftClick={handleLeftClick}
         handleRightClick={handleRightClick}
+        bottom
       ></DoubleButton>
 
     </div >

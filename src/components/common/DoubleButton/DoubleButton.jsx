@@ -8,13 +8,14 @@ const DoubleButtonView = ({
   handleLeftClick,
   handleRightClick,
   leftStyle,
-  rightStyle
+  rightStyle,
+  bottom
 }) => {
   return (
-    <div className={styles.btnContainer}>
+    <div className={styles.btnContainer + ' ' + styles[bottom]}>
       <button
         style={leftStyle}
-        className={leftActive ? styles.roundBtn + ' ' + styles.active : styles.roundBtn + ' ' + styles.inactive}
+        className={styles.roundBtn + ' ' + (leftActive ? styles.active : styles.inactive)}
         onClick={leftActive ? handleLeftClick : null}
       >{leftTxt}</button>
       <button

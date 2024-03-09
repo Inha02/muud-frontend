@@ -24,6 +24,7 @@ export const clearConfig = (name) => {
 const handleError = (error) => {
   if (error.response.status == 401 || error.response.status == 403) {
     window.location.href = `${import.meta.env.VITE_PUBLIC_BASE_URL}/login`
+    alert('로그인이 필요합니다')
     localStorage.setItem('isAuthenticated', false);
     localStorage.removeItem('activeDate');
   } else {

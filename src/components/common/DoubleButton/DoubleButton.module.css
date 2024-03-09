@@ -1,3 +1,9 @@
+.bottom {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 30px;
+}
+
 .btnContainer {
     width: 100%;
     display: flex;
