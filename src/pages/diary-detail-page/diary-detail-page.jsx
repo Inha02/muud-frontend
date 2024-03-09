@@ -2,6 +2,7 @@ import DoubleButton from '../../components/common/DoubleButton';
 import MusicPlayer from '../../components/MusicPlayer'
 import Tag from '../../components/common/Tag';
 import styles from './diary-detail-page.module.css';
+import Tags from '../../components/common/Tags';
 
 const DiaryDetailPageView = ({
   currentDateKor,
@@ -19,23 +20,23 @@ const DiaryDetailPageView = ({
     <div className='appContainer topbar'>
       {diary.emotion && (
         <>
-          <img className={styles.moodEmoji} src={diary.emotion.emoji} alt='emotion' />
-          <div>{currentDateKor}
+          <div className={styles.titleContainer}>
+            <img className={styles.moodEmojiSmall} src={diary.emotion.emoji} alt='emotion' />
+            <div className={styles.titleLTxt}>{currentDateKor}</div>
           </div>
           <div className={styles.cardContainer}>
-            {diary.playlist && <MusicPlayer video={diary.playlist.videoId} />}
-            <div>
-              {diary.emotion.tags &&
-                diary.emotion.tags.map((item) => <Tag key={item}>{item}</Tag>)}
-            </div>
+            <MusicPlayer video={diary.playlist.videoId} />
+            {diary.emotion.tags && (<Tags array={diary.emotion.tags}></Tags>)}
+
             <textarea id='content' className={styles.moodTextarea} placeholder='오늘의 감정을 기록해보세요' maxLength={200} value={text} onChange={handleChange} >{text}</textarea>
+            <div className={styles.charCounter}>
+              {enteredChars}/{maxLength}
+            </div>
           </div>
         </>
-      )}
+      )
+      }
 
-      <div>
-        {enteredChars}/{maxLength}
-      </div>
       <DoubleButton
         leftTxt={'취소'}
         leftStyle={{ 'backgroundColor': 'white', 'color': '#252525' }}

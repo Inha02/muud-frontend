@@ -27,9 +27,8 @@ const LoginPage = () => {
   ])
   const { setIsAuthenticated } = useUserContext()
   const REST_API_KEY = import.meta.env.VITE_KAKAO_KEY
-  const REDIRECT_URI = `${
-    import.meta.env.VITE_PUBLIC_BASE_URL
-  }/oauth2/callback/kakao`
+  const REDIRECT_URI = `${import.meta.env.VITE_PUBLIC_BASE_URL
+    }/oauth2/callback/kakao`
   // oauth 요청 URL
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`
 
@@ -45,6 +44,13 @@ const LoginPage = () => {
     if (validate(user.id, user.pswd)) return
     loginAxios()
   }
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      // 여기에 실행하고자 하는 함수를 호출합니다.
+      handleLogin();
+    }
+  };
 
   const validate = (id, pswd) => {
     const idCheck = id !== '' && !validateEmail(id)
@@ -117,6 +123,7 @@ const LoginPage = () => {
       isIdNoticeActive={isIdNoticeActive}
       isPwNoticeActive={isPwNoticeActive}
       handleClickRegister={handleClickRegister}
+      handleKeyDown={handleKeyDown}
     />
   )
 }

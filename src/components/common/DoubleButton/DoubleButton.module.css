@@ -25,10 +25,10 @@
     height: 56px;
     border-radius: 16px;
     padding: 10px;
-    font-size: 16px;
     font-weight: 500;
     line-height: 24px;
     margin-right: 12px;
+    font-family: Pretendard-Regular;
 }
 
 .roundBtn:last-child {

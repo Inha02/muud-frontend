@@ -1,14 +1,38 @@
-.moodEmoji {
-    width: 44px;
+.titleContainer {
+    margin: 0 auto 0.5rem;
+    text-align: center;
 }
+
+.moodEmojiSmall {
+    width: 43px;
+}
+
 
 .moodTextarea {
     width: 100%;
-    min-height: 324px;
+    min-height: 264px;
+    border: none;
+    font-family: Pretendard-Regular;
+    font-size: 16px;
 }
 
 .cardContainer {
+    position: relative;
     background-color: white;
     border-radius: 16px;
-    padding: 20px;
+    padding: 18px;
+}
+
+.titleLTxt {
+    color: white;
+    font-size: 20px;
+    font-family: Pretendard-SemiBold;
+}
+
+.charCounter {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: var(--font-medium);
+    color: var(--neutral60-color);
 }

@@ -108,3 +108,7 @@
   border-width: 1.5px;
   border-color: var(--primary60-color);
 }
+
+.react-calendar__tile--hasActive {
+  background-color: transparent;
+}

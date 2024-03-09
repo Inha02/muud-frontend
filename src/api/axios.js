@@ -22,7 +22,7 @@ export const clearConfig = (name) => {
 
 const handleError = (error) => {
   if (error.response.status == 401 || error.response.status == 403) {
-    alert('로그인이 필요합니다')
+    alert('로그인이 필요합니다(30분 유효)')
     localStorage.setItem('isAuthenticated', false);
     localStorage.removeItem('activeDate');
     window.location.href = `${import.meta.env.VITE_PUBLIC_BASE_URL}/login`
@@ -38,10 +38,13 @@ const handleError = (error) => {
  * @returns Promise<response>
  */
 export const Get = async (url, config) => {
+  try{
     const response = await be.get(url, config)
     return response
-    
-    //if(!(url.includes('diaries/month')))handleError(error)
+  } catch (error) {
+        //if(!(url.includes('diaries/month')))handleError(error)
+    handleError(error)
+  }
 }
 
 /**

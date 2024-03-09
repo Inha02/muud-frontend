@@ -1,6 +1,5 @@
 .moodEmoji {
     width: 128px;
-
 }
 
 .moodTextArea {
@@ -16,7 +15,6 @@
     font-family: Pretendard;
     font-size: var(--font-regular);
     color: black;
-
 }
 
 .moodTextArea::placeholder {
@@ -29,7 +27,6 @@
 }
 
 .textDate {
-    margin-top: 4rem;
     font-family: Pretendard;
     font-size: var(--font-small);
     text-align: center;
@@ -91,11 +88,6 @@
     position: absolute;
     bottom: 20px;
     right: 20px;
-    background-color: white;
-    /* 배경색을 textarea와 동일하게 */
-    padding: 0 5px;
-    /* 가벼운 패딩으로 통합된 느낌 */
-    font-family: Pretendard;
     font-size: var(--font-medium);
     color: var(--neutral60-color);
 }

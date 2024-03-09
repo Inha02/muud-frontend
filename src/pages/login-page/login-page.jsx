@@ -1,7 +1,7 @@
 import RoundButton from '../../components/common/RoundButton';
 import styles from './login-page.module.css';
 
-const LoginPageView = ({ user, isPwNoticeActive, isIdNoticeActive, onChangeUser, handleLogin, handleKakaoLogin, isShownPswd, toggleShowPswd, isLoginActive, handleClickRegister }) => { //프롭스 대신 객체로 넣기(타입)
+const LoginPageView = ({ user, isPwNoticeActive, isIdNoticeActive, onChangeUser, handleLogin, handleKakaoLogin, isShownPswd, toggleShowPswd, isLoginActive, handleClickRegister, handleKeyDown }) => { //프롭스 대신 객체로 넣기(타입)
 
   return (
     <>
@@ -22,6 +22,7 @@ const LoginPageView = ({ user, isPwNoticeActive, isIdNoticeActive, onChangeUser,
             required
             className={styles.box}
             autoComplete='true'
+            onKeyDown={handleKeyDown}
           />
 
           {isIdNoticeActive &&
@@ -38,6 +39,7 @@ const LoginPageView = ({ user, isPwNoticeActive, isIdNoticeActive, onChangeUser,
               minLength={8}
               required
               autoComplete='true'
+              onKeyDown={handleKeyDown}
             />
 
             <div className='eyeBtnContainer'>

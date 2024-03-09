@@ -1,5 +1,6 @@
 import DoubleButton from '../../components/common/DoubleButton';
 import Tag from '../../components/common/Tag';
+import Tags from '../../components/common/Tags';
 import styles from './mood-result-page.module.css';
 
 const MoodResultPageView = ({
@@ -24,9 +25,7 @@ const MoodResultPageView = ({
           <img className={styles.moodEmoji} src={moodData.emoji} alt='emotion' />
           <div className={styles.moodResult}>{moodData.combinedName}</div>
           <div className={styles.moodResultDescription}>{moodData.description}</div>
-          <div className={styles.tagsContainer}>
-            {moodData.tags && moodData.tags.map((item) => (<Tag key={item}>{item}</Tag>))}
-          </div>
+          {moodData.tags && <Tags array={moodData.tags}></Tags>}
         </div>
       )}
 
