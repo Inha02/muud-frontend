@@ -1,0 +1,10 @@
+.box {
+    background: transparent;
+    width: 100%;
+    padding: 8px 0 8px 0;
+    font-size: var(--font-small);
+    color: #fff;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--neutral50-color);
+}

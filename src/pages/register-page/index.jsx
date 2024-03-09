@@ -45,8 +45,7 @@ const RegisterPage = () => {
   const handleClickClose = () => {
     navigateTo('/login', { replace: true })
   }
-  const handleRegister = (event) => {
-    event.preventDefault();
+  const handleRegister = () => {
     if (!validateEmail(user.id) || !validatePswd(user.pswd) || !validatePswdCheck()) {
       modalOpen({
         content: ('잘못된 회원 정보입니다.\n이메일 또는 비밀번호를 확인해주세요.'

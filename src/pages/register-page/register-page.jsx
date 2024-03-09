@@ -8,9 +8,10 @@ const RegisterPageView = ({ user, onChangeUser, handleClickClose, handleRegister
     <div className="appContainer">
       <CloseBar onClick={handleClickClose}></CloseBar>
       <header>회원가입</header>
-      <form onSubmit={handleRegister}>
-        <div>이메일 주소가 무엇인가요?</div>
+      <form>
+        <div className='emailText'>이메일 주소가 무엇인가요?</div>
         <input
+          className={styles.box}
           type="text"
           name="id"
           onChange={onChangeUser}
@@ -20,7 +21,7 @@ const RegisterPageView = ({ user, onChangeUser, handleClickClose, handleRegister
           autoComplete='true'
         />
 
-        <div >뮤디에서 사용할 이름을 입력해주세요</div>
+        <div className='emailText'>뮤디에서 사용할 이름을 입력해주세요</div>
         <div>공백없이 10자 이하만 가능합니다.</div>
         <input type="text"
           name="nickname"
@@ -31,7 +32,7 @@ const RegisterPageView = ({ user, onChangeUser, handleClickClose, handleRegister
           autoComplete='true'
         />
 
-        <div>비밀번호 만들기</div>
+        <div className='pswdText'>비밀번호 만들기</div>
         <div>8~15자로 입력해주세요.</div>
         <div className='pswdWrap'>
           <input
@@ -49,16 +50,17 @@ const RegisterPageView = ({ user, onChangeUser, handleClickClose, handleRegister
           </div>
         </div>
 
-        <div>비밀번호 확인</div>
+        <div className='emailText'>비밀번호 확인</div>
         <input
+          className='pswdInput'
           type="password"
           name="pswdCheck"
           onChange={onChangeUser}
           value={user.pswdCheck}
         />
-
-        <RoundButton type='submit' active={isRegisterActive}>계정 만들기</RoundButton>
       </form>
+      <RoundButton onClick={handleRegister} active={isRegisterActive} bottom>계정 만들기</RoundButton>
+
     </div>
   )
 };
