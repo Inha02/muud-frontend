@@ -56,3 +56,7 @@
 .kakaoLoginBtn:hover {
     filter: brightness(80%);
 }
+
+.form {
+    margin-top: 4rem;
+}

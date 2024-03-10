@@ -45,7 +45,7 @@ const RegisterPageView = ({ user, onChangeUser, handleClickClose, handleRegister
             required
           />
 
-          <div className={styles.eyeMargin}>
+          <div className='eyeBtnContainer'>
             <div className={'eyeBtn ' + (isShownPswd ? 'show' : 'hide')} onClick={toggleShowPswd}>
             </div>
           </div>

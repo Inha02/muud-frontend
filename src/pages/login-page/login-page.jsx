@@ -12,7 +12,7 @@ const LoginPageView = ({ user, isPwNoticeActive, isIdNoticeActive, onChangeUser,
           <div className={styles.text}>순간의 감정을 음악과 함께 기록하세요</div>
         </div>
 
-        <form>
+        <form className={styles.form}>
           <div className='mediumTitle'>이메일 주소</div>
           <input type="text"
             name="id"

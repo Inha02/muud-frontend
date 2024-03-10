@@ -29,10 +29,6 @@ textarea {
 }
 
 /* 회원 auth 페이지 */
-form {
-  margin-top: 4rem;
-}
-
 .divider {
   font-size: var(--font-small);
   margin: 0 0.75rem;
