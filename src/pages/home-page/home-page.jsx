@@ -40,7 +40,7 @@ const HomePageView = ({ moment, handleRecord, handleEdit, tileClassNames, update
               </>)}
           </div>
           {currentDiary.emotion ? (
-            <>
+            <div className={styles.diaryCardContent}>
               <MusicPlayer video={currentDiary.playlist && currentDiary.playlist.videoId} />
               <div className={styles.tagContainer}>
                 {currentDiary.emotion.tags &&
@@ -49,7 +49,7 @@ const HomePageView = ({ moment, handleRecord, handleEdit, tileClassNames, update
               <div>
                 {currentDiary.content}
               </div>
-            </>
+            </div>
           ) : (
             <div className={styles.diaryContent}>
               <div className={styles.diaryTitleTxt}>아직 일기 기록이 없어요.</div>

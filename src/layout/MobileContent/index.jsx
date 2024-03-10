@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { ModalProvider } from '../../context/ModalContext.jsx'
 import styles from './MobileContent.module.css'
-import { clearConfig, setConfig } from '../../api/axios.js';
+import { be, removeConfig, setConfig } from '../../api/axios.js';
 import { useCookies } from 'react-cookie';
 import axios from 'axios'
 
@@ -28,13 +28,10 @@ const MobileContent = ({ children }) => {
             }
         }
         */
-    useEffect(() => {
-        if (!cookies.accessToken) {
-            //clearConfig('Authorization')
-        }
-    }, [cookies.accessToken]);
+
 
     useEffect(() => {
+        //console.log(be.defaults.headers.common)
         if (container) {
             container.scrollTo(0, 0); // 컨테이너의 스크롤 위치를 최상단으로 설정합니다.
         }

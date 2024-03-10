@@ -12,11 +12,11 @@ export const be = axios.create({
 })
 
 export const setConfig = ({ accessToken, contentType }) => {
-  if (accessToken) be.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
-  if (contentType) be.defaults.headers.common['Content-Type'] = contentType
+  if (accessToken !==null) be.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
+  if (contentType !==null) be.defaults.headers.common['Content-Type'] = contentType
 }
 
-export const clearConfig = (name) => {
+export const removeConfig = (name) => {
   delete be.defaults.headers.common[name]
 }
 

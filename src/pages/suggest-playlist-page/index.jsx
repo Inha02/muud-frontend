@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import SuggestPlaylistPageView from './suggest-playlist-page'
-import { Get, Post, clearConfig, setConfig } from '../../api/axios'
+import { Get, Post, removeConfig, setConfig } from '../../api/axios'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useCookies } from 'react-cookie'
 import { useModal } from '../../context/ModalContext'
@@ -90,7 +90,7 @@ const SuggestPlaylistPage = () => {
       formData.append('referenceDate', date)
       formData.append('emotionName', state.mood)
       const response = await Post('/diaries', formData)
-      clearConfig('Content-Type')
+      removeConfig('Content-Type')
       navigateTo(`/diary/complete`, {
         state: { diaryId: response.data }
       })

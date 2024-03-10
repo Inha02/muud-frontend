@@ -2,6 +2,7 @@ import React, { createContext, useState, useEffect } from 'react';
 import moment from 'moment';
 import 'moment/locale/ko';
 import { useCookies } from 'react-cookie';
+import { removeConfig, setConfig } from '../api/axios'
 
 const UserContext = createContext();
 
@@ -17,7 +18,7 @@ export const UserDataProvider = ({ children }) => {
     const storedAuth = localStorage.getItem('isAuthenticated');
     return storedAuth === 'true';
   });
-  const [, , removeCookie] = useCookies(['accessToken', 'refreshToken', 'id', 'nickname']);
+  const [cookies, , removeCookie] = useCookies(['accessToken', 'refreshToken', 'id', 'nickname']);
 
   useEffect(() => {
     setCurrentDateKor(currentDate.format('M월 D일 dddd'));
@@ -25,7 +26,11 @@ export const UserDataProvider = ({ children }) => {
   }, [currentDate]);
   useEffect(() => {
     localStorage.setItem('isAuthenticated', isAuthenticated);
-    if (!isAuthenticated) { removeCookie('accessToken') }
+    if (!isAuthenticated) {
+      removeCookie('accessToken');
+      removeConfig('Authorization')
+    }
+    if (isAuthenticated) { setConfig({ accessToken: cookies.accessToken }) }
   }, [isAuthenticated]);
 
   return (
