@@ -7,7 +7,7 @@ const RegisterPageView = ({ user, onChangeUser, handleClickClose, handleRegister
   return (
     <div className="appContainer">
       <CloseBar onClick={handleClickClose}></CloseBar>
-      <header>회원가입</header>
+      <div className={styles.textRegister}>회원가입</div>
       <form>
         <div className='emailText'>이메일 주소가 무엇인가요?</div>
         <input
@@ -22,7 +22,7 @@ const RegisterPageView = ({ user, onChangeUser, handleClickClose, handleRegister
         />
 
         <div className='emailText'>뮤디에서 사용할 이름을 입력해주세요</div>
-        <div>공백없이 10자 이하만 가능합니다.</div>
+        <div className={styles.textLetter} >공백없이 10자 이하만 가능합니다.</div>
         <input type="text"
           name="nickname"
           onChange={onChangeUser}
@@ -33,7 +33,7 @@ const RegisterPageView = ({ user, onChangeUser, handleClickClose, handleRegister
         />
 
         <div className='pswdText'>비밀번호 만들기</div>
-        <div>8~15자로 입력해주세요.</div>
+        <div className={styles.textLetter}>8~15자로 입력해주세요.</div>
         <div className='pswdWrap'>
           <input
             className='pswdInput'
@@ -44,7 +44,8 @@ const RegisterPageView = ({ user, onChangeUser, handleClickClose, handleRegister
             minLength={8}
             required
           />
-          <div className='eyeBtnContainer'>
+
+          <div className={styles.eyeMargin}>
             <div className={'eyeBtn ' + (isShownPswd ? 'show' : 'hide')} onClick={toggleShowPswd}>
             </div>
           </div>

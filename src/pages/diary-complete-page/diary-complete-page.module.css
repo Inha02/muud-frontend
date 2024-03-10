@@ -27,6 +27,8 @@
     color: white;
 }
 
-.btnMargin {
-    margin-top: 1rem;
+.eyeMargin {
+    position: absolute;
+    right: 1rem;
+    top: 28.5em;
 }
