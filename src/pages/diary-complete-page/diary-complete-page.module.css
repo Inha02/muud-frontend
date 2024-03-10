@@ -6,6 +6,8 @@
     background-size: 100% 100%;
 }
 
+.dateText {}
+
 .iconContainer {
     display: flex;
     justify-content: center;
@@ -16,6 +18,7 @@
     background-color: white;
     border-radius: 16px;
     padding: 20px;
+    margin: 1rem 0;
 }
 
 .textComplete {

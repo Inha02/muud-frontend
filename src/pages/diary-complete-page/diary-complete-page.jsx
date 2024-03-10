@@ -6,11 +6,11 @@ import styles from './diary-complete-page.module.css' // CSS 모듈 임포트
 const DiaryCompletePageView = ({ diary, currentDateKor, handleClick }) => {
   return (
     <div className='appContainer'>
-      <div className={styles.iconContainer}>
+      <div className={styles.iconContainer + ' mTop'}>
         <div className={styles.checkIco}></div>
       </div>
       <div className={styles.textComplete}>기록완료</div>
-      <div>{currentDateKor}</div>
+      <div className={`${styles.dateText} align`}>{currentDateKor}</div>
 
       <div>
         <div>
