@@ -8,3 +8,23 @@
     outline: none;
     border-bottom: 1px solid var(--neutral50-color);
 }
+
+.textRegister {
+    font-family: Pretendard-Bold;
+    font-size: var(--font-regular);
+    color: white;
+    margin-top: 2rem;
+}
+
+.textLetter {
+    font-family: Pretendard-Regular;
+    font-size: var(--font-regular);
+    color: var(--neutral70-color);
+    font-size: var(--font-small)
+}
+
+.eyeMargin {
+    display: flex;
+    justify-content: flex-end;
+
+}
