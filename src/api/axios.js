@@ -42,21 +42,20 @@ export const Get = async (url, config) => {
     const response = await be.get(url, config)
     return response
   } catch (error) {
-        //if(!(url.includes('diaries/month')))handleError(error)
-    handleError(error)
+    if((url.includes('diaries/month'))) throw error
+    else handleError(error)
   }
 }
 
- export const refreshToken = async () => {
+export const refreshToken = async () => {
   try {
     const newToken = await be.post('/auth/refresh',{})
     console.log('새토큰'+newToken)
   } catch (error) {
     console.error('로그인 토큰 갱신에 실패했습니다:', error);
     throw error
-
   }
-};
+}
 
 /**
  * Post Axios
@@ -123,7 +122,6 @@ export const Delete = async (url, config) => {
 }
 
 be.interceptors.request.use((config) => {
-  //refreshToken()
   return config
 })
 

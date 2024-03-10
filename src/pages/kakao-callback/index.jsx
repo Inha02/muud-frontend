@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
-import { Post } from '../../api/axios';
+import { Post, setConfig } from '../../api/axios';
 import { useUserContext } from '../../context/UserContext';
 import { useModal } from '../../context/ModalContext';
 
@@ -23,6 +23,7 @@ const KakaoCallback = () => {
       setCookie('refreshToken', refreshToken, { path: '/' });
       setCookie('id', userInfo.id, { path: '/' });
       setCookie('nickname', userInfo.nickname, { path: '/' });
+      setConfig({ accessToken: accessToken });
       setIsAuthenticated(true)
       if (response.status == 201) {
         modalOpen({

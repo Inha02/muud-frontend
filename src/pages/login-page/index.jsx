@@ -5,7 +5,7 @@ import LoginPageView from './login-page'
 import { useModal } from '../../context/ModalContext'
 import { useUserContext } from '../../context/UserContext'
 import { validateEmail, validatePswd } from '../../utils'
-import { Post } from '../../api/axios'
+import { Post, setConfig } from '../../api/axios'
 
 const LoginPage = () => {
   const navigateTo = useNavigate()
@@ -87,6 +87,7 @@ const LoginPage = () => {
       setCookie('refeshToken', refreshToken, { path: '/' })
       setCookie('id', userInfo.id, { path: '/' })
       setCookie('nickname', userInfo.nickname, { path: '/' })
+      setConfig({ accessToken: accessToken });
       setIsAuthenticated(true)
       navigateTo('/home')
     } catch (error) {

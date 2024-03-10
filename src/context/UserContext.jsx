@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 import moment from 'moment';
-import 'moment/locale/ko'; // 한국어 locale을 불러옵니다.
+import 'moment/locale/ko';
 import { useCookies } from 'react-cookie';
 
 const UserContext = createContext();
@@ -18,7 +18,6 @@ export const UserDataProvider = ({ children }) => {
     return storedAuth === 'true';
   });
   const [, , removeCookie] = useCookies(['accessToken', 'refreshToken', 'id', 'nickname']);
-
 
   useEffect(() => {
     setCurrentDateKor(currentDate.format('M월 D일 dddd'));

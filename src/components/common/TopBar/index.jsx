@@ -3,20 +3,19 @@ import { useNavigate } from 'react-router-dom';
 import TopBarView from './TopBar'
 import { useUserContext } from '../../../context/UserContext';
 
-const TopBar = ({ option }) => {
+const TopBar = ({ path }) => {
   const navigateTo = useNavigate();
   const { setIsAuthenticated } = useUserContext()
 
   const handleClick = () => {
-    switch (option) {
-      case 'back':
-        navigateTo(-1);
-        break;
-      case '/login':
+    switch (path) {
+      case '/home': //로그인으로 이동
         setIsAuthenticated(false)
         break;
+      case "/diary/detail":
+        return navigateTo("/home", { replace: true })
       default:
-        navigateTo(option, { replace: true });
+        navigateTo(-1);
         break;
     }
   };
@@ -24,7 +23,7 @@ const TopBar = ({ option }) => {
   useEffect(() => {
   }, [])
 
-  return <TopBarView option={option} handleClick={handleClick} />
+  return <TopBarView handleClick={handleClick} />
 }
 
 export default TopBar

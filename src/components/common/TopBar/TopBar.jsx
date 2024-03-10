@@ -1,6 +1,6 @@
 import styles from './TopBar.module.css'
 
-const TopBarView = ({ option, handleClick }) => {
+const TopBarView = ({ handleClick }) => {
 
   return (
     <div className={`${styles.topBarContainer} ${styles['back']}`}>

@@ -5,7 +5,7 @@ import { useUserContext } from '../../context/UserContext';
 import { useModal } from '../../context/ModalContext'
 import RegisterPageView from './register-page'
 import { validateEmail, validatePswd } from '../../utils'
-import { Post } from '../../api/axios';
+import { Post, setConfig } from '../../api/axios';
 
 const RegisterPage = () => {
   const { modalOpen } = useModal()
@@ -29,7 +29,6 @@ const RegisterPage = () => {
     const isIdValid = validateEmail(name === 'id' ? value : user.id);
     const isNickValid = '' !== (name === 'nickname' ? value : user.nickname);
     const isPswdCheckValid = '' !== (name === 'pswdCheck' ? value : user.pswdCheck);
-
 
     setIsRegisterActive(value !== '' && isPswdValid && isIdValid && isPswdCheckValid && isNickValid);
   }
@@ -91,6 +90,7 @@ const RegisterPage = () => {
       setCookie('refreshToken', refreshToken, { path: '/' });
       setCookie('id', userInfo.id, { path: '/' });
       setCookie('nickname', userInfo.nickname, { path: '/' });
+      setConfig({ accessToken: accessToken });
       setIsAuthenticated(true)
       modalOpen({
         content: ('환영합니다!\n회원 가입 완료'),
