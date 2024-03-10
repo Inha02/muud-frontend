@@ -7,20 +7,14 @@
     width: 43px;
 }
 
-
 .moodTextarea {
     width: 100%;
     min-height: 264px;
     border: none;
     font-family: Pretendard-Regular;
     font-size: 16px;
-}
-
-.cardContainer {
-    position: relative;
-    background-color: white;
-    border-radius: 16px;
-    padding: 18px;
+    color: black;
+    line-height: 1.3rem;
 }
 
 .titleLTxt {

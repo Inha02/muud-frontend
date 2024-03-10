@@ -14,17 +14,17 @@ const DiaryCompletePageView = ({ diary, currentDateKor, handleClick }) => {
 
       <div>
         <div>
-          <div className={styles.cardContainer}>
+          <div className='cardContainer'>
             {diary.playlist && (
               <>
                 <MusicPlayer video={diary.playlist.videoId} />
-                <div>
-                  <div>
-                    {diary.emotion.tags &&
-                      diary.emotion.tags.map((item) => <Tag key={item}>{item}</Tag>)}
-                  </div>
+                <div className='mMc'>
+                  {diary.emotion.tags &&
+                    diary.emotion.tags.map((item) => <Tag key={item}>{item}</Tag>)}
                 </div>
-                {diary.content}
+                <div className={styles.content}>
+                  {diary.content}
+                </div>
               </>
             )
             }

@@ -12,7 +12,7 @@ const DiaryDetailPage = () => {
   const [isBtnActive, setIsBtnActive] = useState(false);
   const [diary, setDiary] = useState({})
   const navigateTo = useNavigate();
-  const maxLength = 200;
+  const maxLength = 300;
   const enteredChars = text.length;
   const [initialText, setInitialText] = useState('');
 
@@ -29,7 +29,7 @@ const DiaryDetailPage = () => {
     if (inputValue.length > maxLength) {
       return
     }
-    if (initialText == inputValue || inputValue == "") {
+    if (initialText == inputValue) {
       setIsBtnActive(false)
     } else {
       setIsBtnActive(true)

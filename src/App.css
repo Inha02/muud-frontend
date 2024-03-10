@@ -49,31 +49,8 @@ textarea {
   color: #fff;
   border: none;
   outline: none;
-  border-bottom: 1px solid var(--neutral50-color);
-}
-
-.pswdInput {
-  background: transparent;
-  width: 100%;
-  margin: 8px 0 8px 0;
-  padding-bottom: 8px;
-  color: #fff;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid var(--neutral50-color);
-}
-
-.emailText {
-  font-family: Pretendard-SemiBold;
-  font-size: var(--font-medium);
-  color: white;
-  margin-top: 2.56rem;
-}
-
-.pswdText {
-  font-size: var(--font-medium);
-  color: white;
-  margin-top: 1rem;
+  border-bottom: 1px solid var(--neutral40-color);
+  font-size: var(--font-regular)
 }
 
 .eyeBtnContainer {
@@ -150,8 +127,15 @@ textarea {
   content: unset;
 }
 
-/* 공통 */
+.cardContainer {
+  position: relative;
+  background-color: white;
+  border-radius: 16px;
+  padding: 18px;
+  margin: 0.9rem 0;
+}
 
+/* common */
 .align {
   text-align: center;
 }
@@ -178,7 +162,6 @@ textarea {
 .mediumTitle {
   font-family: Pretendard-SemiBold;
   font-size: var(--font-medium);
-  /*14*/
   color: white;
   margin-top: 2rem;
 }
@@ -199,4 +182,8 @@ textarea {
 
 .mTopS {
   margin-top: 3rem
+}
+
+.mMc {
+  margin: 0.6rem 0;
 }
