@@ -8,7 +8,7 @@ import styles from './introduce-page.module.css'
 const SlideCard = ({ content }) => {
     return (
         <div className={styles.cardContainer}>
-            <div className={styles.main}>{content.main}</div>
+            <div className='headerTitle large align mTopS'>{content.main}</div>
             <div className={styles.sub}>{content.sub}</div>
             <div className={styles.imageContainer}>
                 <img src="\images\introduce_muud.png" />

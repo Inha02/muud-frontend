@@ -15,6 +15,7 @@
     font-family: Pretendard;
     font-size: var(--font-regular);
     color: black;
+    line-height: 1.3rem;
 }
 
 .moodTextArea::placeholder {
@@ -27,10 +28,9 @@
 }
 
 .textDate {
-    font-family: Pretendard-Medium;
-    font-size: 15px;
+    font-size: 14px;
     text-align: center;
-    color: white;
+    color: var(--neutral99-color);
 }
 
 .center {
@@ -65,22 +65,22 @@
 }
 
 .moodResult {
+    margin-top: 0.4rem;
     font-family: Pretendard;
-    font-size: 1.5rem;
+    font-size: var(--font-extra-large);
     font-weight: bold;
     text-align: center;
     color: white;
 }
 
 .moodResultDescription {
-    font-family: Pretendard-Medium;
-    font-size: 14px;
+    font-size: var(--font-medium);
     text-align: center;
     color: var(--neutral60-color);
 }
 
 .boxContainer {
-    margin-top: 0.8rem;
+    margin-top: 0.3rem;
     position: relative;
 }
 

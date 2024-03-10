@@ -2,7 +2,7 @@
     background-color: var(--neutral30-color);
     padding: 5px 14px;
     border-radius: 44px;
-    font-size: 12px;
+    font-size: var(--font-small);
     line-height: 16px;
     color: var(--neutral90-color);
     margin-right: 8px;

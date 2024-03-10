@@ -18,7 +18,6 @@ const KakaoCallback = () => {
       const response = await Post('/auth/kakao/signin', {
         code: code
       });
-      console.log(response)
       const { accessToken, refreshToken, userInfo } = response.data;
       setCookie('accessToken', accessToken, { path: '/' });
       setCookie('refreshToken', refreshToken, { path: '/' });

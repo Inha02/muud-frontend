@@ -33,19 +33,10 @@
     text-decoration: underline;
 }
 
-.main {
-    margin-top: 2.5rem;
-    font-family: Pretendard;
-    font-weight: bold;
-    font-size: var(--font-large);
-    text-align: center;
-}
-
 .sub {
     margin-top: 0.5em;
-    font-family: Pretendard;
     font-size: var(--font-small);
-    color: var(--neutral70-color);
+    color: var(--neutral60-color);
     text-align: center;
 }
 
@@ -54,7 +45,6 @@
     margin-top: 1rem;
     width: 244px;
     height: auto;
-
 }
 
 .imageContainer img {

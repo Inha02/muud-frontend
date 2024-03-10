@@ -31,13 +31,13 @@
 .textPlylist {
     margin-top: 0.5rem;
     font-family: Pretendard-SemiBold;
-    font-size: 20px;
+    font-size: var(--font-large);
     text-align: center;
     color: white;
 }
 
 .textDescription {
-    font-size: 12px;
+    font-size: var(--font-small);
     text-align: center;
     color: var(--neutral60-color);
     margin-bottom: 20px;
@@ -48,9 +48,10 @@
 }
 
 .textChannelName {
-    font-size: 14px;
+    font-size: var(--font-medium);
     color: var(--neutral50-color);
     margin-bottom: 0.1rem;
+    font-family: Pretendard-SemiBold;
 }
 
 .textTitle {
@@ -59,10 +60,14 @@
 }
 
 .textTags {
-    font-size: 12px;
+    font-size: var(--font-small);
     color: var(--neutral70-color);
     margin-top: 0.3rem;
     width: 85%;
+
+    span {
+        margin-right: 0.01rem;
+    }
 }
 
 .checkBox {

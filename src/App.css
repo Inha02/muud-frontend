@@ -67,13 +67,6 @@ form {
   border-bottom: 1px solid var(--neutral50-color);
 }
 
-.mediumTitle {
-  font-family: Pretendard-SemiBold;
-  font-size: var(--font-medium);
-  color: white;
-  margin-top: 2rem;
-}
-
 .emailText {
   font-family: Pretendard-SemiBold;
   font-size: var(--font-medium);
@@ -159,4 +152,55 @@ form {
 
 .slick-dots li button:before {
   content: unset;
+}
+
+/* 공통 */
+
+.align {
+  text-align: center;
+}
+
+.headerTitle {
+  margin-top: 0.5rem;
+  color: white;
+  font-size: var(--font-large);
+  font-family: Pretendard-Bold;
+}
+
+.headerTitle.large {
+  font-family: Pretendard-SemiBold;
+}
+
+.headerSubtitle {
+  /*bodyM*/
+  color: white;
+  font-size: var(--font-medium);
+  font-family: 'Pretendard-Regular';
+  margin-top: 0.2rem;
+}
+
+.mediumTitle {
+  font-family: Pretendard-SemiBold;
+  font-size: var(--font-medium);
+  /*14*/
+  color: white;
+  margin-top: 2rem;
+}
+
+.subText {
+  font-size: var(--font-medium);
+  color: var(--neutral160-color);
+  margin-top: 10px;
+}
+
+.g {
+  color: var(--neutral160-color);
+}
+
+.mTop {
+  margin-top: 5rem;
+}
+
+.mTopS {
+  margin-top: 3rem
 }

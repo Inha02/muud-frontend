@@ -17,11 +17,11 @@ const MoodChoosePageView = ({ handleMoodClick, handleButtonClick, selectedOption
 
   return (
     <div className='appContainer topbar'>
-      <div className={styles.textDate}>{currentDateKor}
+      <div className='headerSubtitle align'>{currentDateKor}
       </div>
 
-      <div className={styles.textMood}>오늘 느낀 감정을 골라주세요</div>
-      <div className={styles.textOne}>내가 느낀 감정 한개를 선택해주세요</div>
+      <div className='headerTitle large align'>오늘 느낀 감정을 골라주세요</div>
+      <div className='headerSubtitle align g'>내가 느낀 감정 한개를 선택해주세요</div>
 
       {moodQnAArray.map((item, index) => (<MoodButton key={index} index={index} mood={item.mood}>{item.text}</MoodButton>))}
 
