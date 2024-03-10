@@ -22,7 +22,7 @@ const refresh = async (config) => {
     cookies.set("expiresAt", moment().add(1, "hour").format("yyyy-MM-DD HH:mm:ss"), { path: "/" });
   }
   setConfig({accessToken: token})
-  
+  config.headers["Authorization"] = `Bearer ${token}`; 
   return config;
 };
 
