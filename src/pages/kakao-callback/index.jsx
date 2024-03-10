@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Post, setConfig } from '../../api/axios';
 import { useUserContext } from '../../context/UserContext';
 import { useModal } from '../../context/ModalContext';
+import moment from 'moment';
 
 const KakaoCallback = () => {
   const { setIsAuthenticated } = useUserContext()
@@ -23,6 +24,8 @@ const KakaoCallback = () => {
       setCookie('refreshToken', refreshToken, { path: '/' });
       setCookie('id', userInfo.id, { path: '/' });
       setCookie('nickname', userInfo.nickname, { path: '/' });
+      setCookie('expiresAt', moment().add(1, "hour").format("yyyy-MM-DD HH:mm:ss"), { path: '/' });
+
       setConfig({ accessToken: accessToken });
       setIsAuthenticated(true)
       if (response.status == 201) {

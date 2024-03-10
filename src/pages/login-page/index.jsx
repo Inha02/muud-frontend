@@ -6,6 +6,7 @@ import { useModal } from '../../context/ModalContext'
 import { useUserContext } from '../../context/UserContext'
 import { validateEmail, validatePswd } from '../../utils'
 import { Post, setConfig } from '../../api/axios'
+import moment from 'moment'
 
 const LoginPage = () => {
   const navigateTo = useNavigate()
@@ -84,9 +85,9 @@ const LoginPage = () => {
       const { accessToken, refreshToken, userInfo } = response.data
       setCookie('accessToken', accessToken, { path: '/' })
       setCookie('refreshToken', refreshToken, { path: '/' })
-      setCookie('refeshToken', refreshToken, { path: '/' })
       setCookie('id', userInfo.id, { path: '/' })
       setCookie('nickname', userInfo.nickname, { path: '/' })
+      setCookie('expiresAt', moment().add(1, "hour").format("yyyy-MM-DD HH:mm:ss"), { path: '/' });
       setConfig({ accessToken: accessToken });
       setIsAuthenticated(true)
       navigateTo('/home')

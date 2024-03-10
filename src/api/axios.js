@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { refresh, refreshErrorHandle } from "./refresh";
 
 const backend = () =>{
   // if(!((import.meta.env.VITE_PUBLIC_BASE_URL).includes('localhost')) ){
@@ -8,7 +9,7 @@ const backend = () =>{
 }
 
 export const be = axios.create({
-  baseURL: backend()
+  baseURL: backend(),
 })
 
 export const setConfig = ({ accessToken, contentType }) => {
@@ -44,16 +45,6 @@ export const Get = async (url, config) => {
   } catch (error) {
     if((url.includes('diaries/month'))) throw error
     else handleError(error)
-  }
-}
-
-export const refreshToken = async () => {
-  try {
-    const newToken = await be.post('/auth/refresh',{})
-    console.log('새토큰'+newToken)
-  } catch (error) {
-    console.error('로그인 토큰 갱신에 실패했습니다:', error);
-    throw error
   }
 }
 
@@ -121,9 +112,7 @@ export const Delete = async (url, config) => {
   }
 }
 
-be.interceptors.request.use((config) => {
-  return config
-})
+be.interceptors.request.use(refresh,refreshErrorHandle)
 
 be.interceptors.response.use((res) => {
   return res

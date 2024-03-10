@@ -6,6 +6,7 @@ import { useModal } from '../../context/ModalContext'
 import RegisterPageView from './register-page'
 import { validateEmail, validatePswd } from '../../utils'
 import { Post, setConfig } from '../../api/axios';
+import moment from 'moment';
 
 const RegisterPage = () => {
   const { modalOpen } = useModal()
@@ -90,6 +91,7 @@ const RegisterPage = () => {
       setCookie('refreshToken', refreshToken, { path: '/' });
       setCookie('id', userInfo.id, { path: '/' });
       setCookie('nickname', userInfo.nickname, { path: '/' });
+      setCookie('expiresAt', moment().add(1, "hour").format("yyyy-MM-DD HH:mm:ss"), { path: '/' });
       setConfig({ accessToken: accessToken });
       setIsAuthenticated(true)
       modalOpen({
