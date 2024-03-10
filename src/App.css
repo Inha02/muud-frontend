@@ -29,29 +29,53 @@ textarea {
 }
 
 /* 회원 auth 페이지 */
-.pswdWrap {
-  background-color: transparent;
-  border: none;
-  width: 100%;
-  font-size: var(--font-small);
-  color: #fff;
-  border: none;
-  outline: none;
+form {
+  margin-top: 4rem;
 }
 
-.pswdInput {
-  background-color: transparent;
-  border: none;
-  width: 100%;
-  padding: 8px 0 8px 0;
+.divider {
   font-size: var(--font-small);
+  margin: 0 0.75rem;
+  line-height: 185%;
+}
+
+.pswdWrap {
+  width: 100%;
+  font-size: var(--font-small);
+  position: relative;
+}
+
+.inputBox {
+  background: transparent;
+  width: 100%;
+  margin: 8px 0 8px 0;
+  padding-bottom: 8px;
   color: #fff;
   border: none;
   outline: none;
   border-bottom: 1px solid var(--neutral50-color);
 }
 
+.pswdInput {
+  background: transparent;
+  width: 100%;
+  margin: 8px 0 8px 0;
+  padding-bottom: 8px;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--neutral50-color);
+}
+
+.mediumTitle {
+  font-family: Pretendard-SemiBold;
+  font-size: var(--font-medium);
+  color: white;
+  margin-top: 2rem;
+}
+
 .emailText {
+  font-family: Pretendard-SemiBold;
   font-size: var(--font-medium);
   color: white;
   margin-top: 2.56rem;
@@ -64,9 +88,10 @@ textarea {
 }
 
 .eyeBtnContainer {
+  margin-top: 0.5em;
   position: absolute;
-  right: 2rem;
-  top: 25.5em;
+  right: 1em;
+  top: 0px;
 }
 
 .eyeBtn.hide {
@@ -78,8 +103,8 @@ textarea {
 }
 
 .eyeBtn {
-  width: 14px;
-  height: 13px;
+  width: 18px;
+  height: 16px;
   background-size: cover;
   background-position: center;
   cursor: pointer;

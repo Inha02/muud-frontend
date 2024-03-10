@@ -13,14 +13,14 @@ const LoginPageView = ({ user, isPwNoticeActive, isIdNoticeActive, onChangeUser,
         </div>
 
         <form>
-          <div className='emailText'>이메일 주소</div>
+          <div className='mediumTitle'>이메일 주소</div>
           <input type="text"
             name="id"
             onChange={onChangeUser}
             value={user.id}
             placeholder='예)muud@muud.co.kr'
             required
-            className={styles.box}
+            className='inputBox'
             autoComplete='true'
             onKeyDown={handleKeyDown}
           />
@@ -28,10 +28,10 @@ const LoginPageView = ({ user, isPwNoticeActive, isIdNoticeActive, onChangeUser,
           {isIdNoticeActive &&
             <div className={styles.wrongInfo}>*올바른 이메일 형식을 입력해주세요</div>
           }
-          <div className='pswdText'>비밀번호</div>
+          <div className='mediumTitle'>비밀번호</div>
           <div className='pswdWrap'>
             <input
-              className='pswdInput'
+              className='inputBox'
               type={isShownPswd ? "text" : "password"}
               name="pswd"
               onChange={onChangeUser}
@@ -56,20 +56,20 @@ const LoginPageView = ({ user, isPwNoticeActive, isIdNoticeActive, onChangeUser,
           </div>
         </form>
 
-        <div style={{ marginTop: '0.5em' }} className={styles.textCenter}>
+        <div className={styles.textCenter}>
           <span className={styles.find} onClick={handleClickRegister}>회원가입</span>
-          <span style={{ marginRight: '1em', marginLeft: '1em' }}>|</span>
+          <span className='divider'>|</span>
           <span className={styles.find}>이메일 찾기</span>
-          <span style={{ marginRight: '1em', marginLeft: '1em' }}>|</span>
+          <span className='divider'>|</span>
           <span className={styles.find}>비밀번호 찾기</span>
         </div>
 
-        <div style={{ marginTop: '15em', textAlign: 'center' }} className={styles.snsText}>SNS 계정으로 간편 가입하기</div>
-
-        <div style={{ marginTop: '0.5em', textAlign: 'center' }}>
-          <button className={styles.kakaoLoginBtn} onClick={handleKakaoLogin}></button>
+        <div className={styles.bottomContainer}>
+          <div className={styles.snsText}>SNS 계정으로 간편 가입하기</div>
+          <div style={{ marginTop: '0.5em' }}>
+            <button className={styles.kakaoLoginBtn} onClick={handleKakaoLogin}></button>
+          </div>
         </div>
-
 
       </div>
     </>

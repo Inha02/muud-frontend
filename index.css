@@ -120,11 +120,20 @@ html {
   --avatar-size: 2.25rem;
 
   /*font size 정의*/
-  --font-large: 1.125rem;
+  /*24px*/
+  --font-extra-large: 1.5rem;
+  /*20px*/
+  --font-large: 1.25rem;
+  /*16px*/
   --font-regular: 1rem;
+  /*14px*/
   --font-medium: 0.87rem;
+  /*13px*/
+  --font-small-medium: 0.81rem;
+  /*12px*/
   --font-small: 0.75rem;
-  --font-micro: 0.63rem;
+  /*11px*/
+  --font-micro: 0.68rem;
   font-family: 'Pretendard-Regular', sans-serif;
 
   line-height: 1.5;
@@ -142,7 +151,6 @@ html {
 
 body {
   margin: 0;
-  /*display: flex;*/
   place-items: center;
   min-height: 100vh;
 }

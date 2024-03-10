@@ -84,6 +84,7 @@ const LoginPage = () => {
       const { accessToken, refreshToken, userInfo } = response.data
       setCookie('accessToken', accessToken, { path: '/' })
       setCookie('refreshToken', refreshToken, { path: '/' })
+      setCookie('refeshToken', refreshToken, { path: '/' })
       setCookie('id', userInfo.id, { path: '/' })
       setCookie('nickname', userInfo.nickname, { path: '/' })
       setIsAuthenticated(true)
