@@ -91,7 +91,7 @@ const RegisterPage = () => {
       setCookie('refreshToken', refreshToken, { path: '/' });
       setCookie('id', userInfo.id, { path: '/' });
       setCookie('nickname', userInfo.nickname, { path: '/' });
-      setCookie('expiresAt', moment().add(1, "hour").format("yyyy-MM-DD HH:mm:ss"), { path: '/' });
+      setCookie('expiresAt', moment().add(22, "minutes").format("yyyy-MM-DD HH:mm:ss"), { path: '/' });
       setConfig({ accessToken: accessToken });
       setIsAuthenticated(true)
       modalOpen({

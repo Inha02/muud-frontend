@@ -21,17 +21,19 @@ export const UserDataProvider = ({ children }) => {
   const [cookies, , removeCookie] = useCookies(['accessToken', 'refreshToken', 'id', 'nickname']);
 
   useEffect(() => {
-    setCurrentDateKor(currentDate.format('M월 D일 dddd'));
-    localStorage.setItem('activeDate', currentDate);
-  }, [currentDate]);
+    setCurrentDateKor(currentDate.format('M월 D일 dddd'))
+    localStorage.setItem('activeDate', currentDate)
+  }, [currentDate])
   useEffect(() => {
-    localStorage.setItem('isAuthenticated', isAuthenticated);
+    localStorage.setItem('isAuthenticated', isAuthenticated)
     if (!isAuthenticated) {
-      removeCookie('accessToken');
+      removeCookie('accessToken')
       removeConfig('Authorization')
+      localStorage.removeItem('activeDate')
+      setCurrentDate(moment())
     }
     if (isAuthenticated) { setConfig({ accessToken: cookies.accessToken }) }
-  }, [isAuthenticated]);
+  }, [isAuthenticated])
 
   return (
     <UserContext.Provider value={{ today, currentDate, setCurrentDate, currentDateKor, isAuthenticated, setIsAuthenticated }}>
@@ -41,5 +43,5 @@ export const UserDataProvider = ({ children }) => {
 };
 
 export const useUserContext = () => {
-  return React.useContext(UserContext);
+  return React.useContext(UserContext)
 };

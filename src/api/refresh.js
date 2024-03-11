@@ -19,8 +19,8 @@ const refresh = async (config) => {
     });
     token = response.data.accessToken;
     cookies.set("accessToken", token, { path: "/" });
-    cookies.set("expiresAt", moment().add(1, "hour").format("yyyy-MM-DD HH:mm:ss"), { path: "/" });
-  console.log('갱신'+token, moment().add(1, "hour").format("yyyy-MM-DD HH:mm:ss"))
+    cookies.set("", moment().add(22, "minutes").format("yyyy-MM-DD HH:mm:ss"), { path: "/" });
+  //console.log('갱신'+token, moment().add(22, "minutes").format("yyyy-MM-DD HH:mm:ss"))
   }
   setConfig({accessToken: token})
   config.headers["Authorization"] = `Bearer ${token}`; 
