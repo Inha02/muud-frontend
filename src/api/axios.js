@@ -43,8 +43,9 @@ export const Get = async (url, config) => {
     const response = await be.get(url, config)
     return response
   } catch (error) {
-    if((url.includes('diaries/month'))) throw error
-    else handleError(error)
+    //if((url.includes('diaries/month'))) throw error
+    //else handleError(error)
+    handleError(error)
   }
 }
 

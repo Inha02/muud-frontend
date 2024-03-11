@@ -81,34 +81,24 @@
 
 }
 
-/*hover, focus, 선택됐을 시 */
-.react-calendar__tile:enabled:hover,
-.react-calendar__tile:enabled:focus,
-.react-calendar__tile--active {
-  background-color: var(--primary60-color);
-}
-
-/* 오늘날짜 */
+/* 오늘 날짜 버튼*/
 .react-calendar__tile--now {
   background: var(--neutral-color);
 }
 
-/* 오늘날짜 hover, focus 시 */
-.react-calendar__tile--now:enabled:hover,
-.react-calendar__tile--now:enabled:focus {
-  /*background: var(--primary30-color)*/
-}
-
-/* user prop */
-.react-calendar__tile.pastDay:enabled:hover,
-.react-calendar__tile.pastDay:enabled:focus,
-.react-calendar__tile--active.pastDay {
+/* 날짜 버튼 */
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile--active:hover {
   background: var(--neutral-color);
   border-style: solid;
   border-width: 1.5px;
   border-color: var(--primary60-color);
 }
 
-.react-calendar__tile--hasActive {
-  background-color: transparent;
+/*날짜 선택시*/
+.react-calendar__tile--hasActive,
+.react-calendar__tile--active:enabled:focus,
+.react-calendar__tile--active {
+  background-color: var(--primary60-color);
+  border: none;
 }
