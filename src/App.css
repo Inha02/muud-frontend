@@ -187,3 +187,11 @@ textarea {
 .mMc {
   margin: 0.6rem 0;
 }
+
+
+.mobileView {}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .appContainer {}
+}

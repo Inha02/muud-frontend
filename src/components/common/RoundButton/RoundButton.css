@@ -29,3 +29,10 @@
     width: 218px;
     height: 48px;
 }
+
+/* Mobile */
+@media (max-width: 767px) {
+    .roundBtn {
+        width: 100%;
+    }
+}

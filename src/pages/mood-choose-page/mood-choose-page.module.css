@@ -13,7 +13,8 @@
 }
 
 .moodBtn {
-    width: 312px;
+    width: 100%;
+    max-width: 760px;
     height: 68px;
     border-radius: 16px;
     padding: 10px;

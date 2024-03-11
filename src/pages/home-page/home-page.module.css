@@ -22,7 +22,7 @@
 }
 
 .calendarContainer {
-  margin: 0 20px;
+  margin: 0 auto;
 }
 
 /* 다이어리 카드 */
@@ -97,4 +97,11 @@
 
 .tagContainer {
   margin: 0.4rem 0 0.3rem
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .homeContainer {
+    min-height: 100vh;
+  }
 }

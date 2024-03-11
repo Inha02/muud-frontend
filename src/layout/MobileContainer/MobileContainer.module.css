@@ -2,7 +2,7 @@
 * 디바이스에 따라 화면 가로길이 조정
 */
 /* mobile */
-.rootContainer {
+.mobileContainer {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -10,7 +10,7 @@
 
 /* PC */
 @media (min-width: 768px) {
-    .rootContainer {
+    .mobileContainer {
         margin: 0 auto;
     }
 }

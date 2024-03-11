@@ -3,6 +3,8 @@
   background: var(--neutral-color);
   border: none;
   font-family: Pretendard-Regular;
+  padding-inline: 1.3rem;
+  width: 100%;
 }
 
 /*달력 헤더*/

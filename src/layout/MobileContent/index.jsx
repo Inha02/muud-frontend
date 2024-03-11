@@ -16,7 +16,7 @@ const MobileContent = ({ children }) => {
     }, [pathname]);
 
     return (
-        <div id='mobileContent' className={styles.rootContent}>
+        <div id='mobileContent' className={styles.mobileContent}>
             <ModalProvider>
                 {children}
             </ModalProvider>

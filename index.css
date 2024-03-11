@@ -98,6 +98,10 @@ html {
   font-size: 16px;
 }
 
+html,
+body {
+  margin: 0;
+}
 
 /* font */
 @font-face {
@@ -208,9 +212,7 @@ html {
 }
 
 body {
-  margin: 0;
   place-items: center;
-  min-height: 100vh;
 }
 
 a {

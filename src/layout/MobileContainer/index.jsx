@@ -3,7 +3,7 @@ import MobileContent from '../MobileContent';
 
 const MobileContainer = ({ children }) => {
     return (
-        <div className={styles.rootContainer}>
+        <div className={styles.mobileContainer}>
             <MobileContent>
                 {children}
             </MobileContent>

@@ -70,7 +70,7 @@ function App() {
           </Routes>
         </BrowserView>
 
-        <MobileView>
+        <MobileView className='mobileView'>
           <Routes>
             <Route path="*" element={
               <MobileContent>
