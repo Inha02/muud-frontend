@@ -7,19 +7,9 @@
     width: 43px;
 }
 
-.moodTextarea {
-    width: 100%;
-    min-height: 264px;
-    border: none;
-    font-family: Pretendard-Regular;
-    font-size: 16px;
-    color: black;
-    line-height: 1.3rem;
-}
-
-.titleLTxt {
+.titleTxt {
     color: white;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-family: Pretendard-SemiBold;
 }
 
@@ -29,4 +19,20 @@
     right: 20px;
     font-size: var(--font-medium);
     color: var(--neutral60-color);
+}
+
+
+/* Mobile */
+@media (max-width: 767px) {
+    .moodEmojiSmall {
+        width: 36px;
+    }
+
+    .titleTxt {
+        font-size: 1rem;
+    }
+
+    .titleContainer {
+        margin: 0 auto 0rem;
+    }
 }

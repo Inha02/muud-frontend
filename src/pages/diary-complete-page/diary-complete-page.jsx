@@ -32,15 +32,13 @@ const DiaryCompletePageView = ({ diary, currentDateKor, handleClick }) => {
         </div>
       </div>
 
-      <div className={styles.btnMargin}>
-        <RoundButton
-          onClick={handleClick}
-          active
-          bottom
-        >
-          확인
-        </RoundButton>
-      </div>
+      <RoundButton
+        onClick={handleClick}
+        active
+        bottom
+      >
+        확인
+      </RoundButton>
     </div>
   )
 }

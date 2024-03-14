@@ -1,5 +1,5 @@
 .btnContainer {
-    margin: 14px 0;
+    margin: 0.83rem 0;
 }
 
 .moodBtn.active {
@@ -15,14 +15,18 @@
 .moodBtn {
     width: 100%;
     max-width: 760px;
-    height: 68px;
     border-radius: 16px;
-    padding: 10px;
+    padding: 1.375rem 10px;
     line-height: 24px;
     color: white;
     background-color: var(--neutral20-color);
 }
 
-.btnNext {
-    margin-top: 1rem;
+/* Mobile */
+@media (max-width: 767px) {
+
+    .moodBtn {
+        font-size: 0.8rem;
+        padding: 1rem 10px;
+    }
 }

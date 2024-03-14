@@ -12,18 +12,20 @@ const DoubleButtonView = ({
   bottom
 }) => {
   return (
-    <div className={styles.btnContainer + ' ' + styles[bottom]}>
-      <button
-        style={leftStyle}
-        className={styles.roundBtn + ' ' + (leftActive ? styles.active : styles.inactive)}
-        onClick={leftActive ? handleLeftClick : null}
-      >{leftTxt}</button>
-      <button
-        style={rightStyle}
-        className={rightActive ? styles.roundBtn + ' ' + styles.active : styles.roundBtn + ' ' + styles.inactive}
-        onClick={rightActive ? handleRightClick : null}
-      >{rightTxt}</button>
-    </div >
+    <div className={bottom && `bottomParent`}>
+      <div className={styles.btnContainer + ' ' + styles[bottom]}>
+        <button
+          style={leftStyle}
+          className={styles.roundBtn + ' ' + (leftActive ? styles.active : styles.inactive)}
+          onClick={leftActive ? handleLeftClick : null}
+        >{leftTxt}</button>
+        <button
+          style={rightStyle}
+          className={rightActive ? styles.roundBtn + ' ' + styles.active : styles.roundBtn + ' ' + styles.inactive}
+          onClick={rightActive ? handleRightClick : null}
+        >{rightTxt}</button>
+      </div >
+    </div>
   )
 }
 

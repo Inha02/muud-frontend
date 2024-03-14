@@ -22,13 +22,12 @@ const MoodChoosePageView = ({ handleMoodClick, handleButtonClick, selectedOption
 
       <div className='headerTitle large align'>오늘 느낀 감정을 골라주세요</div>
       <div className='headerSubtitle align g'>내가 느낀 감정 한개를 선택해주세요</div>
-
-      {moodQnAArray.map((item, index) => (<MoodButton key={index} index={index} mood={item.mood}>{item.text}</MoodButton>))}
-
-      <div className={styles.btnNext}>
-        <RoundButton onClick={handleButtonClick} active={(selectedOption != undefined)} bottom >다음</RoundButton>
+      <div className='mTopES'>
+        {moodQnAArray.map((item, index) => (<MoodButton key={index} index={index} mood={item.mood}>{item.text}</MoodButton>))}
       </div>
-
+      <div className='mTopM'>
+        <RoundButton onClick={handleButtonClick} active={(selectedOption != undefined)} >다음</RoundButton>
+      </div>
     </div>
   )
 }

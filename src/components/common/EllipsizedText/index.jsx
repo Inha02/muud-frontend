@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { isMobile } from 'react-device-detect';
 import styles from './EllipsizedText.module.css'
+
 const EllipsizedText = ({ text, maxHeight, className }) => {
     const [isEllipsized, setIsEllipsized] = useState(false);
 
-    const small = maxHeight < 100 ? styles.small : ''
+    const calMaxH = isMobile ? (maxHeight / 2.5) : maxHeight;
+    const small = calMaxH < 40 ? styles.small : ''
     useEffect(() => {
         const container = document.getElementById('textContainer');
-        if (container.scrollHeight > maxHeight) {
+        if (container.scrollHeight > calMaxH) {
             setIsEllipsized(true);
         } else {
             setIsEllipsized(false);

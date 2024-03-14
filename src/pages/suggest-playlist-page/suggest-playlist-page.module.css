@@ -43,15 +43,11 @@
     margin-bottom: 20px;
 }
 
-.sliderMargin {
-    margin-top: 1rem;
-}
-
 .textChannelName {
     font-size: var(--font-medium);
     color: var(--neutral50-color);
     margin-bottom: 0.1rem;
-    font-family: Pretendard-SemiBold;
+    font-family: Pretendard-Medium;
 }
 
 .textTitle {
@@ -77,9 +73,43 @@
 }
 
 .btn {
-    margin-top: 3rem;
-    display: flex;
-    justify-content: center;
-    /* 컨테이너 내부의 항목을 수평 중앙 정렬 */
-    align-items: center;
+    margin-inline: 20px;
+    margin-bottom: 20px;
+}
+
+
+/* Mobile */
+@media (max-width: 767px) {
+    .moodEmojiSmall {
+        margin-top: 0.5rem;
+        width: 36px;
+    }
+
+    .textPlylist {
+        font-size: 1.1rem;
+    }
+
+    .textDescription {
+        margin-bottom: 0;
+    }
+
+    .textTitle {
+        font-size: var(--font-medium);
+    }
+
+    .textChannelName {
+        font-size: var(--font-small);
+    }
+
+    .pliContentWrap {
+        padding: 14px 1.2rem 20px;
+        height: 139px;
+        position: relative;
+    }
+
+    .checkBox {
+        position: absolute;
+        right: 1.2rem;
+        bottom: 0.6rem;
+    }
 }

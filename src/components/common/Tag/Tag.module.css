@@ -7,3 +7,12 @@
     color: var(--neutral90-color);
     margin-right: 8px;
 }
+
+/* Mobile */
+@media (max-width: 767px) {
+
+    .moodTag {
+        padding: 5px 12px;
+        font-size: var(--font-micro);
+    }
+}

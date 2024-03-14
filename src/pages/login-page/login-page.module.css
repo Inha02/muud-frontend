@@ -51,6 +51,8 @@
     border: none;
     width: 183px;
     height: 45px;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .kakaoLoginBtn:hover {
@@ -59,4 +61,20 @@
 
 .form {
     margin-top: 4rem;
+}
+
+
+/* Mobile */
+@media (max-width: 767px) {
+    .muudText {
+        margin-top: 3rem;
+    }
+
+    .form {
+        margin-top: 1rem;
+    }
+
+    .find {
+        font-size: var(--font-small);
+    }
 }

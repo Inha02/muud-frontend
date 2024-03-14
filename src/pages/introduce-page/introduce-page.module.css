@@ -18,6 +18,7 @@
     width: 100%;
     background-color: transparent;
     color: #FFF;
+    /* margin: 0 13px; */
 }
 
 .skip {
@@ -44,10 +45,29 @@
     margin: 0 auto;
     margin-top: 1rem;
     width: 244px;
-    height: auto;
+    /* height: auto; */
 }
 
 .imageContainer img {
     width: 100%;
     height: auto;
+}
+
+.cardTitle {
+    font-family: Pretendard-SemiBold;
+    color: white;
+    font-size: var(--font-large);
+    margin-top: 2rem;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .cardTitle {
+        font-size: 1.1rem;
+        margin-top: 0.7rem;
+    }
+
+    .imageContainer {
+        width: 190px;
+    }
 }

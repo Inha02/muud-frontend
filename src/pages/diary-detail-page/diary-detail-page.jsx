@@ -22,13 +22,14 @@ const DiaryDetailPageView = ({
         <>
           <div className={styles.titleContainer}>
             <img className={styles.moodEmojiSmall} src={diary.emotion.emoji} alt='emotion' />
-            <div className={styles.titleLTxt}>{currentDateKor}</div>
+            <div className={styles.titleTxt}>{currentDateKor}</div>
           </div>
           <div className='cardContainer'>
             <MusicPlayer video={diary.playlist.videoId} />
-            {diary.emotion.tags && (<Tags array={diary.emotion.tags}></Tags>)}
-
-            <textarea id='content' className={styles.moodTextarea} placeholder='오늘의 감정을 기록해보세요' maxLength={maxLength} value={text} onChange={handleChange} >{text}</textarea>
+            <div className='mTopES'>
+              {diary.emotion.tags && (<Tags array={diary.emotion.tags}></Tags>)}
+            </div>
+            <textarea id='content' className='moodTextArea small' placeholder='오늘의 감정을 기록해보세요' maxLength={maxLength} value={text} onChange={handleChange} >{text}</textarea>
             <div className={styles.charCounter}>
               {enteredChars}/{maxLength}
             </div>

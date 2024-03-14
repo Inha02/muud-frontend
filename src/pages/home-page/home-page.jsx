@@ -6,6 +6,7 @@ import './custom-calendar.css'
 import MusicPlayer from '../../components/MusicPlayer'
 import Tag from '../../components/common/Tag'
 import RoundButton from '../../components/common/RoundButton'
+import Tags from '../../components/common/Tags';
 import { getMoodIcon } from '../../utils';
 import moment from 'moment';
 
@@ -42,9 +43,8 @@ const HomePageView = ({ moment, handleRecord, handleEdit, tileClassNames, update
           {currentDiary.emotion ? (
             <div className={styles.diaryCardContent}>
               <MusicPlayer video={currentDiary.playlist && currentDiary.playlist.videoId} />
-              <div className={styles.tagContainer}>
-                {currentDiary.emotion.tags &&
-                  currentDiary.emotion.tags.map((item) => <Tag key={item}>{item}</Tag>)}
+              <div className='mTopES'>
+                {currentDiary.emotion.tags && <Tags array={currentDiary.emotion.tags}></Tags>}
               </div>
               <div>
                 {currentDiary.content}

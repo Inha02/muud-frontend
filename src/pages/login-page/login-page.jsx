@@ -51,7 +51,7 @@ const LoginPageView = ({ user, isPwNoticeActive, isIdNoticeActive, onChangeUser,
           {isPwNoticeActive &&
             <div className={styles.wrongInfo}>*아직 8자리 이상 15자리 이하가 아니에요</div>
           }
-          <div style={{ marginTop: '1.5em' }}>
+          <div className='mTopS'>
             <RoundButton onClick={handleLogin} active={isLoginActive}>로그인</RoundButton>
           </div>
         </form>
@@ -64,14 +64,12 @@ const LoginPageView = ({ user, isPwNoticeActive, isIdNoticeActive, onChangeUser,
           <span className={styles.find}>비밀번호 찾기</span>
         </div>
 
-        <div className={styles.bottomContainer}>
+        <div className='bottomParent align'>
           <div className={styles.snsText}>SNS 계정으로 간편 가입하기</div>
-          <div style={{ marginTop: '0.5em' }}>
-            <button className={styles.kakaoLoginBtn} onClick={handleKakaoLogin}></button>
-          </div>
+          <button className={styles.kakaoLoginBtn} onClick={handleKakaoLogin}></button>
         </div>
 
-      </div>
+      </div >
     </>
   )
 };

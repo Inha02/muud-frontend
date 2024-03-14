@@ -12,6 +12,10 @@ input {
   position: relative;
   margin: 20px;
   flex-grow: 1;
+
+
+  display: flex;
+  flex-direction: column;
 }
 
 div {
@@ -45,19 +49,19 @@ textarea {
   background: transparent;
   width: 100%;
   height: 2em;
-  margin: 8px 0 8px 0;
+  margin: 0.5rem 0;
   color: #fff;
   border: none;
   outline: none;
   border-bottom: 1px solid var(--neutral40-color);
-  font-size: var(--font-regular)
+  font-size: 0.8rem;
 }
 
 .eyeBtnContainer {
-  margin-top: 0.5em;
+  margin-top: 0.5rem;
   position: absolute;
   right: 1em;
-  top: 0px;
+  top: 0;
 }
 
 .eyeBtn.hide {
@@ -69,8 +73,8 @@ textarea {
 }
 
 .eyeBtn {
-  width: 18px;
-  height: 16px;
+  width: 1.125rem;
+  height: var(--font-regular);
   background-size: cover;
   background-position: center;
   cursor: pointer;
@@ -136,8 +140,41 @@ textarea {
 }
 
 /* common */
+.moodTextArea {
+  width: 100%;
+  min-height: 264px;
+  background-color: white;
+  border-radius: 13px;
+  border: none;
+  padding: 1.25rem;
+  font-family: Pretendard-Regular;
+  font-size: var(--font-regular);
+  color: black;
+  line-height: 1.3rem;
+}
+
+
+.moodTextArea::placeholder {
+  color: #C7C7C7;
+}
+
+.moodTextArea.small {
+  padding: 0px;
+}
+
+.moodEmojiESmall {
+  width: 26px;
+  height: 22px;
+}
+
 .align {
   text-align: center;
+}
+
+.bottomParent {
+  position: relative;
+  /* flex-grow: 1; */
+  margin-top: auto;
 }
 
 .headerTitle {
@@ -152,7 +189,6 @@ textarea {
 }
 
 .headerSubtitle {
-  /*bodyM*/
   color: white;
   font-size: var(--font-medium);
   font-family: 'Pretendard-Regular';
@@ -180,18 +216,75 @@ textarea {
   margin-top: 5rem;
 }
 
-.mTopS {
+.mTopM {
   margin-top: 3rem
+}
+
+.mTopS {
+  margin-top: 1.5rem
+}
+
+.mTopES {
+  margin-top: 1rem
 }
 
 .mMc {
   margin: 0.6rem 0;
 }
 
+footer {
+  padding: 1.5rem;
+  background-color: var(--primary30-color);
+  color: white;
+  font-size: var(--font-medium);
+}
 
-.mobileView {}
+footer .footer-title {
+  font-size: var(--font-regular);
+}
 
 /* Mobile */
 @media (max-width: 767px) {
-  .appContainer {}
+  footer {
+    display: none;
+  }
+
+  .headerSubtitle {
+    font-size: var(--font-small);
+  }
+
+  .mediumTitle {
+    margin-top: 1rem;
+  }
+
+  .mTopM {
+    margin-top: 2rem
+  }
+
+  .mTopES {
+    margin-top: 0.8rem
+  }
+
+  .mTop {
+    margin-top: 3rem;
+  }
+
+  .moodTextArea {
+    font-size: 0.9rem;
+    line-height: 1.15rem;
+    padding: 1rem;
+  }
+
+  .moodTextArea.small {
+    min-height: 194px;
+  }
+
+  .cardContainer {
+    padding: 1rem;
+  }
+
+  .moodEmojiESmall {
+    width: 24px;
+    height: 20px;
+  }
 }

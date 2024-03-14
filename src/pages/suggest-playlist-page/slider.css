@@ -6,3 +6,11 @@
 .slick-list {
     min-height: 400px;
 }
+
+
+/* Mobile */
+@media (max-width: 767px) {
+    .slick-list {
+        min-height: 330px;
+    }
+}

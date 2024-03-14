@@ -8,20 +8,16 @@
 }
 
 .leftBtnArea {
-    padding: 10px 20px;
+    padding: 1rem 1.25rem 0.7rem;
 }
 
 .leftBtn {
     display: inline-block;
     vertical-align: middle;
-    width: 24px;
-    height: 24px;
+    width: var(--font-extra-large);
+    height: var(--font-extra-large);
     background-size: cover;
     background-position: center;
-}
-
-.x .leftBtn {
-    background-image: url('/images/icon-x-mono.png');
 }
 
 .back .leftBtn {

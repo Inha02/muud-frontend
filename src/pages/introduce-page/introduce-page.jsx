@@ -8,7 +8,7 @@ import styles from './introduce-page.module.css'
 const SlideCard = ({ content }) => {
     return (
         <div className={styles.cardContainer}>
-            <div className='headerTitle large align mTopS'>{content.main}</div>
+            <div className={`${styles.cardTitle} align`}>{content.main}</div>
             <div className={styles.sub}>{content.sub}</div>
             <div className={styles.imageContainer}>
                 <img src="\images\introduce_muud.png" />
@@ -24,9 +24,7 @@ const IntroducePageView = ({ slickSettings, sliderRef, currentSlide, handleClick
                 {...slickSettings}
                 ref={sliderRef}
             >
-                <div>
-                    <SlideCard content={moodArray[0]}></SlideCard>
-                </div>
+                <SlideCard content={moodArray[0]}></SlideCard>
             </Slider>
 
             {/*currentSlide != 1 && (

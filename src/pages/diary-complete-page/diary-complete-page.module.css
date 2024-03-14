@@ -32,3 +32,11 @@
     text-align: center;
     color: white;
 }
+
+/* Mobile */
+@media (max-width: 767px) {
+    .textComplete {
+        margin-top: 0.5rem;
+        font-size: var(--font-large);
+    }
+}

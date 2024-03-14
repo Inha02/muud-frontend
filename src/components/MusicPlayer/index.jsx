@@ -10,9 +10,8 @@ const MusicPlayer = ({ video }) => {
                 <iframe
                     ref={playerRef}
                     className={styles.player}
-                    width='100%'
-                    height='100%'
                     color="white"
+                    width="560" height="315"
                     src={`https://www.youtube.com/embed/${video}`}
                     title="YouTube video player"
                     allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

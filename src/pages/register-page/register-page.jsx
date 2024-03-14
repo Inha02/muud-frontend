@@ -7,7 +7,7 @@ const RegisterPageView = ({ user, onChangeUser, handleClickClose, handleRegister
   return (
     <div className="appContainer">
       <CloseBar onClick={handleClickClose}></CloseBar>
-      <div className='headerTitle mTopS'>회원가입</div>
+      <div className='headerTitle mTopM'>회원가입</div>
       <form>
         <div className='mediumTitle'>이메일 주소가 무엇인가요?</div>
         <input

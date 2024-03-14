@@ -1,7 +1,7 @@
 .bottom {
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 30px;
+    /* position: sticky;
+    bottom: 0; */
+    margin-bottom: 1.875rem;
 }
 
 .roundBtn.active {
@@ -17,9 +17,8 @@
 
 .roundBtn {
     width: 320px;
-    height: 56px;
     border-radius: 16px;
-    padding: 10px;
+    padding: 1rem 0.625rem;
     line-height: 150%;
     font-family: Pretendard-Medium;
     font-weight: 100;
@@ -34,5 +33,10 @@
 @media (max-width: 767px) {
     .roundBtn {
         width: 100%;
+        padding: 0.8rem 0.625rem;
+    }
+
+    .bottom {
+        margin-bottom: 0.5rem;
     }
 }

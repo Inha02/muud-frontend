@@ -60,7 +60,7 @@ const HomePage = () => {
       if (matchingDay) {
         contents.push(
           <div key={item.id}>
-            <img src={getMoodIcon(item.emotion.titleEmotion)} alt={item.emotion.titleEmotion} width="26" height="22" />
+            <img className='moodEmojiESmall' src={getMoodIcon(item.emotion.titleEmotion)} alt={item.emotion.titleEmotion} />
           </div>
         );
       }

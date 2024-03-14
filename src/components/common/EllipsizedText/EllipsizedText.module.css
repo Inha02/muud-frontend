@@ -9,3 +9,11 @@
 .small.ellipsized {
     -webkit-line-clamp: 2;
 }
+
+
+/* Mobile */
+@media (max-width: 767px) {
+    .small.ellipsized {
+        -webkit-line-clamp: 1;
+    }
+}

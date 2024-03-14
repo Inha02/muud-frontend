@@ -2,31 +2,6 @@
     width: 128px;
 }
 
-.moodTextArea {
-    width: 100%;
-    min-height: 290px;
-    background-color: white;
-    /* 배경색을 하얀색으로 설정 */
-    border-radius: 13px;
-    /* 모서리를 둥글게 설정 */
-    border: 1px solid #ccc;
-    /* 경계선을 설정, 색상은 예시이며 필요에 따라 조정 가능 */
-    padding: 20px;
-    font-family: Pretendard;
-    font-size: var(--font-regular);
-    color: black;
-    line-height: 1.3rem;
-}
-
-.moodTextArea::placeholder {
-    color: #C7C7C7;
-    /* placeholder 텍스트의 색상 */
-    font-style: Pretendard;
-    /* placeholder 텍스트를 이탤릭체로 설정 */
-    font-size: var(--font-regular);
-    /* placeholder 텍스트의 폰트 크기 */
-}
-
 .textDate {
     font-size: 14px;
     text-align: center;
@@ -90,4 +65,19 @@
     right: 20px;
     font-size: var(--font-medium);
     color: var(--neutral60-color);
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .moodEmoji {
+        width: 98px;
+    }
+
+    .moodResult {
+        font-size: var(--font-regular);
+    }
+
+    .moodResultDescription {
+        font-size: var(--font-small);
+    }
 }

@@ -23,16 +23,12 @@
     border-radius: 10px;
     box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
     color: white;
-    font-size: 14px;
+    font-size: var(--font-medium);
     font-weight: 500;
     line-height: 20px;
 }
 
 .modalText {
-    /* 
-    height: 100%;
-
-*/
     display: flex;
     flex: 1;
     text-align: center;
@@ -49,7 +45,7 @@
     border-top-right-radius: initial;
     border-top-width: 1px;
     border-top-color: var(--neutral40-color);
-    font-size: 14px;
+    font-size: var(--font-medium);
     font-weight: 500;
     line-height: 20px;
     text-align: center;
@@ -57,18 +53,11 @@
 
 }
 
-/*
-.modalCloseBtn {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    border: none;
-    color: rgba(0, 0, 0, 0.7);
-    background-color: transparent;
-    font-size: 20px;
-}
+/* Mobile */
+@media (max-width: 767px) {
+    .modalBody {
+        width: 224px;
+        height: 145px;
+    }
 
-.modalCloseBtn:hover {
-    cursor: pointer;
 }
-*/

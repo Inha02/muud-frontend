@@ -5,11 +5,13 @@ import './RoundButton.css'
  */
 const RoundButtonView = ({ text, onClick, active, size, type, bottom }) => {
   return (
-    <button
-      type={type ? type : 'button'}
-      className={`${bottom} roundBtn ${active ? 'active' : 'inactive'} ${size} `}
-      onClick={active ? onClick : null}
-    >{text}</button>
+    <div className={bottom && `bottomParent`}>
+      <button
+        type={type ? type : 'button'}
+        className={`${bottom} roundBtn ${active ? 'active' : 'inactive'} ${size} `}
+        onClick={active ? onClick : null}
+      >{text}</button>
+    </div>
   )
 }
 
