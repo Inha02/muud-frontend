@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import TopBarView from './TopBar'
 import { useUserContext } from '../../../context/UserContext';
@@ -6,6 +5,7 @@ import { useUserContext } from '../../../context/UserContext';
 const TopBar = ({ path }) => {
   const navigateTo = useNavigate();
   const { setIsAuthenticated } = useUserContext()
+  const option = path === '/home' ? 'logout' : 'back'
 
   const handleClick = () => {
     switch (path) {
@@ -20,10 +20,7 @@ const TopBar = ({ path }) => {
     }
   };
 
-  useEffect(() => {
-  }, [])
-
-  return <TopBarView handleClick={handleClick} />
+  return <TopBarView handleClick={handleClick} option={option} />
 }
 
 export default TopBar

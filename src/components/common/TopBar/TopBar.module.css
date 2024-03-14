@@ -24,6 +24,12 @@
     background-image: url('/images/icon-arrow-back-android-mono.png');
 }
 
+.logout .leftBtn {
+    background-image: url('/images/ico_logout.png');
+    width: 33px;
+    height: 35px;
+}
+
 /* PC */
 @media (min-width: 768px) {
     .topBarContainer {

@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import DoubleButtonView from './DoubleButton'
 
 const DoubleButton = ({
