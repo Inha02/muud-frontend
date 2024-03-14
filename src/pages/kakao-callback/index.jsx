@@ -24,7 +24,7 @@ const KakaoCallback = () => {
       setCookie('refreshToken', refreshToken, { path: '/' });
       setCookie('id', userInfo.id, { path: '/' });
       setCookie('nickname', userInfo.nickname, { path: '/' });
-      setCookie('expiresAt', moment().add(22, "minutes").format("yyyy-MM-DD HH:mm:ss"), { path: '/' });
+      setCookie('expiresAt', moment().add(15, "minutes").format("yyyy-MM-DD HH:mm:ss"), { path: '/' });
 
       setConfig({ accessToken: accessToken });
       setIsAuthenticated(true)
