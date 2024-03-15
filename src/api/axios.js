@@ -21,17 +21,6 @@ export const removeConfig = (name) => {
   delete be.defaults.headers.common[name]
 }
 
-const handleError = (error) => {
-  if (error.response.status == 401 || error.response.status == 403) {
-    alert('로그인이 필요합니다')
-    localStorage.setItem('isAuthenticated', false);
-    localStorage.removeItem('activeDate');
-    window.location.href = `${import.meta.env.VITE_PUBLIC_BASE_URL}/login`
-  } else {
-    throw error
-  }
-}
-
 /**
  * Get Axios
  * @param {string} url
@@ -39,14 +28,8 @@ const handleError = (error) => {
  * @returns Promise<response>
  */
 export const Get = async (url, config) => {
-  try{
     const response = await be.get(url, config)
     return response
-  } catch (error) {
-    //if((url.includes('diaries/month'))) throw error
-    //else handleError(error)
-    handleError(error)
-  }
 }
 
 /**
@@ -57,13 +40,8 @@ export const Get = async (url, config) => {
  * @returns Promise<response>
  */
 export const Post = async (url, data, config) => {
-  try {
     const response = await be.post(url, data, config)
     return response
-  } catch (error) {
-    if(url ==='/auth/signin' || url ==='/auth/signup'|| url ==='/auth/kakao/signin') throw error
-    else handleError(error)
-  }
 }
 
 /**
@@ -74,12 +52,8 @@ export const Post = async (url, data, config) => {
  * @returns Promise<response>
  */
 export const Put = async (url, data, config) => {
-  try {
     const response = await be.put(url, data, config)
     return response
-  } catch (error) {
-    handleError(error)
-  }
 }
 
 /**
@@ -90,12 +64,8 @@ export const Put = async (url, data, config) => {
  * @returns Promise<response>
  */
 export const Patch = async (url, data, config) => {
-  try {
     const response = await be.patch(url, data, config)
     return response
-  } catch (error) {
-    handleError(error)
-  }
 }
 
 /**
@@ -105,16 +75,26 @@ export const Patch = async (url, data, config) => {
  * @returns Promise<response>
  */
 export const Delete = async (url, config) => {
-  try {
     const response = await be.delete(url, config)
     return response
-  } catch (error) {
-    handleError(error)
-  }
 }
 
 be.interceptors.request.use(refresh,refreshErrorHandle)
 
-be.interceptors.response.use((res) => {
-  return res
+be.interceptors.response.use((response) => {
+  return response;
+}, (error) => {
+  const url = error.config.url
+  if(url.includes('/auth/signin') || url.includes('/auth/signup')|| url.includes('/auth/kakao/signin')) throw error
+  else {
+    if (error.response.status == 401 || error.response.status == 403) {
+      localStorage.setItem('isAuthenticated', false);
+      localStorage.removeItem('activeDate');
+      alert('로그인이 필요합니다')
+      window.location.href = `${import.meta.env.VITE_PUBLIC_BASE_URL}/login`
+      return Promise.reject(error)
+    } else {
+      throw error
+    }
+  }
 })
