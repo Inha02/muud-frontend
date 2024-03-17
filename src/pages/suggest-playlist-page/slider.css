@@ -13,4 +13,9 @@
     .slick-list {
         min-height: 330px;
     }
+
+    .slick-dots {
+        position: absolute;
+        bottom: -19px;
+    }
 }

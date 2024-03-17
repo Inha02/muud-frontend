@@ -18,8 +18,4 @@
 
 
 /* Mobile */
-@media (max-width: 767px) {
-    .player {
-        height: 130px;
-    }
-}
+@media (max-width: 767px) {}

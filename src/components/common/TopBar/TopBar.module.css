@@ -1,6 +1,5 @@
 .topBarContainer {
     background-color: var(--neutral-color);
-
     width: 100%;
     position: fixed;
     top: 0;
@@ -9,6 +8,10 @@
 
 .leftBtnArea {
     padding: 1rem 1.25rem 0.7rem;
+}
+
+.logout .leftBtnArea {
+    padding: 0.7rem 1.25rem 0.4rem;
 }
 
 .leftBtn {

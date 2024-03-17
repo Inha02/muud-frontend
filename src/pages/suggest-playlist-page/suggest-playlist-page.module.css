@@ -73,6 +73,9 @@
 }
 
 .btn {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
     margin-inline: 20px;
     margin-bottom: 20px;
 }

@@ -19,10 +19,12 @@ import KakaoCallback from './pages/kakao-callback'
 import MobileContent from './layout/MobileContent';
 import MobileContainer from "./layout/MobileContainer";
 import BackBtnContainer from "./layout/BackBtnContainer";
+import RouteChangeTracker from "./RouteChangeTracker";
 
 import './App.css';
 
 const Pages = () => {
+  RouteChangeTracker();
   const { isAuthenticated } = useUserContext();
 
   return (
