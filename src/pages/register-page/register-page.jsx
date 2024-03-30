@@ -3,7 +3,7 @@ import RoundButton from '../../components/common/RoundButton';
 import styles from './register-page.module.css';
 
 
-const RegisterPageView = ({ user, onChangeUser, handleClickClose, handleRegister, isRegisterActive, isShownPswd, toggleShowPswd }) => {
+const RegisterPageView = ({ user, onChangeUser, handleClickClose, handleRegister, isRegisterActive, isShownPswd, isShownPswdCheck, toggleShowPswd, toggleShowPswdCheck }) => {
   return (
     <div className="appContainer">
       <CloseBar onClick={handleClickClose}></CloseBar>
@@ -52,13 +52,20 @@ const RegisterPageView = ({ user, onChangeUser, handleClickClose, handleRegister
         </div>
 
         <div className='mediumTitle'>비밀번호 확인</div>
-        <input
-          className='inputBox'
-          type="password"
-          name="pswdCheck"
-          onChange={onChangeUser}
-          value={user.pswdCheck}
-        />
+        <div className='pswdWrap'>
+          <input
+            className='inputBox'
+            type={isShownPswdCheck ? "text" : "password"}
+            name="pswdCheck"
+            onChange={onChangeUser}
+            value={user.pswdCheck}
+          />
+          <div className='eyeBtnContainer'>
+            <div className={'eyeBtn ' + (isShownPswdCheck ? 'show' : 'hide')} onClick={toggleShowPswdCheck}>
+            </div>
+          </div>
+        </div>
+
       </form>
       <RoundButton onClick={handleRegister} active={isRegisterActive} bottom>계정 만들기</RoundButton>
 

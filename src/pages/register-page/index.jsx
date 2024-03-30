@@ -14,6 +14,7 @@ const RegisterPage = () => {
   const [cookies, setCookie] = useCookies(['accessToken', 'refreshToken', 'id', 'nickname']);
   const { setIsAuthenticated } = useUserContext()
   const [isShownPswd, setIsShownPswd] = useState(false)
+  const [isShownPswdCheck, setIsShownPswdCheck] = useState(false)
   const [isRegisterActive, setIsRegisterActive] = useState(true)
   const [user, setUser] = useState({
     id: '',
@@ -40,6 +41,10 @@ const RegisterPage = () => {
 
   const toggleShowPswd = () => {
     setIsShownPswd(!isShownPswd)
+  }
+
+  const toggleShowPswdCheck = () => {
+    setIsShownPswdCheck(!isShownPswdCheck)
   }
 
   const handleClickClose = () => {
@@ -113,10 +118,12 @@ const RegisterPage = () => {
       user={user}
       onChangeUser={onChangeUser}
       isShownPswd={isShownPswd}
+      isShownPswdCheck={isShownPswdCheck}
       isRegisterActive={isRegisterActive}
       toggleShowPswd={toggleShowPswd}
       handleRegister={handleRegister}
       handleClickClose={handleClickClose}
+      toggleShowPswdCheck={toggleShowPswdCheck}
     />
   )
 }
