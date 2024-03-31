@@ -20,6 +20,7 @@ const RouteChangeTracker = () => {
   // location 변경 감지시 pageview 이벤트 전송
   useEffect(() => {
     if (initialized) {
+     //ReactGA.send({ hitType: 'pageview', page: location.pathname }); // 페이지뷰 보내기
       ReactGA.set({ page: location.pathname });
       ReactGA.send("pageview");
     }

@@ -20,6 +20,7 @@ import MobileContent from './layout/MobileContent';
 import MobileContainer from "./layout/MobileContainer";
 import BackBtnContainer from "./layout/BackBtnContainer";
 import RouteChangeTracker from "./RouteChangeTracker";
+import GoogleTagManager from './GoogleTagManager';
 
 import './App.css';
 
@@ -82,6 +83,7 @@ function App() {
           </Routes>
         </MobileView>
       </UserDataProvider>
+      <GoogleTagManager />
     </div >
 
   )
