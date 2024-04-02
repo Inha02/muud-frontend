@@ -53,6 +53,10 @@ const LoginPage = () => {
     }
   };
 
+  const handleClickLookAround = () => {
+    navigateTo('/introduce');
+  }
+
   const validate = (id, pswd) => {
     const idCheck = id !== '' && !validateEmail(id)
     const pwCheck = pswd !== '' && !validatePswd(pswd)
@@ -127,6 +131,7 @@ const LoginPage = () => {
       isPwNoticeActive={isPwNoticeActive}
       handleClickRegister={handleClickRegister}
       handleKeyDown={handleKeyDown}
+      handleClickLookAround={handleClickLookAround}
     />
   )
 }

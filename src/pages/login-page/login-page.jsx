@@ -1,8 +1,7 @@
 import RoundButton from '../../components/common/RoundButton';
 import styles from './login-page.module.css';
 
-const LoginPageView = ({ user, isPwNoticeActive, isIdNoticeActive, onChangeUser, handleLogin, handleKakaoLogin, isShownPswd, toggleShowPswd, isLoginActive, handleClickRegister, handleKeyDown }) => { //프롭스 대신 객체로 넣기(타입)
-
+const LoginPageView = ({ user, isPwNoticeActive, isIdNoticeActive, onChangeUser, handleLogin, handleKakaoLogin, isShownPswd, toggleShowPswd, isLoginActive, handleClickRegister, handleKeyDown, handleClickLookAround }) => {
   return (
     <>
       <div className='appContainer'>
@@ -63,12 +62,13 @@ const LoginPageView = ({ user, isPwNoticeActive, isIdNoticeActive, onChangeUser,
           <span className='divider'>|</span>
           <span className={styles.find}>비밀번호 찾기</span>
         </div>
-
-        <div className='bottomParent align'>
-          <div className={styles.snsText}>SNS 계정으로 간편 가입하기</div>
+        <div className='align'>
+          <div className={styles.snsText + ' mTopM'}>SNS 계정으로 간편 가입하기</div>
           <button className={styles.kakaoLoginBtn} onClick={handleKakaoLogin}></button>
+          <div>
+            <button className={styles.lookAroundBtn} onClick={handleClickLookAround}>둘러보기</button>
+          </div>
         </div>
-
       </div >
     </>
   )

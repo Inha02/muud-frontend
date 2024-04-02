@@ -43,6 +43,17 @@
     font-size: var(--font-medium);
 }
 
+.lookAroundBtn {
+    border-radius: 50px;
+    border-color: var(--neutral190-color);
+    color: var(--neutral190-color);
+    font-size: var(--font-medium);
+    padding: 4px 15px;
+    background-color: transparent;
+    font-family: Pretendard-Regular;
+    margin: 2rem 0;
+}
+
 .kakaoLoginBtn {
     background-image: url('/images/kakao_login_medium_narrow.png');
     background-position: center;
@@ -76,5 +87,12 @@
 
     .find {
         font-size: var(--font-small);
+    }
+}
+
+@media (max-height: 560px) {
+    .kakaoLoginBtn {
+        width: 143px;
+        height: 35px;
     }
 }
