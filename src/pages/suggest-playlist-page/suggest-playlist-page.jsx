@@ -12,7 +12,7 @@ import styles from './suggest-playlist-page.module.css';
 
 const SuggestPlaylistPageView = ({
   slickSettings, sliderRef, currentSlide,
-  userInfo,
+  nickname,
   playlistArr,
   selectedOption,
   handleOptionChange,
@@ -24,7 +24,7 @@ const SuggestPlaylistPageView = ({
   return (
     <>
       {mood && (<img className={styles.moodEmojiSmall} src={getMoodData(mood).emoji} alt='emotion' />)}
-      <div className={styles.textPlylist}>{userInfo.nickname}님을 위한 플레이리스트</div>
+      <div className={styles.textPlylist}>{nickname}님을 위한 플레이리스트</div>
       <div className={styles.textDescription}>마음에 드는 플리를 선택해서 감정과 함께 저장해보세요</div>
       <div className='mTopES'>
         <Slider

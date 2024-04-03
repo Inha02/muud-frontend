@@ -53,8 +53,6 @@ const MoodResultPage = () => {
   };
 
   useEffect(() => {
-    //const params = new URL(document.URL).searchParams;
-    //setMood(params.get("mood"));
     if (state) {
       setMood(state)
     }

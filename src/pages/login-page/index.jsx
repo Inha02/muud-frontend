@@ -48,7 +48,6 @@ const LoginPage = () => {
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
-      // 여기에 실행하고자 하는 함수를 호출합니다.
       handleLogin();
     }
   };

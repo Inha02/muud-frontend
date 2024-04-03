@@ -8,6 +8,7 @@ const UserContext = createContext();
 
 export const UserDataProvider = ({ children }) => {
   moment.updateLocale('ko', { weekdays: ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"], weekdaysShort: ["일", "월", "화", "수", "목", "금", "토"], });
+
   const [today, setToday] = useState(moment());
   const [currentDate, setCurrentDate] = useState(() => {
     const stored = localStorage.getItem('activeDate');
@@ -20,17 +21,23 @@ export const UserDataProvider = ({ children }) => {
   });
   const [cookies, , removeCookie] = useCookies(['accessToken', 'refreshToken', 'id', 'nickname']);
 
+  const logoutContext = () => {
+    ['accessToken', 'nickname', 'id', 'refreshToken', 'expiresAt'].forEach(cookie => removeCookie(cookie))
+    console.log('로그아웃' + cookies.nickname)
+    removeConfig('Authorization')
+    localStorage.removeItem('activeDate')
+    setCurrentDate(moment())
+  }
+
   useEffect(() => {
     setCurrentDateKor(currentDate.format('M월 D일 dddd'))
     localStorage.setItem('activeDate', currentDate)
   }, [currentDate])
+
   useEffect(() => {
     localStorage.setItem('isAuthenticated', isAuthenticated)
     if (!isAuthenticated) {
-      removeCookie('accessToken')
-      removeConfig('Authorization')
-      localStorage.removeItem('activeDate')
-      setCurrentDate(moment())
+      logoutContext()
     }
     if (isAuthenticated) { setConfig({ accessToken: cookies.accessToken }) }
   }, [isAuthenticated])

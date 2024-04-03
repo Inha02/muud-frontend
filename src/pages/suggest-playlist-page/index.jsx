@@ -29,10 +29,7 @@ const SuggestPlaylistPage = () => {
     false,
     false,
   ])
-  const userInfo = {
-    id: cookies.id,
-    nickname: cookies.nickname,
-  }
+  const nickname = cookies.nickname ? cookies.nickname : '뮤디';
   const [playlistArr, setPlaylistArr] = useState(playList)
   const slickSettings = {
     dots: true,
@@ -49,7 +46,6 @@ const SuggestPlaylistPage = () => {
     },
     className: 'center',
   }
-  //const noCORS = 'https://cors-anywhere.herokuapp.com/';
 
   const handleOptionChange = (event, index) => {
     const newValue = [false, false, false, false]
@@ -115,7 +111,7 @@ const SuggestPlaylistPage = () => {
   return (
     <SuggestPlaylistPageView
       playlistArr={playlistArr}
-      userInfo={userInfo}
+      nickname={nickname}
       slickSettings={slickSettings}
       sliderRef={sliderRef}
       currentSlide={currentSlide}

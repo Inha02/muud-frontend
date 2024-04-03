@@ -30,31 +30,34 @@ const Pages = () => {
 
   return (
     <Routes>
-      {(isAuthenticated) ? (
-        <>
-          <Route path="/*" element={<BackBtnContainer />}>
-            <Route path="home" element={<HomePage />} />
-            <Route path="mood/result" element={<MoodResultPage />} />
-            <Route path="playlist" element={<SuggestPlaylistPage />} />
-            <Route path="diary/detail" element={<DiaryDetailPage />} />
-            <Route path="mood/report" element={<ReportPage />} />
-            <Route path="introduce" element={<IntroducePage />} />
-            <Route path="mood/choose" element={<MoodChoosePage />} />
-            <Route path="*" element={<Navigate to="/home" />} />
-          </Route>
-          <Route path="diary/complete" element={<DiaryCompletePage />} />
-          <Route path="user/nickname" element={<UserNicknamePage />} />
-        </>
-      ) :
-        (
-          <Route path="/*" element={<Outlet></Outlet>}>
-            <Route path="login" element={<LoginPage />} />
-            <Route path="register" element={<RegisterPage />} />
-            <Route path="oauth2/callback/kakao" element={<KakaoCallback />} />
-            <Route path="*" element={<Navigate to="/login" />} />
-          </Route>
-        )
-      }
+      <>
+        <Route path="/" element={<BackBtnContainer />}>
+          <Route path="mood/result" element={<MoodResultPage />} />
+          <Route path="playlist" element={<SuggestPlaylistPage />} />
+          <Route path="introduce" element={<IntroducePage />} />
+          <Route path="mood/choose" element={<MoodChoosePage />} />
+        </Route>
+        <Route path="/diary/complete" element={<DiaryCompletePage />} />
+        {(isAuthenticated) ? (
+          <>
+            <Route path="/user/nickname" element={<UserNicknamePage />} />
+            <Route path="/" element={<BackBtnContainer />}>
+              <Route path="home" element={<HomePage />} />
+              <Route path="diary/detail" element={<DiaryDetailPage />} />
+              <Route path="mood/report" element={<ReportPage />} />
+              <Route path="*" element={<Navigate to="/home" />} />
+            </Route>
+          </>
+        ) :
+          (<>
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/oauth2/callback/kakao" element={<KakaoCallback />} />
+            <Route path="/*" element={<Navigate to="/login" />} />
+          </>
+          )
+        }
+      </>
     </Routes>
   )
 }
