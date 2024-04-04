@@ -1,16 +1,15 @@
 import { useNavigate } from 'react-router-dom';
 import TopBarView from './TopBar'
-import { useUserContext } from '../../../context/UserContext';
+import { clearData } from '../../../utils';
 
 const TopBar = ({ path }) => {
   const navigateTo = useNavigate();
-  const { setIsAuthenticated } = useUserContext()
   const option = path === '/home' ? 'logout' : 'back'
 
   const handleClick = () => {
     switch (path) {
-      case '/home': //로그인으로 이동
-        setIsAuthenticated(false)
+      case '/home': //로그아웃
+        clearData();
         break;
       case "/diary/detail":
         return navigateTo("/home", { replace: true })

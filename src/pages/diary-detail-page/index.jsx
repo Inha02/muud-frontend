@@ -4,9 +4,10 @@ import { useUserContext } from '../../context/UserContext';
 import DiaryDetailPageView from './diary-detail-page'
 import { Get, Put, be } from '../../api/axios';
 import { useModal } from '../../context/ModalContext';
+import { getCurrentDateKor } from '../../utils'
 
 const DiaryDetailPage = () => {
-  const { currentDateKor } = useUserContext();
+  const { currentDate } = useUserContext();
   const { modalOpen } = useModal();
   const [text, setText] = useState('');
   const [isBtnActive, setIsBtnActive] = useState(false);
@@ -83,7 +84,7 @@ const DiaryDetailPage = () => {
   }, []);
 
   return (
-    <DiaryDetailPageView diary={diary} currentDateKor={currentDateKor} handleChange={handleChange} handleLeftClick={handleLeftClick} handleRightClick={handleRightClick} enteredChars={enteredChars} maxLength={maxLength} isRightBtnActive={isBtnActive} text={text} />
+    <DiaryDetailPageView diary={diary} currentDateKor={getCurrentDateKor(currentDate)} handleChange={handleChange} handleLeftClick={handleLeftClick} handleRightClick={handleRightClick} enteredChars={enteredChars} maxLength={maxLength} isRightBtnActive={isBtnActive} text={text} />
   )
 }
 

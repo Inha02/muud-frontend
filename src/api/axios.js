@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { refresh, refreshErrorHandle } from "./refresh";
+import { clearData } from '../utils';
 
 const backend = () =>{
   // if(!((import.meta.env.VITE_PUBLIC_BASE_URL).includes('localhost')) ){
@@ -88,10 +89,8 @@ be.interceptors.response.use((response) => {
   if(url.includes('/auth/signin') || url.includes('/auth/signup')|| url.includes('/auth/kakao/signin')) throw error
   else {
     if (error.response.status == 401 || error.response.status == 403) {
-      localStorage.setItem('isAuthenticated', false);
-      localStorage.removeItem('activeDate');
+      clearData();
       alert('로그인이 필요합니다')
-      window.location.href = `${import.meta.env.VITE_PUBLIC_BASE_URL}/login`
       return Promise.reject(error)
     } else {
       throw error

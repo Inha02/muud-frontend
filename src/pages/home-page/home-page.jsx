@@ -4,11 +4,9 @@ import 'react-calendar/dist/Calendar.css';
 
 import './custom-calendar.css'
 import MusicPlayer from '../../components/MusicPlayer'
-import Tag from '../../components/common/Tag'
 import RoundButton from '../../components/common/RoundButton'
 import Tags from '../../components/common/Tags';
 import { getMoodIcon } from '../../utils';
-import moment from 'moment';
 
 const HomePageView = ({ moment, handleRecord, handleEdit, tileClassNames, updateActiveDay, currentDate, addContent, updateActiveMonth, playlist, currentDiary }) => {
   return (

@@ -1,4 +1,7 @@
 import {moodDataArray} from './constants/testData'
+import moment from 'moment';
+import 'moment/locale/ko';
+import { removeConfig } from './api/axios';
 
 const validateEmail = (email) => {
   const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
@@ -10,6 +13,11 @@ const validatePswd = (pswd) => {
 
 const getMoodData = (mood) => {
  return moodDataArray.filter(item => item.id == mood)[0];
+}
+
+// @param {moment} date 
+const getCurrentDateKor=(date)=>{
+  return date.format('M월 D일 dddd')
 }
 
 const getMoodIcon = (moodText) => {
@@ -45,10 +53,44 @@ const getMoodImg = (mood) => {
       return '/images/cloudy-mood.png'
     case 'EMOTION6': //EMOTION6
       return '/images/typhoon-mood.png'
-
     default:
       return '/'
   }
 }
 
-export { validateEmail, validatePswd,getMoodData,getMoodIcon }
+const getMoodTags = (moodText) => {
+  switch (moodText) {
+    case 'JOY': 
+      return ["기쁨", "설렘", "행복"]
+    case 'ANGER': 
+      return ["분노", "짜증", "극대노"]
+    case 'SAD': 
+      return ["눈물나는", "후회", "슬픔"]
+    case 'TIRED': 
+      return ["피곤함", "지침", "기운없음"]
+    case 'CALM': 
+      return ["그저 그럼", "SOSO", "덤덤"]
+    case 'BLUE': 
+      return ["스트레스", "우울", "숨막혀요"]
+    default:
+      return []
+  }
+}
+
+const clearData =()=> {
+  const cookiesToDelete = ['accessToken', 'nickname', 'id', 'refreshToken', 'expiresAt'];
+  cookiesToDelete.forEach(cookie => {
+      document.cookie = `${cookie}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`; //즉시 삭제를 위해 파기
+  });
+
+  localStorage.removeItem('activeDate');
+  localStorage.setItem('isAuthenticated', false);
+  removeConfig('Authorization');
+
+  if (window.location.pathname !== '/login') {
+      window.location.href = `${import.meta.env.VITE_PUBLIC_BASE_URL}/login`; 
+  }
+}
+
+
+export { validateEmail, validatePswd,getMoodData,getMoodIcon,getMoodTags ,getCurrentDateKor, clearData}

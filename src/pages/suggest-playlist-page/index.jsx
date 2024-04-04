@@ -6,6 +6,7 @@ import { useCookies } from 'react-cookie'
 import { useModal } from '../../context/ModalContext'
 import { playList } from '../../constants/testData'
 import { useUserContext } from '../../context/UserContext'
+import { getMoodTags } from '../../utils';
 
 const SuggestPlaylistPage = () => {
   const location = useLocation()
@@ -55,7 +56,18 @@ const SuggestPlaylistPage = () => {
   }
 
   const handleRecord = () => {
-    postDiaryAxios()
+
+    if (localStorage.getItem('isAuthenticated') === 'true') {
+      postDiaryAxios()
+    } else {
+      navigateTo(`/diary/complete`, {
+        state: {
+          playlist: { videoId: playlistArr[currentSlide].videoId },
+          emotion: { tags: getMoodTags(mood) },
+          content: state.diary
+        }
+      })
+    }
   }
 
   const getPliAxios = async () => {
@@ -76,15 +88,15 @@ const SuggestPlaylistPage = () => {
 
   const postDiaryAxios = async () => {
     try {
-      const formData = new FormData()
       const id = parseInt(playlistArr[currentSlide].id)
+      const formData = new FormData()
       const date = currentDate.format('yyyy-MM-DD')
-      if (!(id && date && state.mood)) { throw new Error(); }
+      if (!(id && date && mood)) { throw new Error(); }
       setConfig({ contentType: 'multipart/form-data' })
       formData.append('content', state.diary)
       formData.append('playlistId', id)
       formData.append('referenceDate', date)
-      formData.append('emotionName', state.mood)
+      formData.append('emotionName', mood)
       const response = await Post('/diaries', formData)
       removeConfig('Content-Type')
       navigateTo(`/diary/complete`, {

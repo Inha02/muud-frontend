@@ -3,13 +3,13 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../context/UserContext';
 import MoodResultPageView from './mood-result-page'
 import { Get } from '../../api/axios';
-import { getMoodData } from '../../utils';
+import { getCurrentDateKor, getMoodData } from '../../utils';
 
 const MoodResultPage = () => {
   const location = useLocation();
   const { state } = location;
   const [mood, setMood] = useState('');
-  const { currentDateKor } = useUserContext();
+  const { currentDate } = useUserContext();
   const [text, setText] = useState('');
   const [isBtnActive, setIsBtnActive] = useState(false);
   const [moodData, setMoodData] = useState({});
@@ -69,7 +69,7 @@ const MoodResultPage = () => {
   }, [mood]);
 
   return (
-    <MoodResultPageView currentDateKor={currentDateKor} handleChange={handleChange} handleSkipClick={handleSkipClick} handleRightClick={handleRightClick} enteredChars={enteredChars} maxLength={maxLength} isRightBtnActive={isBtnActive} moodData={moodData} />
+    <MoodResultPageView currentDateKor={getCurrentDateKor(currentDate)} handleChange={handleChange} handleSkipClick={handleSkipClick} handleRightClick={handleRightClick} enteredChars={enteredChars} maxLength={maxLength} isRightBtnActive={isBtnActive} moodData={moodData} />
   )
 }
 

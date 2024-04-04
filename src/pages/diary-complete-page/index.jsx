@@ -4,17 +4,27 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { useUserContext } from '../../context/UserContext';
 import { Get } from '../../api/axios'
 import { useModal } from '../../context/ModalContext'
+import { getCurrentDateKor } from '../../utils'
 
 const DiaryCompletePage = () => {
   const location = useLocation()
   const { state } = location
-  const { currentDateKor } = useUserContext();
+  const { currentDate } = useUserContext();
   const navigateTo = useNavigate();
   const { modalOpen } = useModal();
   const [diary, setDiary] = useState({})
 
   const handleClick = () => {
-    navigateTo('/home');
+    if (localStorage.getItem('isAuthenticated') === 'true') {
+      navigateTo('/home');
+    } else {
+      modalOpen({
+        content: ('로그인이 필요합니다.\n로그인 하시겠습니까?'),
+        type: 'okCancle',
+        handle: () => navigateTo('/login', { replace: true }),
+      })
+    }
+
   }
 
   const getDiaryAxios = async () => {
@@ -31,7 +41,12 @@ const DiaryCompletePage = () => {
 
   useEffect(() => {
     if (state) {
-      getDiaryAxios()
+      if (localStorage.getItem('isAuthenticated') === 'true') {
+        getDiaryAxios()
+      } else {
+        console.log(state)
+        setDiary(state)
+      }
     } else {
       navigateTo('/mood/choose')
     }
@@ -39,7 +54,7 @@ const DiaryCompletePage = () => {
 
   return (
     <DiaryCompletePageView
-      currentDateKor={currentDateKor}
+      currentDateKor={getCurrentDateKor(currentDate)}
       diary={diary}
       handleClick={handleClick}
     />
