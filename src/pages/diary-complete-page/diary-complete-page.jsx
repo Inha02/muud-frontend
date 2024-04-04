@@ -11,7 +11,6 @@ const DiaryCompletePageView = ({ diary, currentDateKor, handleClick }) => {
       </div>
       <div className={styles.textComplete}>기록완료</div>
       <div className={`${styles.dateText} align`}>{currentDateKor}</div>
-
       <div>
         <div>
           <div className='cardContainer'>

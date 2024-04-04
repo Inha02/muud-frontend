@@ -9,12 +9,20 @@ export function ModalProvider({ children }) {
     const [contents, setContents] = useState({ type: '', title: '', content: '', link: '', handle: null })
     const navigateTo = useNavigate();
 
+    /**
+     * modalOpen 
+     * @param {string} type - 
+     * @param {string} title - 모달 제목
+     * @param {string} content - 모달 내용
+     * @param {string} link - 모달을 닫을 때 이동할 링크
+     * @param {function} handle - 모달을 닫을 때 수행할 함수
+     */
     const modalOpen = ({ type, title, content, link, handle }) => {
         setContents({ type, title, content, link, handle })
         setIsOpen(true);
     }
 
-    const modalClose = () => {
+    const modalConfirm = () => {
         if (contents.handle) {
             contents.handle()
         }
@@ -24,14 +32,18 @@ export function ModalProvider({ children }) {
         setIsOpen(false)
     }
 
-    //여는 순간 타입, 버튼 글자, 타이틀,내용물 ,클릭시 수행 함수를 적용한 모달을 띄워주어야 한다
+    const modalClose = () => {
+        setIsOpen(false)
+    }
+
     return (
-        <Context.Provider value={{ isOpen, modalOpen, modalClose }}>
+        <Context.Provider value={{ modalOpen }}>
             {children}
             {isOpen && (
                 <Modal
                     type={contents.type}
                     handleClose={modalClose}
+                    handleConfirm={modalConfirm}
                 >
                     <div>{contents.content}</div>
                 </Modal>)}

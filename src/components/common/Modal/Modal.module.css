@@ -37,8 +37,12 @@
     padding: 10px;
 }
 
-.modalOneBtn {
-    width: 100%;
+.modalBtnArea {
+    display: flex;
+}
+
+.modalBtn {
+    flex: 1;
     background-color: var(--neutral20-color);
     color: var(--primary-color);
     border-top-left-radius: initial;
@@ -50,7 +54,11 @@
     line-height: 20px;
     text-align: center;
     padding: 11px;
+}
 
+.leftBtn {
+    border-right: 1px solid var(--neutral40-color);
+    border-bottom-right-radius: initial;
 }
 
 /* Mobile */
