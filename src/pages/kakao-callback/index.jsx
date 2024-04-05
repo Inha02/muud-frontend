@@ -34,7 +34,6 @@ const KakaoCallback = () => {
           handle: navigateTo('/user/nickname', { replace: true }),
         })
       } else {
-        //console.log('카카오로그인 완료')
         navigateTo('/home', { replace: true });
       }
 

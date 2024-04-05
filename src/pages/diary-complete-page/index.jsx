@@ -44,7 +44,6 @@ const DiaryCompletePage = () => {
       if (localStorage.getItem('isAuthenticated') === 'true') {
         getDiaryAxios()
       } else {
-        console.log(state)
         setDiary(state)
       }
     } else {

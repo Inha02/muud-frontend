@@ -27,25 +27,18 @@ import './App.css';
 const Pages = () => {
   RouteChangeTracker();
   const { isAuthenticated } = useUserContext();
-
   return (
     <Routes>
       <>
-        <Route path="/" element={<BackBtnContainer />}>
-          <Route path="mood/result" element={<MoodResultPage />} />
-          <Route path="playlist" element={<SuggestPlaylistPage />} />
-          <Route path="introduce" element={<IntroducePage />} />
-          <Route path="mood/choose" element={<MoodChoosePage />} />
-        </Route>
         <Route path="/diary/complete" element={<DiaryCompletePage />} />
         {(isAuthenticated) ? (
           <>
             <Route path="/user/nickname" element={<UserNicknamePage />} />
-            <Route path="/" element={<BackBtnContainer />}>
+            <Route path="*" element={<Navigate to="/home" />} />
+            <Route path="/*" element={<BackBtnContainer />}>
               <Route path="home" element={<HomePage />} />
               <Route path="diary/detail" element={<DiaryDetailPage />} />
               <Route path="mood/report" element={<ReportPage />} />
-              <Route path="*" element={<Navigate to="/home" />} />
             </Route>
           </>
         ) :
@@ -53,10 +46,16 @@ const Pages = () => {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/oauth2/callback/kakao" element={<KakaoCallback />} />
-            <Route path="/*" element={<Navigate to="/login" />} />
+            <Route path="*" element={<Navigate to="/login" />} />
           </>
           )
         }
+        <Route path="/*" element={<BackBtnContainer />}>
+          <Route path="introduce" element={<IntroducePage />} />
+          <Route path="mood/choose" element={<MoodChoosePage />} />
+          <Route path="mood/result" element={<MoodResultPage />} />
+          <Route path="playlist" element={<SuggestPlaylistPage />} />
+        </Route>
       </>
     </Routes>
   )
