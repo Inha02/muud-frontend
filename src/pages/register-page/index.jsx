@@ -26,7 +26,6 @@ const RegisterPage = () => {
   const onChangeUser = (event) => {
     const { name, value } = event.target
     setUser((curr) => ({ ...curr, [name]: value }))
-
     const isPswdValid = validatePswd(name === 'pswd' ? value : user.pswd);
     const isIdValid = validateEmail(name === 'id' ? value : user.id);
     const isNickValid = '' !== (name === 'nickname' ? value : user.nickname);

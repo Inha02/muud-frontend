@@ -1,3 +1,4 @@
+import ReactGA from "react-ga4";
 import { useEffect, useState } from 'react'
 import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
@@ -29,11 +30,13 @@ const KakaoCallback = () => {
       setConfig({ accessToken: accessToken });
       setIsAuthenticated(true)
       if (response.status == 201) {
+        ReactGA.event({ category: 'User', action: 'user_to_register' });
         modalOpen({
           content: ('환영합니다!\n회원 가입 완료'),
           handle: navigateTo('/user/nickname', { replace: true }),
         })
       } else {
+        ReactGA.event({ category: 'User', action: 'user_login' });
         navigateTo('/home', { replace: true });
       }
 

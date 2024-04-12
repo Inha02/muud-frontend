@@ -1,3 +1,4 @@
+import ReactGA from "react-ga4";
 import { useEffect, useState } from 'react'
 import { useCookies } from 'react-cookie'
 import { useNavigate } from 'react-router-dom'
@@ -38,6 +39,7 @@ const LoginPage = () => {
   }
 
   const handleClickRegister = () => {
+    ReactGA.event({ category: 'User', action: 'user_to_register' });
     navigateTo('/register')
   }
 
@@ -93,6 +95,7 @@ const LoginPage = () => {
       setCookie('expiresAt', moment().add(15, "minutes").format("yyyy-MM-DD HH:mm:ss"), { path: '/' });
       setConfig({ accessToken: accessToken });
       setIsAuthenticated(true)
+      ReactGA.event({ category: 'User', action: 'user_login' });
       navigateTo('/home')
     } catch (error) {
       console.log(error)
